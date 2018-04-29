@@ -63,7 +63,7 @@ class SecondViewController: UIViewController {
         var i : Int
         (t,i) = business[1]
         var j = 0
-        while j<business.count {
+        while j < business.count {
             (t,i) = business[j]
             var k = i
             while k != 0 {

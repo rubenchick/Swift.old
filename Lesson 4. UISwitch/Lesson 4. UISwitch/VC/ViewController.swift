@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     var timesLabel = [UILabel()]
     var isSwitch : [Bool] = []
     // список дел
-    var business : [(String,Int)] = [("Gym 15 min",1),("Learning English words",1),("Take medicine (Vitamins)",2),("Read with daughter",1)]
+    var business : [(String,Int)] = [("Morning gym 15 min",1),("Learning English words",1),("Take vitamins",2),("Read with daughter",1)]
 
     override func viewDidLoad() {
         super.viewDidLoad()
