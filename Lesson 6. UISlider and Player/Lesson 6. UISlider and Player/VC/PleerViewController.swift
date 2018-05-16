@@ -10,7 +10,7 @@
 2+ Перемотка
 3- Like
 4+ Next/Prev
-5. Circle/Random/Line
+5+ Circle/Random/Line
 6+ Список песен, с возможностью выбрать
 7+ 0.5x 2x rate
 8+ Название песни
@@ -25,6 +25,8 @@ class PleerViewController: UIViewController {
         ("Alisa","Всё это rock-n-roll",""),
         ("Letov","Всё идёт по плану","")]
     var numberActiveSong = 0
+    var typePlayArray = ["Line","Repeat","Random"]
+    var segmentControl = UISegmentedControl()
     
     @IBOutlet weak var titleVolume: UILabel!
     
@@ -50,33 +52,18 @@ class PleerViewController: UIViewController {
         volumeSlider.maximumValue = 1.0
         speedButton.setTitleColor(UIColor.blue, for: .normal)
         songOneButton.setTitleColor(UIColor.blue, for: .normal)
+        
+        segmentControl = UISegmentedControl(items: typePlayArray)
+        segmentControl.frame = CGRect(x: view.frame.midX-100, y: 369, width: 200, height: 44)
+        view.addSubview(segmentControl)
+        segmentControl.selectedSegmentIndex = 0
 
-        // обработчик ошибок
-//        do {
-//            if let audioPath = Bundle.main.path(forResource: "Kino1", ofType: "mp3") {
-//                try pleer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath))
-//                positionSlider.maximumValue = Float(pleer.duration)
-//                titleVolume.text = String(positionSlider.maximumValue)
-//                self.pleer.volume = self.volumeSlider.value
-//                pleer.enableRate = true
-//            }
-//        } catch {
-//            print("Error")
-//        }
         createArray()
         newSong()
         var timer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
     func createArray() {
-        // обработчик ошибок
-//        do {
-//            if let audioPath = Bundle.main.path(forResource: "Kino1", ofType: "mp3") {
-//                try pleer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath))
-//            }
-//        } catch {
-//            print("Error")
-//        }
         var nameFile = String()
         var nameSong = String()
         var audioPath = String()
@@ -106,6 +93,11 @@ class PleerViewController: UIViewController {
         pleer.enableRate = true
         (_,titleVolume.text!,_) = songArray[numberActiveSong]
         flashButton()
+        lowSpeedButton.setTitleColor(UIColor.black, for: .normal)
+        speedButton.setTitleColor(UIColor.blue, for: .normal)
+        highSpeedButton.setTitleColor(UIColor.black, for: .normal)
+        pleer.rate = 1
+        pleer.delegate = self
     }
     
     func flashButton() {
@@ -185,7 +177,6 @@ class PleerViewController: UIViewController {
         pleer.rate = 2
     }
     
-
     @IBAction func chooseFirstSongButton(_ sender: Any) {
         numberActiveSong = 0
         newSong()
@@ -209,7 +200,22 @@ class PleerViewController: UIViewController {
         newSong()
         self.pleer.play()
     }
-    
-    
-    
+}
+
+extension PleerViewController :AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        if segmentControl.selectedSegmentIndex != 1 { //Not Repeat
+            
+            if segmentControl.selectedSegmentIndex == 2 { //Random
+                numberActiveSong = Int(arc4random_uniform(4))
+            }
+            else { //Line
+                if numberActiveSong == songArray.count - 1 { numberActiveSong = 0 }
+                else { numberActiveSong += 1}
+            }
+        }
+        
+        newSong()
+        self.pleer.play()        
+    }
 }

@@ -22,8 +22,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         //Удаление сохраненных данных
-//        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-        UserDefaults.standard.synchronize()
+     //   UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+     //   UserDefaults.standard.synchronize()
         
         // красивый цвет
         //view.backgroundColor = UIColor(red: 21/255, green: 101/255, blue: 192/255, alpha: 1)
@@ -69,7 +69,10 @@ class ViewController: UIViewController {
         enterButton.addTarget(self, action: #selector(pressEnter), for: .touchDown)
         
         pleerButton.frame = CGRect(x: view.frame.midX - 70, y: 650, width: 140, height: 44 )
-        pleerButton.backgroundColor = UIColor(red: 60/255, green: 137/255, blue: 183/255, alpha: 1)
+        pleerButton.backgroundColor = UIColor(red: 60/255,
+                                              green: 137/255,
+                                              blue: 183/255,
+                                              alpha: 1)
         pleerButton.layer.cornerRadius = 15
         pleerButton.setTitle("Pleer", for: .normal)
         pleerButton.addTarget(self, action: #selector(pressPleer), for: .touchDown)
@@ -96,6 +99,7 @@ class ViewController: UIViewController {
         }
         
     }
+    
     // метод сокрытия клавиатуры, при нажатии вне полей ввода
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let _ = touches.first {
@@ -105,8 +109,7 @@ class ViewController: UIViewController {
     }
     
     @objc func pressPleer() {
-        let pleerVC = PleerViewController()
-        present(pleerVC, animated: false, completion: nil)
+
     }
 }
 
