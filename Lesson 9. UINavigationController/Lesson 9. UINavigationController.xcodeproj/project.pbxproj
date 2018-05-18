@@ -7,35 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA8ED8DC20AC29C400B381CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8ED8DB20AC29C400B381CF /* AppDelegate.swift */; };
-		CA8ED8DE20AC29C400B381CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8ED8DD20AC29C400B381CF /* ViewController.swift */; };
-		CA8ED8E120AC29C400B381CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8ED8DF20AC29C400B381CF /* Main.storyboard */; };
-		CA8ED8E320AC29C400B381CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA8ED8E220AC29C400B381CF /* Assets.xcassets */; };
-		CA8ED8E620AC29C400B381CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8ED8E420AC29C400B381CF /* LaunchScreen.storyboard */; };
-		CAADD11020AC30D200A477EA /* Party.png in Resources */ = {isa = PBXBuildFile; fileRef = CAADD10B20AC30D100A477EA /* Party.png */; };
-		CAADD11120AC30D200A477EA /* Partner.png in Resources */ = {isa = PBXBuildFile; fileRef = CAADD10C20AC30D200A477EA /* Partner.png */; };
-		CAADD11220AC30D200A477EA /* Mountains.png in Resources */ = {isa = PBXBuildFile; fileRef = CAADD10D20AC30D200A477EA /* Mountains.png */; };
-		CAADD11320AC30D200A477EA /* Snowboard.png in Resources */ = {isa = PBXBuildFile; fileRef = CAADD10E20AC30D200A477EA /* Snowboard.png */; };
-		CAADD11420AC30D200A477EA /* Ocean.png in Resources */ = {isa = PBXBuildFile; fileRef = CAADD10F20AC30D200A477EA /* Ocean.png */; };
+		CAADD14A20AD570F00A477EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAADD14920AD570F00A477EA /* AppDelegate.swift */; };
+		CAADD14C20AD570F00A477EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAADD14B20AD570F00A477EA /* ViewController.swift */; };
+		CAADD14F20AD570F00A477EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAADD14D20AD570F00A477EA /* Main.storyboard */; };
+		CAADD15120AD570F00A477EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAADD15020AD570F00A477EA /* Assets.xcassets */; };
+		CAADD15420AD570F00A477EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAADD15220AD570F00A477EA /* LaunchScreen.storyboard */; };
+		CAADD15C20ADAA8E00A477EA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAADD15B20ADAA8E00A477EA /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CA8ED8D820AC29C400B381CF /* Lesson 7. UISegmentedControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lesson 7. UISegmentedControl.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA8ED8DB20AC29C400B381CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CA8ED8DD20AC29C400B381CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CA8ED8E020AC29C400B381CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CA8ED8E220AC29C400B381CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CA8ED8E520AC29C400B381CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CA8ED8E720AC29C400B381CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CAADD10B20AC30D100A477EA /* Party.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Party.png; sourceTree = "<group>"; };
-		CAADD10C20AC30D200A477EA /* Partner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Partner.png; sourceTree = "<group>"; };
-		CAADD10D20AC30D200A477EA /* Mountains.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mountains.png; sourceTree = "<group>"; };
-		CAADD10E20AC30D200A477EA /* Snowboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Snowboard.png; sourceTree = "<group>"; };
-		CAADD10F20AC30D200A477EA /* Ocean.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ocean.png; sourceTree = "<group>"; };
+		CAADD14620AD570F00A477EA /* Lesson 9. UINavigationController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lesson 9. UINavigationController.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAADD14920AD570F00A477EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CAADD14B20AD570F00A477EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CAADD14E20AD570F00A477EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CAADD15020AD570F00A477EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CAADD15320AD570F00A477EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CAADD15520AD570F00A477EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAADD15B20ADAA8E00A477EA /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CA8ED8D520AC29C400B381CF /* Frameworks */ = {
+		CAADD14320AD570F00A477EA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,77 +37,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CA8ED8CF20AC29C400B381CF = {
+		CAADD13D20AD570F00A477EA = {
 			isa = PBXGroup;
 			children = (
-				CA8ED8DA20AC29C400B381CF /* Lesson 7. UISegmentedControl */,
-				CA8ED8D920AC29C400B381CF /* Products */,
+				CAADD14820AD570F00A477EA /* Lesson 9. UINavigationController */,
+				CAADD14720AD570F00A477EA /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		CA8ED8D920AC29C400B381CF /* Products */ = {
+		CAADD14720AD570F00A477EA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CA8ED8D820AC29C400B381CF /* Lesson 7. UISegmentedControl.app */,
+				CAADD14620AD570F00A477EA /* Lesson 9. UINavigationController.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CA8ED8DA20AC29C400B381CF /* Lesson 7. UISegmentedControl */ = {
+		CAADD14820AD570F00A477EA /* Lesson 9. UINavigationController */ = {
 			isa = PBXGroup;
 			children = (
-				CA8ED8DB20AC29C400B381CF /* AppDelegate.swift */,
-				CA8ED8DD20AC29C400B381CF /* ViewController.swift */,
-				CA8ED8DF20AC29C400B381CF /* Main.storyboard */,
-				CA8ED8E220AC29C400B381CF /* Assets.xcassets */,
-				CA8ED8E420AC29C400B381CF /* LaunchScreen.storyboard */,
-				CAADD10D20AC30D200A477EA /* Mountains.png */,
-				CAADD10F20AC30D200A477EA /* Ocean.png */,
-				CAADD10C20AC30D200A477EA /* Partner.png */,
-				CAADD10B20AC30D100A477EA /* Party.png */,
-				CAADD10E20AC30D200A477EA /* Snowboard.png */,
-				CA8ED8E720AC29C400B381CF /* Info.plist */,
+				CAADD14920AD570F00A477EA /* AppDelegate.swift */,
+				CAADD14B20AD570F00A477EA /* ViewController.swift */,
+				CAADD15B20ADAA8E00A477EA /* SecondViewController.swift */,
+				CAADD14D20AD570F00A477EA /* Main.storyboard */,
+				CAADD15020AD570F00A477EA /* Assets.xcassets */,
+				CAADD15220AD570F00A477EA /* LaunchScreen.storyboard */,
+				CAADD15520AD570F00A477EA /* Info.plist */,
 			);
-			path = "Lesson 7. UISegmentedControl";
+			path = "Lesson 9. UINavigationController";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CA8ED8D720AC29C400B381CF /* Lesson 7. UISegmentedControl */ = {
+		CAADD14520AD570F00A477EA /* Lesson 9. UINavigationController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA8ED8EA20AC29C400B381CF /* Build configuration list for PBXNativeTarget "Lesson 7. UISegmentedControl" */;
+			buildConfigurationList = CAADD15820AD570F00A477EA /* Build configuration list for PBXNativeTarget "Lesson 9. UINavigationController" */;
 			buildPhases = (
-				CA8ED8D420AC29C400B381CF /* Sources */,
-				CA8ED8D520AC29C400B381CF /* Frameworks */,
-				CA8ED8D620AC29C400B381CF /* Resources */,
+				CAADD14220AD570F00A477EA /* Sources */,
+				CAADD14320AD570F00A477EA /* Frameworks */,
+				CAADD14420AD570F00A477EA /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Lesson 7. UISegmentedControl";
-			productName = "Lesson 7. UISegmentedControl";
-			productReference = CA8ED8D820AC29C400B381CF /* Lesson 7. UISegmentedControl.app */;
+			name = "Lesson 9. UINavigationController";
+			productName = "Lesson 9. UINavigationController";
+			productReference = CAADD14620AD570F00A477EA /* Lesson 9. UINavigationController.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CA8ED8D020AC29C400B381CF /* Project object */ = {
+		CAADD13E20AD570F00A477EA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Anton Rubenchik";
 				TargetAttributes = {
-					CA8ED8D720AC29C400B381CF = {
+					CAADD14520AD570F00A477EA = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = CA8ED8D320AC29C400B381CF /* Build configuration list for PBXProject "Lesson 7. UISegmentedControl" */;
+			buildConfigurationList = CAADD14120AD570F00A477EA /* Build configuration list for PBXProject "Lesson 9. UINavigationController" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -123,59 +111,55 @@
 				en,
 				Base,
 			);
-			mainGroup = CA8ED8CF20AC29C400B381CF;
-			productRefGroup = CA8ED8D920AC29C400B381CF /* Products */;
+			mainGroup = CAADD13D20AD570F00A477EA;
+			productRefGroup = CAADD14720AD570F00A477EA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CA8ED8D720AC29C400B381CF /* Lesson 7. UISegmentedControl */,
+				CAADD14520AD570F00A477EA /* Lesson 9. UINavigationController */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CA8ED8D620AC29C400B381CF /* Resources */ = {
+		CAADD14420AD570F00A477EA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAADD11320AC30D200A477EA /* Snowboard.png in Resources */,
-				CAADD11220AC30D200A477EA /* Mountains.png in Resources */,
-				CAADD11420AC30D200A477EA /* Ocean.png in Resources */,
-				CAADD11020AC30D200A477EA /* Party.png in Resources */,
-				CA8ED8E620AC29C400B381CF /* LaunchScreen.storyboard in Resources */,
-				CA8ED8E320AC29C400B381CF /* Assets.xcassets in Resources */,
-				CA8ED8E120AC29C400B381CF /* Main.storyboard in Resources */,
-				CAADD11120AC30D200A477EA /* Partner.png in Resources */,
+				CAADD15420AD570F00A477EA /* LaunchScreen.storyboard in Resources */,
+				CAADD15120AD570F00A477EA /* Assets.xcassets in Resources */,
+				CAADD14F20AD570F00A477EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CA8ED8D420AC29C400B381CF /* Sources */ = {
+		CAADD14220AD570F00A477EA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA8ED8DE20AC29C400B381CF /* ViewController.swift in Sources */,
-				CA8ED8DC20AC29C400B381CF /* AppDelegate.swift in Sources */,
+				CAADD15C20ADAA8E00A477EA /* SecondViewController.swift in Sources */,
+				CAADD14C20AD570F00A477EA /* ViewController.swift in Sources */,
+				CAADD14A20AD570F00A477EA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CA8ED8DF20AC29C400B381CF /* Main.storyboard */ = {
+		CAADD14D20AD570F00A477EA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CA8ED8E020AC29C400B381CF /* Base */,
+				CAADD14E20AD570F00A477EA /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		CA8ED8E420AC29C400B381CF /* LaunchScreen.storyboard */ = {
+		CAADD15220AD570F00A477EA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CA8ED8E520AC29C400B381CF /* Base */,
+				CAADD15320AD570F00A477EA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -183,7 +167,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		CA8ED8E820AC29C400B381CF /* Debug */ = {
+		CAADD15620AD570F00A477EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -240,7 +224,7 @@
 			};
 			name = Debug;
 		};
-		CA8ED8E920AC29C400B381CF /* Release */ = {
+		CAADD15720AD570F00A477EA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -290,28 +274,28 @@
 			};
 			name = Release;
 		};
-		CA8ED8EB20AC29C400B381CF /* Debug */ = {
+		CAADD15920AD570F00A477EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Lesson 7. UISegmentedControl/Info.plist";
+				INFOPLIST_FILE = "Lesson 9. UINavigationController/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rubenchick.Lesson-7--UISegmentedControl";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rubenchick.Lesson-9--UINavigationController";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		CA8ED8EC20AC29C400B381CF /* Release */ = {
+		CAADD15A20AD570F00A477EA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Lesson 7. UISegmentedControl/Info.plist";
+				INFOPLIST_FILE = "Lesson 9. UINavigationController/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rubenchick.Lesson-7--UISegmentedControl";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rubenchick.Lesson-9--UINavigationController";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -321,25 +305,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CA8ED8D320AC29C400B381CF /* Build configuration list for PBXProject "Lesson 7. UISegmentedControl" */ = {
+		CAADD14120AD570F00A477EA /* Build configuration list for PBXProject "Lesson 9. UINavigationController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CA8ED8E820AC29C400B381CF /* Debug */,
-				CA8ED8E920AC29C400B381CF /* Release */,
+				CAADD15620AD570F00A477EA /* Debug */,
+				CAADD15720AD570F00A477EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CA8ED8EA20AC29C400B381CF /* Build configuration list for PBXNativeTarget "Lesson 7. UISegmentedControl" */ = {
+		CAADD15820AD570F00A477EA /* Build configuration list for PBXNativeTarget "Lesson 9. UINavigationController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CA8ED8EB20AC29C400B381CF /* Debug */,
-				CA8ED8EC20AC29C400B381CF /* Release */,
+				CAADD15920AD570F00A477EA /* Debug */,
+				CAADD15A20AD570F00A477EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CA8ED8D020AC29C400B381CF /* Project object */;
+	rootObject = CAADD13E20AD570F00A477EA /* Project object */;
 }

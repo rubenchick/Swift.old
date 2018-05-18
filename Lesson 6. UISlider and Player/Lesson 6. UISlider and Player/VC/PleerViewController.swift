@@ -19,11 +19,7 @@
 import UIKit
 import AVFoundation
 class PleerViewController: UIViewController {
-    var songArray : [(String,String,String)] = [
-        ("Kino1","Группа крови",""),
-        ("Kino2","Хочу перемен",""),
-        ("Alisa","Всё это rock-n-roll",""),
-        ("Letov","Всё идёт по плану","")]
+
     var numberActiveSong = 0
     var typePlayArray = ["Line","Repeat","Random"]
     var segmentControl = UISegmentedControl()
@@ -41,6 +37,12 @@ class PleerViewController: UIViewController {
     @IBOutlet weak var songTwoButton: UIButton!
     @IBOutlet weak var songThreeButton: UIButton!
     @IBOutlet weak var songFourButton: UIButton!
+    
+    var songArray : [(String,String,String)] = [
+        ("Kino1","Группа крови",""),
+        ("Kino2","Хочу перемен",""),
+        ("Alisa","Всё это rock-n-roll",""),
+        ("Letov","Всё идёт по плану","")]
     
     var pleer = AVAudioPlayer()
     
@@ -115,12 +117,11 @@ class PleerViewController: UIViewController {
             break
         }
     }
-    
+
     @objc func update() {
         // Something cool
         if pleer.isPlaying {
             let x = Float(pleer.currentTime)
-      //      titleVolume.text = String(pleer.currentTime)
             positionSlider.setValue(x, animated: false)
         }
     }
@@ -203,7 +204,7 @@ class PleerViewController: UIViewController {
 }
 
 extension PleerViewController :AVAudioPlayerDelegate {
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) { //Song is the end
         if segmentControl.selectedSegmentIndex != 1 { //Not Repeat
             
             if segmentControl.selectedSegmentIndex == 2 { //Random
@@ -219,3 +220,4 @@ extension PleerViewController :AVAudioPlayerDelegate {
         self.pleer.play()        
     }
 }
+

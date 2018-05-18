@@ -53,7 +53,7 @@ class SecondViewController: UIViewController {
         titleLabel.text = "Setting"
         titleLabel.sizeToFit()
         titleLabel.frame = CGRect(x: view.frame.midX - (titleLabel.frame.maxX - titleLabel.frame.minX)/2, y: 80, width: 10 , height: 44)
-        titleLabel.sizeToFit()                                            // ширина label динамическая по тексту
+        titleLabel.sizeToFit()                      // ширина label динамическая по тексту
         view.addSubview(titleLabel)
         
         // add sexLabel
