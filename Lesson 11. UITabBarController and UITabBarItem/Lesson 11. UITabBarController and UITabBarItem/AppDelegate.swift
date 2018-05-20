@@ -1,39 +1,36 @@
 //
 //  AppDelegate.swift
-//  TestForDocumentation
+//  Lesson 11. UITabBarController and UITabBarItem
 //
-//  Created by Anton Rubenchik on 16.05.2018.
+//  Created by Anton Rubenchik on 18.05.2018.
 //  Copyright © 2018 Anton Rubenchik. All rights reserved.
-//
+//1) Номер шага (1 шаг из 10)
+//2) Картинка подходящая под шаг (Допустим шаг разогреть воду - картинка кастрюля)
+//3) Текстовое описание шага
+//4) Внизу две кнопки (1- Предыдущий шаг 2-Следующий шаг) если шаг первый 1 кнопка скрыта, если шаг последний 2 скрыта
+//5) Вверху должен быть Navigation Controller с картинкой и текстом + кнопка выхода из инструкции
+//6) Реализовать таб бар меню на свой вкус и с своим функционалом)
 
 import UIKit
-
-var step = 0
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var navigationViewController = UINavigationController()
+
+    // Зарускается первым в приложении
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let manualVC = ManualViewController()
-        let helpVC = HelpViewController()
-        
-        helpVC.tabBarItem = UITabBarItem(title: "Помощь", image: UIImage(named: "info"), tag: 0)
-
-        let manualNavController = UINavigationController(rootViewController: manualVC)
-        let helpNavController = UINavigationController(rootViewController: helpVC)
-
-        let tabBarVC = UITabBarController()
-        tabBarVC.setViewControllers([manualNavController,helpNavController], animated: true)
-        
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = tabBarVC 
-        self.window?.backgroundColor = UIColor.white
-        self.window?.makeKeyAndVisible()
-        
+       // let viewController = ViewController()
+        let mainViewController = MainViewController()
+        // navigationViewController = UINavigationController(rootViewController: viewController)
         // Override point for customization after application launch.
+
+        window?.rootViewController = mainViewController//self.navigationViewController
+        window?.backgroundColor = UIColor.white
+        window?.makeKeyAndVisible()
+        
         return true
     }
 

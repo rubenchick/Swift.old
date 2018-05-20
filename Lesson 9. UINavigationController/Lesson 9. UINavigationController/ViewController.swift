@@ -49,12 +49,6 @@ class ViewController: UIViewController {
                 navigationBar.isTranslucent = false
                 
             }
-
-//
-//            if touches.count > 0 { print("Yes") }
-//            else { print("No") }
-            
-
         }
     }
     
@@ -64,17 +58,6 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .lightContent
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        if lastContentOffset < scrollView.contentOffset.y {
-            print("Yes")
-            
-        } else if lastContentOffset > scrollView.contentOffset.y {
-            print("No")
-        }
-        lastContentOffset = scrollView.contentOffset.y
     }
     
     // MARK: - Method
@@ -112,7 +95,7 @@ class ViewController: UIViewController {
         rightButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         rightButton.layer.cornerRadius = 20
         rightButton.addTarget(self, action: #selector(pressButton), for: .touchUpInside)
-        self.view.addSubview(rightButton)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
         
         let testButton = UIButton(type: .system)
         testButton.setImage(#imageLiteral(resourceName: "apple_blue"), for: .normal)
