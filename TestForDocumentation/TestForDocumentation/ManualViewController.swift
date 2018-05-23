@@ -206,6 +206,17 @@ class ManualViewController: UIViewController {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
         titleLabel.sizeToFit()
         titleLabel.frame = CGRect(x: 50, y: 50, width: titleLabel.frame.width + 50, height: 70)
+        
+        
+        titleLabel.lineBreakMode = .byWordWrapping // type new lines
+        titleLabel.numberOfLines = 0 // If need dinamic label. Many lines. default 1
+        titleLabel.adjustsFontSizeToFitWidth = true // уменьшить шрифт, чтобы влез в в отведенное поле
+        titleLabel.sizeToFit()
+        // Shadow
+        titleLabel.shadowColor = UIColor.gray
+        titleLabel.shadowOffset = CGSize(width: 2, height: 2) // отсутп тени
+        
+        
         view.addSubview(titleLabel)
     }
 }

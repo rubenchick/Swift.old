@@ -37,11 +37,15 @@ class MainViewController: UIViewController {
 
         goToManualButton.frame = CGRect(x: view.frame.midX - 150, y: 620, width: 300, height: 44)
         goToManualButton.layer.cornerRadius = 15
+        
+        // greate color
         goToManualButton.backgroundColor = UIColor(red: 21/255, green: 101/255, blue: 192/255, alpha: 1)
-        goToManualButton.addTarget(self, action: #selector(pressNext), for: .touchUpInside)
+       
         goToManualButton.layer.shadowOpacity = 0.6
         goToManualButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         goToManualButton.layer.shadowRadius = 2
+        
+        goToManualButton.addTarget(self, action: #selector(pressNext), for: .touchUpInside)
         view.addSubview(goToManualButton)
         
         // create Image
