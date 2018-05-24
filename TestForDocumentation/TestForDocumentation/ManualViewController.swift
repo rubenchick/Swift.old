@@ -68,6 +68,10 @@ class ManualViewController: UIViewController {
         
         createLabelAndTextAndImage()
         createStartElement()
+      //  self.tabBarController?.delegate = self
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,7 +80,8 @@ class ManualViewController: UIViewController {
     }
     
     func printStep() {
-        titleLabel.text = "Шаг \(step + 1) из \(textArray.count)"
+      //  titleLabel.text = "Шаг \(step + 1) fghjиз \(textArray.count)"
+        titleLabel.text = "Шаг \(step + 1) из \(manualImageArray.count)"
         text.text = textArray[step]
 
         manualImage = manualImageArray[step]
@@ -99,6 +104,7 @@ class ManualViewController: UIViewController {
     @objc func pressExit() {
         let mainVC = MainViewController()
         navigationController?.pushViewController(mainVC, animated: false)
+
     }
 
     fileprivate func createStartElement() {
@@ -196,7 +202,6 @@ class ManualViewController: UIViewController {
     
     fileprivate func createLabelAndTextAndImage() {
         // add text stepX
-        // text.text = "GGGGGGGghk dsfjghkjsdfglkjsldkfg dsflkgn sdlkfjgjlksdfjg skdfgjlskdfjglksdf glkdsf sdlkfgj"
         text.frame = CGRect(x: 10, y: 400, width: view.frame.maxX-20, height: 200)
         text.font = UIFont.boldSystemFont(ofSize: 20)
         view.addSubview(text)
@@ -205,7 +210,7 @@ class ManualViewController: UIViewController {
         titleLabel.text = "Шаг \(step + 1) из \(textArray.count)"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
         titleLabel.sizeToFit()
-        titleLabel.frame = CGRect(x: 50, y: 50, width: titleLabel.frame.width + 50, height: 70)
+        titleLabel.frame = CGRect(x: 50, y: 70, width: 300, height: 70)
         
         
         titleLabel.lineBreakMode = .byWordWrapping // type new lines
@@ -213,8 +218,8 @@ class ManualViewController: UIViewController {
         titleLabel.adjustsFontSizeToFitWidth = true // уменьшить шрифт, чтобы влез в в отведенное поле
         titleLabel.sizeToFit()
         // Shadow
-        titleLabel.shadowColor = UIColor.gray
-        titleLabel.shadowOffset = CGSize(width: 2, height: 2) // отсутп тени
+//        titleLabel.shadowColor = UIColor.gray
+//        titleLabel.shadowOffset = CGSize(width: 2, height: 2) // отсутп тени
         
         
         view.addSubview(titleLabel)

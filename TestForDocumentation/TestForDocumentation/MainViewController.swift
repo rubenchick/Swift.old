@@ -54,10 +54,10 @@ class MainViewController: UIViewController {
         imageView.frame = CGRect(x: view.frame.midX - 128, y: view.frame.midY - 128, width: 256, height: 256)
         view.addSubview(imageView)
    
-        //hide tabBar
+//        //hide tabBar
         startPosition = self.tabBarController?.tabBar.bounds
-        self.tabBarController?.tabBar.bounds = CGRect(x: 1000, y: 100, width: 50, height: 50)
-        
+   //     self.tabBarController?.tabBar.bounds = CGRect(x: 1000, y: 100, width: 50, height: 50)
+//        
         //create Title
         title = "Кубик Рубик"
         navigationItem.hidesBackButton = true

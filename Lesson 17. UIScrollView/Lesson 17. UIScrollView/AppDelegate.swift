@@ -1,38 +1,22 @@
 //
 //  AppDelegate.swift
-//  TestForDocumentation
+//  Lesson 17. UIScrollView
 //
-//  Created by Anton Rubenchik on 16.05.2018.
+//  Created by Anton Rubenchik on 24.05.2018.
 //  Copyright © 2018 Anton Rubenchik. All rights reserved.
 //
 
+
+
 import UIKit
 
-var step = 0
-
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let manualVC = ManualViewController()
-        let helpVC = HelpViewController()
-        
-        helpVC.tabBarItem = UITabBarItem(title: "Помощь", image: UIImage(named: "info"), tag: 0)
-
-        let manualNavController = UINavigationController(rootViewController: manualVC)
-        let helpNavController = UINavigationController(rootViewController: helpVC)
-
-        let tabBarVC = UITabBarController()
-        tabBarVC.setViewControllers([manualNavController,helpNavController], animated: true)
-        
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = tabBarVC 
-        self.window?.backgroundColor = UIColor.white
-        self.window?.makeKeyAndVisible()
-        
         // Override point for customization after application launch.
         return true
     }
@@ -58,18 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-//    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-//        let isHelpVC = viewController is HelpViewController
-//        if isHelpVC {
-//            let helpController = UINavigationController(rootViewController: HelpViewController())
-//            self.present
-//            return false
-//        }
-//        else {
-//            return true
-//        }
-//    }
 
 
 }
