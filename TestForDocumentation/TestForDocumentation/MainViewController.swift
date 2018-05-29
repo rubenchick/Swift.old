@@ -9,14 +9,15 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    var titleLabel       = UILabel()
     var goToManualButton = UIButton()
-    var startPosition : CGRect? = nil
-    var image = UIImage()
-    var imageView = UIImageView()
+  //  var startPosition : CGRect? = nil
+    var image            = UIImage()
+    var imageView        = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         
         createStartElement()
 
@@ -24,9 +25,11 @@ class MainViewController: UIViewController {
 
     @objc func pressNext() {
         step = 0
-        self.tabBarController?.tabBar.bounds = startPosition!
-        navigationController?.popViewController(animated: true)
-        navigationItem.hidesBackButton = false
+     //   navigationItem.hidesBackButton = false
+        self.dismiss(animated: false, completion: nil)
+//        self.tabBarController?.tabBar.bounds = startPosition!
+//        navigationController?.popViewController(animated: true)
+//        navigationItem.hidesBackButton = false
     }
 
     fileprivate func createStartElement() {
@@ -55,11 +58,15 @@ class MainViewController: UIViewController {
         view.addSubview(imageView)
    
 //        //hide tabBar
-        startPosition = self.tabBarController?.tabBar.bounds
+  //      startPosition = self.tabBarController?.tabBar.bounds
    //     self.tabBarController?.tabBar.bounds = CGRect(x: 1000, y: 100, width: 50, height: 50)
 //        
         //create Title
-        title = "Кубик Рубик"
-        navigationItem.hidesBackButton = true
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 36)
+        titleLabel.text = "Кубик Рубик"
+        titleLabel.sizeToFit()
+        titleLabel.frame = CGRect(x: view.frame.midX - titleLabel.frame.width/2 , y: 70, width: titleLabel.frame.width, height: 44)
+        view.addSubview(titleLabel)
+ //       navigationItem.hidesBackButton = true
     }
 }

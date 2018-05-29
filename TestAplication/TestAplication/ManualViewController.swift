@@ -18,7 +18,6 @@ class ManualViewController: UIViewController {
     @objc func pressExit() {
         let modulVC = ModulViewController()
         navigationController?.pushViewController(modulVC, animated: false)
-        
         //Мой вариант решения
 //      present(modulVC, animated: true, completion: nil)
         

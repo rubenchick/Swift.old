@@ -103,7 +103,8 @@ class ManualViewController: UIViewController {
 
     @objc func pressExit() {
         let mainVC = MainViewController()
-        navigationController?.pushViewController(mainVC, animated: false)
+//        navigationController?.pushViewController(mainVC, animated: false)
+        present(mainVC, animated: true, completion: nil)
 
     }
 
