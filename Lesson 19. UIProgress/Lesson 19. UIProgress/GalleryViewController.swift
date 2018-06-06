@@ -53,6 +53,7 @@ final class GalleryViewController: UIViewController {
             //test
 //            print(touch.location(in: view).x,touch.location(in: view).y) // print current position
 //            print(thirdImageView.frame.minY,thirdImageView.frame.maxY) // print imageView posotion
+            
             // find imageView isClicked
             switch touch.location(in: view).y {
             case 0...firstImageView.frame.maxY: UserDefaults.standard.setValue("Mountains", forKey: "firstPageImage")
