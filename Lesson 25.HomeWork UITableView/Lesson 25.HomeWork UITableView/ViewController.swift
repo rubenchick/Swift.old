@@ -90,7 +90,7 @@ class ViewController: UIViewController {
         
         //automatically created for you using the UITableViewCellStyleDefault style.
         // level SchoolBoy and Student
-        //mainTableView.register(UITableViewCell.self, forCellReuseIdentifier: identify)
+     //   mainTableView.register(UITableViewCell.self, forCellReuseIdentifier: identify)
         
         mainTableView.delegate = self
         mainTableView.dataSource = self
