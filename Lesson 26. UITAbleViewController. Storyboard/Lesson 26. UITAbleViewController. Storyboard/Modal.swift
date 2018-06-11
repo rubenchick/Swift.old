@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct Member{
+    var name : String
+    var job  : String
+}
