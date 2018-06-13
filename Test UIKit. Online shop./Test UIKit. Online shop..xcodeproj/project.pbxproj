@@ -15,6 +15,13 @@
 		CAB3426620D012FF0011676D /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3426520D012FF0011676D /* MyCollectionViewCell.swift */; };
 		CAB3426B20D013480011676D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3426A20D013480011676D /* Product.swift */; };
 		CAB3426F20D015B20011676D /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3426E20D015B20011676D /* Group.swift */; };
+		CAB3427120D03F1F0011676D /* SubGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3427020D03F1F0011676D /* SubGroup.swift */; };
+		CAB3427320D03FB50011676D /* SubGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3427220D03FB50011676D /* SubGroupViewController.swift */; };
+		CAB3427520D0407C0011676D /* SubGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3427420D0407C0011676D /* SubGroupCollectionViewCell.swift */; };
+		CAB3427D20D12E680011676D /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3427C20D12E680011676D /* ProductViewController.swift */; };
+		CAB3427F20D143910011676D /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3427E20D143910011676D /* ProductCollectionViewCell.swift */; };
+		CAB3428120D15A870011676D /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3428020D15A870011676D /* Memory.swift */; };
+		CAB3428320D196010011676D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3428220D196010011676D /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +35,13 @@
 		CAB3426520D012FF0011676D /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		CAB3426A20D013480011676D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		CAB3426E20D015B20011676D /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		CAB3427020D03F1F0011676D /* SubGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubGroup.swift; sourceTree = "<group>"; };
+		CAB3427220D03FB50011676D /* SubGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubGroupViewController.swift; sourceTree = "<group>"; };
+		CAB3427420D0407C0011676D /* SubGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubGroupCollectionViewCell.swift; sourceTree = "<group>"; };
+		CAB3427C20D12E680011676D /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		CAB3427E20D143910011676D /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		CAB3428020D15A870011676D /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
+		CAB3428220D196010011676D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				CAB3426520D012FF0011676D /* MyCollectionViewCell.swift */,
+				CAB3427420D0407C0011676D /* SubGroupCollectionViewCell.swift */,
+				CAB3427E20D143910011676D /* ProductCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -83,8 +99,10 @@
 		CAB3426C20D013AA0011676D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CAB3426A20D013480011676D /* Product.swift */,
 				CAB3426E20D015B20011676D /* Group.swift */,
+				CAB3427020D03F1F0011676D /* SubGroup.swift */,
+				CAB3426A20D013480011676D /* Product.swift */,
+				CAB3428020D15A870011676D /* Memory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -93,6 +111,9 @@
 			isa = PBXGroup;
 			children = (
 				CAB3425520CFD8500011676D /* ViewController.swift */,
+				CAB3427220D03FB50011676D /* SubGroupViewController.swift */,
+				CAB3427C20D12E680011676D /* ProductViewController.swift */,
+				CAB3428220D196010011676D /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -170,7 +191,14 @@
 			files = (
 				CAB3425620CFD8500011676D /* ViewController.swift in Sources */,
 				CAB3425420CFD8500011676D /* AppDelegate.swift in Sources */,
+				CAB3427F20D143910011676D /* ProductCollectionViewCell.swift in Sources */,
+				CAB3428320D196010011676D /* DetailViewController.swift in Sources */,
+				CAB3427520D0407C0011676D /* SubGroupCollectionViewCell.swift in Sources */,
+				CAB3428120D15A870011676D /* Memory.swift in Sources */,
+				CAB3427120D03F1F0011676D /* SubGroup.swift in Sources */,
 				CAB3426B20D013480011676D /* Product.swift in Sources */,
+				CAB3427320D03FB50011676D /* SubGroupViewController.swift in Sources */,
+				CAB3427D20D12E680011676D /* ProductViewController.swift in Sources */,
 				CAB3426F20D015B20011676D /* Group.swift in Sources */,
 				CAB3426620D012FF0011676D /* MyCollectionViewCell.swift in Sources */,
 			);
