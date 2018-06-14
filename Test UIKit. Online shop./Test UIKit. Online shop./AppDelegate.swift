@@ -7,6 +7,7 @@
 //
 
 import UIKit
+var cartArray = [Cart]()
 
 @UIApplicationMain
 

@@ -22,7 +22,6 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createStartElements()
-
     }
     
     func createStartElements() {
@@ -48,6 +47,15 @@ class DetailViewController: UIViewController {
         // create addCartButton
         let addCartTextButton = "ДОБАВИТЬ В КОРЗИНУ           \(product.price!) ₽ ➜"
         addCartButton.setTitle(addCartTextButton, for: .normal)
+        
+        //create textView
+        switch product.index! {
+        case 0...21 : datailTextView.text = "Большой сандвич с двумя рубленными бифштексами из натуральной цельной говядины на специальной булочке, заправленной луком, двумя кусочками  маринованных огурчиков, ламтиком сыра 'Чеддер', свежим салатом, и специальным соусом 'Биг Мак'.\n\nКилокалорий (Ккал):    503\nБелки (г):                         26\nУглеводы (г):                   42\nЖиры (г):                         25 "
+        case 22...23 : datailTextView.text = "Вкусные, обжаренные в растительном фритюре ломтики картофеля со специями.\n\nКилокалорий (Ккал):   321\nБелки (г):                      4,5\nУглеводы (г):                 41\nЖиры (г):                       14 "
+        case 24...31 : datailTextView.text = "Кофе эспрессо с большим количеством горячего вспененного молока.\n\nКилокалорий (Ккал):    132\nБелки (г):                          6\nУглеводы (г):                   10\nЖиры (г):                          8 "
+        default:
+            break
+        }
     }
     
     func createButton(sender: UIButton, cornerRadius : CGFloat, sizeFont: CGFloat) -> UIButton {
@@ -91,5 +99,17 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func addCartButton(_ sender: Any) {
+        if let newCount = Int(countLabel.text!) {
+            var newItem = Cart()
+            newItem.name = product.name
+            newItem.price = product.price
+            newItem.count = newCount
+            cartArray.append(newItem)
+//            Memory.sharedInstance.number = 4
+            Order.sharedInstance.sum += newItem.price! * newItem.count!
+        }
+//        print(cartArray)
+        print("Sum - \(Order.sharedInstance.sum)")
+        self.navigationController?.popViewController(animated: true)
     }
 }

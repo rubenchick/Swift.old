@@ -229,17 +229,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUa-VL-o87">
-                                <rect key="frame" x="200" y="358" width="14" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="0tJ-bw-ICH"/>
-                                    <constraint firstAttribute="width" constant="14" id="GIC-Vh-skk"/>
-                                </constraints>
+                                <rect key="frame" x="202.33333333333334" y="358" width="9.3333333333333428" height="21"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPD-0r-YaC">
-                                <rect key="frame" x="156" y="351" width="30" height="30"/>
+                                <rect key="frame" x="158.33333333333334" y="351" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.69019607843137254" green="0.15686274509803921" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration" label="hjghjtyu"/>
                                 <state key="normal" title="-">
@@ -261,9 +257,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcb-k4-het">
                                 <rect key="frame" x="20" y="619" width="374" height="40"/>
                                 <color key="backgroundColor" red="0.69019607843137254" green="0.15686274509803921" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="374" id="83z-CQ-ZH0"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="ДОБАВИТЬ В КОРЗИНУ                  156 ₽ ➜">
@@ -274,7 +267,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWG-Ov-sU9">
-                                <rect key="frame" x="228" y="351" width="30" height="30"/>
+                                <rect key="frame" x="225.66666666666666" y="351" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.69019607843137254" green="0.15686274509803921" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration" label="hjghjtyu"/>
                                 <state key="normal" title="+">

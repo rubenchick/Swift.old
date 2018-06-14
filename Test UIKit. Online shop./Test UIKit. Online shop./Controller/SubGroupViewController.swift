@@ -91,7 +91,7 @@ class SubGroupViewController: UIViewController {
         super.viewDidLoad()
         subGroupCollectionView.delegate = self
         subGroupCollectionView.dataSource = self
-        Memory.sharedInstance.number = 7
+//        Memory.sharedInstance.number = 7
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     

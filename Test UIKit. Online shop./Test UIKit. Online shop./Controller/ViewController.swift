@@ -33,7 +33,7 @@ class ViewController: UIViewController {
 
         groupCollectionView.dataSource = self
         groupCollectionView.delegate = self
-        Memory.sharedInstance.number = 4
+//        Memory.sharedInstance.number = 4
         
         // add image on titleview
         let imageView = UIImageView()
