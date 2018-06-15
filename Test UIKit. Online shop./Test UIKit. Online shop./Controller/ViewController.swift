@@ -43,15 +43,15 @@ class ViewController: UIViewController {
         imageView.image = image
         self.navigationItem.titleView = imageView
         
+        // delete text in left button
         self.navigationController?.navigationBar.tintColor = UIColor.white
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
-        
-        
-    }
     
+    }
+   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        createRightItems()
         
     }
     //отловили переход по seque
@@ -62,6 +62,27 @@ class ViewController: UIViewController {
                     vc.group = groupArray[numberSubGroup].index
                 }
             }
+        }
+    }
+    
+    func createRightItems() {
+        let cardButtonNavigationItem = self.navigationItem.rightBarButtonItems?.first
+        if Order.sharedInstance.sum == 0 {
+            self.navigationItem.rightBarButtonItems = [cardButtonNavigationItem] as? [UIBarButtonItem]
+        }
+        else {
+            // createLabel with total coast
+            let cartButton = UIButton()
+            cartButton.backgroundColor = .white
+            cartButton.setTitleColor(.black, for: .normal)
+            cartButton.layer.cornerRadius = 10
+            cartButton.setTitle("\(Order.sharedInstance.sum) ₽", for: .normal)
+            cartButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+            cartButton.sizeToFit()
+            cartButton.frame = CGRect(x: 0, y: 0, width: cartButton.frame.width + 12, height: 20)
+            
+            let totalButtonNavigationItem = UIBarButtonItem(customView: cartButton)
+            self.navigationItem.rightBarButtonItems = [cardButtonNavigationItem,totalButtonNavigationItem] as? [UIBarButtonItem]
         }
     }
 

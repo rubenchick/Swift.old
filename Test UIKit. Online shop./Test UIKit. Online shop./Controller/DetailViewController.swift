@@ -22,6 +22,31 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createStartElements()
+
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        createRightItems()
+    }
+    
+    func createRightItems() {
+        let cardButtonNavigationItem = self.navigationItem.rightBarButtonItems?.first
+        if Order.sharedInstance.sum == 0 {
+            self.navigationItem.rightBarButtonItems = [cardButtonNavigationItem] as! [UIBarButtonItem]
+        }
+        else {
+            // createLabel with total coast
+            let cartButton = UIButton()
+            cartButton.backgroundColor = .white
+            cartButton.setTitleColor(.black, for: .normal)
+            cartButton.layer.cornerRadius = 10
+            cartButton.setTitle("\(Order.sharedInstance.sum) ₽", for: .normal)
+            cartButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+            cartButton.sizeToFit()
+            cartButton.frame = CGRect(x: 0, y: 0, width: cartButton.frame.width + 12, height: 20)
+            
+            let totalButtonNavigationItem = UIBarButtonItem(customView: cartButton)
+            self.navigationItem.rightBarButtonItems = [cardButtonNavigationItem,totalButtonNavigationItem] as! [UIBarButtonItem]
+        }
     }
     
     func createStartElements() {
@@ -71,7 +96,7 @@ class DetailViewController: UIViewController {
     @IBAction func plusButton(_ sender: Any) {
         if let count = Int(countLabel.text!) {
             countLabel.text = String(count+1)
-            let addCartTextButton = "ДОБАВИТЬ В КОРЗИНУ           \(product.price! * Int(countLabel.text!)!) ₽ ➜"
+            let addCartTextButton = "ДОБАВИТЬ В КОРЗИНУ                \(product.price! * Int(countLabel.text!)!) ₽ ➜"
             addCartButton.setTitle(addCartTextButton, for: .normal)
             minusButton.setTitleColor(UIColor(red: 176/255, green: 40/255, blue: 30/255, alpha: 1), for: .normal)
             minusButton.layer.borderColor = UIColor(red: 176/255, green: 40/255, blue: 30/255, alpha: 1).cgColor
@@ -104,6 +129,7 @@ class DetailViewController: UIViewController {
             newItem.name = product.name
             newItem.price = product.price
             newItem.count = newCount
+            newItem.image = product.image
             cartArray.append(newItem)
 //            Memory.sharedInstance.number = 4
             Order.sharedInstance.sum += newItem.price! * newItem.count!

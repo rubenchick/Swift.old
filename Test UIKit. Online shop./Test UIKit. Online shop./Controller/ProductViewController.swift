@@ -21,7 +21,7 @@ class ProductViewController: UIViewController {
             var newArray = [Product]()
             var newItem = Product()
             // массивы данных
-            let productNameArray = ["ЧИКЕН ЭКЗОТИК","ГРИЛЬ","ВЕСТЕРН",
+            let productNameArray = ["ЧИКЕН ГУРМЕ ЭКЗОТИК","ГУРМЕ ГРИЛЬ","ГУРМЕ ВЕСТЕРН",
                                     "БИГ МАК","БИГ ТЕСТИ","ЧИЗБУРГЕР ДЕ ЛЮКС","ГРАНД ЧИЗБУРГЕР","ДВОЙНОЙ ЧИЗБУРГЕР","ЧИЗБУРГЕР","ГАМБУРГЕР",
                                      "МАКЧИКЕН","ЧИКЕН ГУРМЭ","ЦЕЗАРЬ РОЛЛ","ЧИКЕН МАКНАГГЕТС","КУРИНЫЕ КРЫЛЫШКИ","ЧИКЕНБУРГЕР",
                                      "БОЛЬШИЕ КРЕВЕТКИ","ШРИМП РОЛЛ","ДВОЙНОЙ ФИЛЕ-О-ФИШ","ФИШ РОЛЛ","ФИЛЕ-О-ФИШ",
@@ -74,13 +74,36 @@ class ProductViewController: UIViewController {
         productCollectionCell.dataSource = self
         productCollectionCell.delegate = self
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
    }
-    
+   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         let titleSubGroup = self.subGroupIndex?.name?.lowercased()
         self.navigationItem.title = titleSubGroup?.firstUppercased
 //        print(Memory.sharedInstance.number)
+        createRightItems()
+    }
+    
+    func createRightItems() {
+        let cardButtonNavigationItem = self.navigationItem.rightBarButtonItems?.first
+        if Order.sharedInstance.sum == 0 {
+            self.navigationItem.rightBarButtonItems = [cardButtonNavigationItem] as! [UIBarButtonItem]
+        }
+        else {
+            // createLabel with total coast
+            let cartButton = UIButton()
+            cartButton.backgroundColor = .white
+            cartButton.setTitleColor(.black, for: .normal)
+            cartButton.layer.cornerRadius = 10
+            cartButton.setTitle("\(Order.sharedInstance.sum) ₽", for: .normal)
+            cartButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+            cartButton.sizeToFit()
+            cartButton.frame = CGRect(x: 0, y: 0, width: cartButton.frame.width + 12, height: 20)
+            
+            let totalButtonNavigationItem = UIBarButtonItem(customView: cartButton)
+            self.navigationItem.rightBarButtonItems = [cardButtonNavigationItem,totalButtonNavigationItem] as! [UIBarButtonItem]
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

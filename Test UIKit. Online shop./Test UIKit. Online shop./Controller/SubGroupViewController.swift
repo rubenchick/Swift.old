@@ -91,8 +91,28 @@ class SubGroupViewController: UIViewController {
         super.viewDidLoad()
         subGroupCollectionView.delegate = self
         subGroupCollectionView.dataSource = self
-//        Memory.sharedInstance.number = 7
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
+    }
+    
+    func createRightItems() {
+        let cardButtonNavigationItem = self.navigationItem.rightBarButtonItems?.first
+        if Order.sharedInstance.sum == 0 {
+           self.navigationItem.rightBarButtonItems = [cardButtonNavigationItem] as! [UIBarButtonItem]
+        }
+        else {
+            // createLabel with total coast
+            let cartButton = UIButton()
+            cartButton.backgroundColor = .white
+            cartButton.setTitleColor(.black, for: .normal)
+            cartButton.layer.cornerRadius = 10
+            cartButton.setTitle("\(Order.sharedInstance.sum) ₽", for: .normal)
+            cartButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+            cartButton.sizeToFit()
+            cartButton.frame = CGRect(x: 0, y: 0, width: cartButton.frame.width + 12, height: 20)
+            
+            let totalButtonNavigationItem = UIBarButtonItem(customView: cartButton)
+            self.navigationItem.rightBarButtonItems = [cardButtonNavigationItem,totalButtonNavigationItem] as! [UIBarButtonItem]
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,6 +123,8 @@ class SubGroupViewController: UIViewController {
             let titleGroup = titleArray.first?.name?.lowercased()
             self.navigationItem.title = titleGroup?.firstUppercased
         }
+        
+        createRightItems()
     }
     // перехват segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA32AB8E20D29A5E00088FEC /* CartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA32AB8D20D29A5E00088FEC /* CartTableViewController.swift */; };
+		CA32AB9020D29EC000088FEC /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA32AB8F20D29EC000088FEC /* CartTableViewCell.swift */; };
+		CA32AB9220D394DB00088FEC /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA32AB9120D394DB00088FEC /* ContainerViewController.swift */; };
+		CA72320220D3D74100A3CDB5 /* MainNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72320120D3D74100A3CDB5 /* MainNavigationItem.swift */; };
 		CAB3425420CFD8500011676D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3425320CFD8500011676D /* AppDelegate.swift */; };
 		CAB3425620CFD8500011676D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB3425520CFD8500011676D /* ViewController.swift */; };
 		CAB3425920CFD8500011676D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAB3425720CFD8500011676D /* Main.storyboard */; };
@@ -26,6 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA32AB8D20D29A5E00088FEC /* CartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewController.swift; sourceTree = "<group>"; };
+		CA32AB8F20D29EC000088FEC /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		CA32AB9120D394DB00088FEC /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		CA72320120D3D74100A3CDB5 /* MainNavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationItem.swift; sourceTree = "<group>"; };
 		CAB3425020CFD8500011676D /* Test UIKit. Online shop..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test UIKit. Online shop..app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB3425320CFD8500011676D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAB3425520CFD8500011676D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +89,7 @@
 				CAB3426720D013070011676D /* View */,
 				CAB3426D20D013BF0011676D /* Controller */,
 				CAB3425720CFD8500011676D /* Main.storyboard */,
+				CA72320120D3D74100A3CDB5 /* MainNavigationItem.swift */,
 				CAB3425C20CFD8520011676D /* LaunchScreen.storyboard */,
 				CAB3425A20CFD8520011676D /* Assets.xcassets */,
 				CAB3425F20CFD8520011676D /* Info.plist */,
@@ -94,6 +103,7 @@
 				CAB3426520D012FF0011676D /* MyCollectionViewCell.swift */,
 				CAB3427420D0407C0011676D /* SubGroupCollectionViewCell.swift */,
 				CAB3427E20D143910011676D /* ProductCollectionViewCell.swift */,
+				CA32AB8F20D29EC000088FEC /* CartTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,6 +127,8 @@
 				CAB3427220D03FB50011676D /* SubGroupViewController.swift */,
 				CAB3427C20D12E680011676D /* ProductViewController.swift */,
 				CAB3428220D196010011676D /* DetailViewController.swift */,
+				CA32AB9120D394DB00088FEC /* ContainerViewController.swift */,
+				CA32AB8D20D29A5E00088FEC /* CartTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -194,6 +206,7 @@
 			files = (
 				CAB3425620CFD8500011676D /* ViewController.swift in Sources */,
 				CAB3425420CFD8500011676D /* AppDelegate.swift in Sources */,
+				CA72320220D3D74100A3CDB5 /* MainNavigationItem.swift in Sources */,
 				CAB3427F20D143910011676D /* ProductCollectionViewCell.swift in Sources */,
 				CAB3428520D290430011676D /* Cart.swift in Sources */,
 				CAB3428320D196010011676D /* DetailViewController.swift in Sources */,
@@ -201,8 +214,11 @@
 				CAB3428120D15A870011676D /* Order.swift in Sources */,
 				CAB3427120D03F1F0011676D /* SubGroup.swift in Sources */,
 				CAB3426B20D013480011676D /* Product.swift in Sources */,
+				CA32AB8E20D29A5E00088FEC /* CartTableViewController.swift in Sources */,
+				CA32AB9220D394DB00088FEC /* ContainerViewController.swift in Sources */,
 				CAB3427320D03FB50011676D /* SubGroupViewController.swift in Sources */,
 				CAB3427D20D12E680011676D /* ProductViewController.swift in Sources */,
+				CA32AB9020D29EC000088FEC /* CartTableViewCell.swift in Sources */,
 				CAB3426F20D015B20011676D /* Group.swift in Sources */,
 				CAB3426620D012FF0011676D /* MyCollectionViewCell.swift in Sources */,
 			);
