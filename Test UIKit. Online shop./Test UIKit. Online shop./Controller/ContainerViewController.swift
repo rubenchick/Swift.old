@@ -14,8 +14,7 @@ class ContainerViewController: UIViewController {
     @IBOutlet weak var sumLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.view.backgroundColor = .blue
-//
+
         self.navigationItem.title = "Корзина"
         
         orderLabel.layer.cornerRadius = 15
@@ -33,13 +32,13 @@ class ContainerViewController: UIViewController {
 
 
     @IBAction func orderButton(_ sender: Any) {
-        let orderedMeggageController = UIAlertController(title: nil, message: "Списобо за заказ.\n Ждем Вас снова.", preferredStyle: .alert)
+        let orderedMessageController = UIAlertController(title: nil, message: "Списобо за заказ.\n Ждем Вас снова.", preferredStyle: .alert)
         let alertButtton = UIAlertAction(title: "Закрыть", style: .cancel) { (x) in
             Order.sharedInstance.sum = 0
             self.navigationController?.popToRootViewController(animated: true)
         }
-        orderedMeggageController.addAction(alertButtton)
-        self.present(orderedMeggageController, animated: true, completion: nil)
+        orderedMessageController.addAction(alertButtton)
+        self.present(orderedMessageController, animated: true, completion: nil)
     }
     
 }

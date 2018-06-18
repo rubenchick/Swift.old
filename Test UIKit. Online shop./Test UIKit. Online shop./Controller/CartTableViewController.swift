@@ -15,31 +15,8 @@ class CartTableViewController: UITableViewController {
         super.viewDidLoad()
         print("Cart")
         print(cartArray.count)
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
          self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-//        //create a button or any UIView and add to subview
-//        let button = UIButton.init(type: .system)
-//        button.setTitle("NEXT", for: .normal)
-//        button.frame.size = CGSize(width: 100, height: 50)
-//        button.backgroundColor = .blue
-//        self.view.addSubview(button)
-//
-//        //set constrains
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        if #available(iOS 11.0, *) {
-//            button.rightAnchor.constraint(equalTo: tableView.safeAreaLayoutGuide.rightAnchor, constant: -10).isActive = true
-//            button.bottomAnchor.constraint(equalTo: tableView.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
-//        } else {
-//            button.rightAnchor.constraint(equalTo: tableView.layoutMarginsGuide.rightAnchor, constant: 0).isActive = true
-//            button.bottomAnchor.constraint(equalTo: tableView.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
-//        }
-//        self.tableView.frame = CGRect(0,0,self.tableView.frame.width,self.tableView.frame.height - 100)
-        
+       
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -71,49 +48,42 @@ class CartTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    // нажали на ячейку
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(cartArray[indexPath.row])
+        tableView.isEditing = !tableView.isEditing
     }
-    */
 
-    /*
-    // Override to support editing the table view.
+    //delete
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            Order.sharedInstance.sum -= cartArray[indexPath.row].count! * cartArray[indexPath.row].price!
+            cartArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .middle)
+           self.navigationController?.popViewController(animated: true)
+        
+//            var total: Int = 0
+//            for item in cartArray {
+//                total += item.count! * item.price!
+//            }
+//
+//            var containerVC = ContainerViewController()
+//             containerVC.sumLabel.text = "777 ₽"
+//            containerVC.sumLabel.text = "\(total) ₽"
+//
+//
+//            var total: Int = 0
+//            for item in cartArray {
+//                total += item.count! * item.price!
+//            }
+//            sumLabel.text = "\(total) ₽"
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }
+

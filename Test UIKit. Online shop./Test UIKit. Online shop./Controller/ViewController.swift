@@ -52,7 +52,6 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         createRightItems()
-        
     }
     //отловили переход по seque
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
