@@ -16,34 +16,6 @@ class SubGroupViewController: UIViewController {
     
     var subGroupArray = [SubGroup]()
     
-//    var subGroup: Int? {
-//        didSet{
-//            if subGroup == 1 {
-//                var newArray = [SubGroup]()
-//                var newItem = SubGroup()
-//                let mainMenuNameArray = ["ГАМБУРГЕР","ЧИЗБУРГЕР","БИГ МАК","ЧИКЕН БУРГЕР"]
-//                let mainMenuImageArray = ["mainMenu","mainMenu","mainMenu","mainMenu"]
-//                for i in 0...mainMenuNameArray.count - 1 {
-//                    newItem.name = mainMenuNameArray[i]
-//                    newItem.image = mainMenuImageArray[i]
-//                    newArray.append(newItem)
-//                }
-//                self.subGroupArray = newArray
-//            }
-//            else {
-//                var newArray = [SubGroup]()
-//                var newItem = SubGroup()
-//                let mainMenuNameArray = ["ГАМБУРГЕР","ЧИЗБУРГЕР","БИГ МАК"]
-//                let mainMenuImageArray = ["mainMenu","mainMenu","mainMenu"]
-//                for i in 0...mainMenuNameArray.count - 1 {
-//                    newItem.name = mainMenuNameArray[i]
-//                    newItem.image = mainMenuImageArray[i]
-//                    newArray.append(newItem)
-//                }
-//                self.subGroupArray = newArray
-//            }
-//        }
-//    }
     var group: Int? {
         didSet{
             var newArray = [SubGroup]()

@@ -33,7 +33,6 @@ class ViewController: UIViewController {
 
         groupCollectionView.dataSource = self
         groupCollectionView.delegate = self
-//        Memory.sharedInstance.number = 4
         
         // add image on titleview
         let imageView = UIImageView()
@@ -101,7 +100,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     //отловили нажатие на ячейку
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       // print("Yes")
         self.performSegue(withIdentifier: segueIdentifire , sender: indexPath.row)
     }
 }

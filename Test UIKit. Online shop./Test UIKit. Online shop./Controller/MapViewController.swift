@@ -22,6 +22,7 @@ final class PointAnnatation: NSObject, MKAnnotation {
         return MKCoordinateRegion(center: coordinate, span: span)
     }
 }
+
 var pointArrat = [(55.753144,37.619171),(55.748198,37.622532),(55.761391,37.609016)]
 class MapViewController: UIViewController {
 

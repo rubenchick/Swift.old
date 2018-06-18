@@ -81,7 +81,6 @@ class ProductViewController: UIViewController {
         super.viewWillAppear(true)
         let titleSubGroup = self.subGroupIndex?.name?.lowercased()
         self.navigationItem.title = titleSubGroup?.firstUppercased
-//        print(Memory.sharedInstance.number)
         createRightItems()
     }
     

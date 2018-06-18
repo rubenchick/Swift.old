@@ -64,26 +64,10 @@ class CartTableViewController: UITableViewController {
             Order.sharedInstance.sum -= cartArray[indexPath.row].count! * cartArray[indexPath.row].price!
             cartArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .middle)
-           self.navigationController?.popViewController(animated: true)
-        
-//            var total: Int = 0
-//            for item in cartArray {
-//                total += item.count! * item.price!
-//            }
-//
-//            var containerVC = ContainerViewController()
-//             containerVC.sumLabel.text = "777 ₽"
-//            containerVC.sumLabel.text = "\(total) ₽"
-//
-//
-//            var total: Int = 0
-//            for item in cartArray {
-//                total += item.count! * item.price!
-//            }
-//            sumLabel.text = "\(total) ₽"
+           //  This is a bad decision. It is necessary to rewrite.
+            self.navigationController?.popViewController(animated: true)
+            
         }
     }
-    
-
 }
 

@@ -131,10 +131,8 @@ class DetailViewController: UIViewController {
             newItem.count = newCount
             newItem.image = product.image
             cartArray.append(newItem)
-//            Memory.sharedInstance.number = 4
             Order.sharedInstance.sum += newItem.price! * newItem.count!
         }
-//        print(cartArray)
         print("Sum - \(Order.sharedInstance.sum)")
         self.navigationController?.popViewController(animated: true)
     }

@@ -24,8 +24,6 @@ class PageViewController: UIPageViewController {
         }
         return newArray
     }()
-//    let promoVCArray: [PromoViewController] = [PromoViewController(image: UIImage(named: "promo1")!),PromoViewController(image: UIImage(named: "promo2")!)]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,13 +40,6 @@ class PageViewController: UIPageViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-//    override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
-//        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-//        if !promoVCArray.isEmpty {
-//        setViewControllers([promoVCArray[0]], direction: .forward, animated: true, completion: nil)
-//        }
-//    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)

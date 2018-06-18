@@ -8,11 +8,6 @@
 
 import Foundation
 
-//class Memory {
-//    static let sharedInstance = Memory()
-//    // Anything else goes here
-//    var number = 0
-//}
 class Order {
     static let sharedInstance = Order()
     var sum = 0
