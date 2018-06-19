@@ -12,6 +12,7 @@ class ContainerViewController: UIViewController {
 
     @IBOutlet weak var orderLabel: UIButton! //sorry Button
     @IBOutlet weak var sumLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,11 +24,14 @@ class ContainerViewController: UIViewController {
         orderLabel.titleLabel?.font = UIFont.boldSystemFont(ofSize: 22)
         orderLabel.layer.borderWidth = 3
         orderLabel.layer.borderColor = UIColor(red: 176/255, green: 40/255, blue: 30/255, alpha: 1).cgColor
+        
+        // write total cost in cart
         var total: Int = 0
         for item in cartArray {
             total += item.count! * item.price!
         }
         sumLabel.text = "\(total) ₽"
+        NotificationCenter.default.addObserver(self, selector: #selector(gotNotification(notification:)), name: NSNotification.Name(rawValue: "notificationFromTableViewAboutTotalCoast"), object: nil)
     }
 
 
@@ -39,6 +43,11 @@ class ContainerViewController: UIViewController {
         }
         orderedMessageController.addAction(alertButtton)
         self.present(orderedMessageController, animated: true, completion: nil)
+    }
+    
+    @objc func gotNotification(notification: Notification) {
+        guard let  userInfo = notification.userInfo, let total = userInfo["Total"] as? Int else {return}
+        sumLabel.text = "\(total) ₽"
     }
     
 }

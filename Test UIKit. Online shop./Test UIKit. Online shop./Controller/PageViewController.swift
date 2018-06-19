@@ -10,17 +10,30 @@ import UIKit
 
 class PageViewController: UIPageViewController {
    // need rewrite without "!"
-    var imageArray: [UIImage] = [UIImage(named: "promo1")!,
-                                 UIImage(named: "promo2")!,
-                                 UIImage(named: "promo3")!,
-                                 UIImage(named: "promo4")!,
-                                 UIImage(named: "promo5")!]
+//    var imageArray: [UIImage] = [UIImage(named: "promo1")!,
+//                                 UIImage(named: "promo2")!,
+//                                 UIImage(named: "promo3")!,
+//                                 UIImage(named: "promo4")!,
+//                                 UIImage(named: "promo5")!]
+//    lazy var promoVCArray: [PromoViewController] = {
+//        var newArray = [PromoViewController]()
+//        var newVC : PromoViewController
+//        for item in imageArray {
+//            newVC = PromoViewController(image: item)
+//            newArray.append(newVC)
+//        }
+//        return newArray
+//    }()
+    var imageArray: [String] = ["promo1","promo2","promo3","promo4","promo5"]
+    
     lazy var promoVCArray: [PromoViewController] = {
         var newArray = [PromoViewController]()
         var newVC : PromoViewController
         for item in imageArray {
-            newVC = PromoViewController(image: item)
-            newArray.append(newVC)
+            if let image = UIImage(named: item) {
+                newVC = PromoViewController(image: image)
+                newArray.append(newVC)
+            }
         }
         return newArray
     }()
