@@ -68,6 +68,7 @@ class CartTableViewController: UITableViewController {
            //  This is a bad decision. It is necessary to rewrite.
 //            self.navigationController?.popViewController(animated: true)
             // This is good decision
+            
             dictionary["Total"] = Order.sharedInstance.sum
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationFromTableViewAboutTotalCoast"), object: nil, userInfo: dictionary)
             

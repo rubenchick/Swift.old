@@ -31,6 +31,7 @@ class ContainerViewController: UIViewController {
             total += item.count! * item.price!
         }
         sumLabel.text = "\(total) ₽"
+        
         NotificationCenter.default.addObserver(self, selector: #selector(gotNotification(notification:)), name: NSNotification.Name(rawValue: "notificationFromTableViewAboutTotalCoast"), object: nil)
     }
 

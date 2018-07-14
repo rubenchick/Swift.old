@@ -1,0 +1,180 @@
+//
+//  AppDelegate.swift
+//  Test Core Data
+//
+//  Created by Anton Rubenchik on 05.07.2018.
+//  Copyright © 2018 Anton Rubenchik. All rights reserved.
+//
+
+import UIKit
+import CoreData
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+       
+        
+        // old version
+//        // new emtity
+//        let entityDescription = NSEntityDescription.entity(forEntityName: "Customer", in: self.managedObjectContext)
+//
+//        // new object
+//        let managedObject = NSManagedObject(entity: entityDescription!, insertInto: self.managedObjectContext)
+//
+//        // set atribute
+//        managedObject.setValue("LTD Logistic", forKey: "name")
+//
+//        // get value
+//        let name = managedObject.value(forKey: "name")
+//        print("Name: \(String(describing: name))")
+//        //save data
+//        if managedObjectContext.hasChanges {
+//            print("changes = true")
+////            do {
+////                try managedObjectContext.sa
+////            } catch {
+////                let nserror = error as NSError
+////                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+////                abort()
+////            }
+//        }
+//        else { print("changes = false") }
+////        self.saveContext2()
+//
+//        //get data from Core Data
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Customer")
+//        do {
+//            print("data isn't empty")
+//            let results = try self.managedObjectContext.fetch(fetchRequest)
+//            print(results.count)
+//            for result in results as! [NSManagedObject] {
+//                print("name - \(result.value(forKey: "name")!)")
+//            }
+//        } catch {
+//            print(error)
+//        }
+        return true
+    }
+
+    func applicationWillResignActive(_ application: UIApplication) {
+        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    }
+
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    }
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        // Saves changes in the application's managed object context before the application terminates.
+        self.saveContext()
+    }
+
+    // MARK: - Core Data stack
+
+    lazy var persistentContainer: NSPersistentContainer = {
+        /*
+         The persistent container for the application. This implementation
+         creates and returns a container, having loaded the store for the
+         application to it. This property is optional since there are legitimate
+         error conditions that could cause the creation of the store to fail.
+        */
+        let container = NSPersistentContainer(name: "Test_Core_Data")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                 
+                /*
+                 Typical reasons for an error here include:
+                 * The parent directory does not exist, cannot be created, or disallows writing.
+                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
+                 * The device is out of space.
+                 * The store could not be migrated to the current model version.
+                 Check the error message to determine what the actual problem was.
+                 */
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
+//    lazy var applicationDocumentsDirectory: NSURL = {
+//        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//        return urls[urls.count-1] as NSURL
+//    }()
+//
+//    lazy var managedObjectModel: NSManagedObjectModel = {
+//        let modelURL = Bundle.main.url(forResource: "Test_Core_Data", withExtension: "momd")!
+//        return NSManagedObjectModel(contentsOf: modelURL)!
+//    }()
+//
+//    lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
+//        let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
+//        let url = self.applicationDocumentsDirectory.appendingPathComponent("SingleViewCoreData.sqlite")
+//        var failureReason = "There was an error creating or loading the application's saved data."
+//        do {
+//            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
+//        } catch {
+//            var dict = [String: AnyObject]()
+//            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data" as AnyObject
+//            dict[NSLocalizedFailureReasonErrorKey] = failureReason as AnyObject
+//            dict[NSUnderlyingErrorKey] = error as NSError
+//            let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+//            NSLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
+//            abort()
+//        }
+//        return coordinator
+//    }()
+//
+//    lazy var managedObjectContext: NSManagedObjectContext = {
+//        let coordinator = self.persistentStoreCoordinator
+//        var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+//        managedObjectContext.persistentStoreCoordinator = coordinator
+//        return managedObjectContext
+//    }()
+
+    
+    // MARK: - Core Data Saving support
+//    func saveContext2 () {
+//        if managedObjectContext.hasChanges {
+//            do {
+//                try managedObjectContext.save()
+//            } catch {
+//                let nserror = error as NSError
+//                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+//                abort()
+//            }
+//        }
+//    }
+    
+    func saveContext () {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
+
+}
+
