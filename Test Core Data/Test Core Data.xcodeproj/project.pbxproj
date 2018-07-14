@@ -17,6 +17,7 @@
 		CA6CEDB820F9E77100C4374F /* RowOfOder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CEDA820F9E73600C4374F /* RowOfOder+CoreDataProperties.swift */; };
 		CA6CEDB920F9E77100C4374F /* Services+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CEDA920F9E73600C4374F /* Services+CoreDataClass.swift */; };
 		CA6CEDBA20F9E77100C4374F /* Services+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CEDAA20F9E73600C4374F /* Services+CoreDataProperties.swift */; };
+		CA6CEDBE20FA00F600C4374F /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CEDBD20FA00F600C4374F /* ReportTableViewController.swift */; };
 		CAFBB61D20EE5BC600C9151F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFBB61C20EE5BC600C9151F /* AppDelegate.swift */; };
 		CAFBB61F20EE5BC600C9151F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFBB61E20EE5BC600C9151F /* ViewController.swift */; };
 		CAFBB62220EE5BC600C9151F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFBB62020EE5BC600C9151F /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		CA6CEDA820F9E73600C4374F /* RowOfOder+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RowOfOder+CoreDataProperties.swift"; path = "Test Core Data/Entity/RowOfOder+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CA6CEDA920F9E73600C4374F /* Services+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Services+CoreDataClass.swift"; path = "Test Core Data/Entity/Services+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CA6CEDAA20F9E73600C4374F /* Services+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Services+CoreDataProperties.swift"; path = "Test Core Data/Entity/Services+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CA6CEDBD20FA00F600C4374F /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
 		CAFBB61920EE5BC600C9151F /* Test Core Data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test Core Data.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFBB61C20EE5BC600C9151F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAFBB61E20EE5BC600C9151F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				CAFBB64E20F63F6E00C9151F /* OrdersTableViewController.swift */,
 				CAFBB65020F63F8100C9151F /* OrderViewController.swift */,
 				CAFBB65420F7C3E700C9151F /* RowOfOderViewController.swift */,
+				CA6CEDBD20FA00F600C4374F /* ReportTableViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				CA6CEDB320F9E76C00C4374F /* Customer+CoreDataClass.swift in Sources */,
 				CA6CEDB920F9E77100C4374F /* Services+CoreDataClass.swift in Sources */,
 				CAFBB64920F5068E00C9151F /* CustomerViewController.swift in Sources */,
+				CA6CEDBE20FA00F600C4374F /* ReportTableViewController.swift in Sources */,
 				CA0D658620F9380000526643 /* TestViewController.swift in Sources */,
 				CA6CEDBA20F9E77100C4374F /* Services+CoreDataProperties.swift in Sources */,
 				CAFBB65120F63F8200C9151F /* OrderViewController.swift in Sources */,
