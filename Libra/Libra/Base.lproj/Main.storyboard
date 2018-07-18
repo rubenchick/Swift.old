@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Libra" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Положите предмет для взвешивания в центр круга" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8UW-OC-s4I">
+                                <rect key="frame" x="0.0" y="36" width="375" height="68"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120 грамм" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSE-vi-3ba">
+                                <rect key="frame" x="102" y="565" width="171" height="40"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="33"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8LP-Vu-A29" customClass="ScalaView" customModule="Libra" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="105" width="375" height="459"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*максимальный вес 385 грамм" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfm-gi-rGG">
+                                <rect key="frame" x="61" y="626" width="252" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Zfm-gi-rGG" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-646" id="1oV-XG-xPW"/>
+                            <constraint firstItem="8UW-OC-s4I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2Nw-fx-Uod"/>
+                            <constraint firstItem="Zfm-gi-rGG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3xR-E0-QSQ"/>
+                            <constraint firstItem="QSE-vi-3ba" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-627" id="BqA-Fp-P8m"/>
+                            <constraint firstItem="QSE-vi-3ba" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-204" id="I6O-Gx-Apu"/>
+                            <constraint firstItem="8LP-Vu-A29" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Kzi-TW-LNd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8UW-OC-s4I" secondAttribute="trailing" id="Nr7-sj-53d"/>
+                            <constraint firstItem="8LP-Vu-A29" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-208" id="OA7-ga-pvp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Zfm-gi-rGG" secondAttribute="bottom" constant="20" id="V0g-YX-a4k"/>
+                            <constraint firstItem="8LP-Vu-A29" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wbk-Ny-xmk"/>
+                            <constraint firstItem="QSE-vi-3ba" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ZqL-EH-yky"/>
+                            <constraint firstItem="Zfm-gi-rGG" firstAttribute="top" secondItem="QSE-vi-3ba" secondAttribute="bottom" constant="21" id="hBq-UA-Iil"/>
+                            <constraint firstItem="8UW-OC-s4I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="k4s-ii-V9r"/>
+                            <constraint firstItem="8UW-OC-s4I" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-599" id="p3x-kx-Do0"/>
+                            <constraint firstItem="8LP-Vu-A29" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="85" id="smU-lO-tW9"/>
+                            <constraint firstItem="8UW-OC-s4I" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="xQH-sa-W7c"/>
+                            <constraint firstItem="Zfm-gi-rGG" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-123" id="zzp-86-IMW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="scalarView" destination="8LP-Vu-A29" id="AU0-6q-RWI"/>
+                        <outlet property="weightLabel" destination="QSE-vi-3ba" id="5zO-Jd-wrs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="118.29085457271366"/>
+        </scene>
+    </scenes>
+</document>
