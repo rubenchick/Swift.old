@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailThingViewController: UIViewController {
     var thing : ThingToDo?
+    var lenght: Int?
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var noteTextField: UITextField!
@@ -24,7 +26,9 @@ class DetailThingViewController: UIViewController {
 
     
     @IBAction func pressSaveButton(_ sender: Any) {
+        print("SAVED___________________++++++++++++++++++__________________")
         if saveThing() {
+            CoreDataManager.instance.saveContext()
             dismiss(animated: true, completion: nil)
         }
     }
@@ -32,6 +36,7 @@ class DetailThingViewController: UIViewController {
     @IBAction func pressBackButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
+    
     func saveThing() -> Bool {
         if thing == nil {
             thing = ThingToDo()
@@ -45,7 +50,14 @@ class DetailThingViewController: UIViewController {
         } else {
             thing?.name = nameTextField.text
             thing?.note = noteTextField.text
-            CoreDataManager.instance.saveContext()
+//            if let historyLenght = lenght {
+//                thing?.priority = NSDecimalNumber(value: historyLenght)
+//            }
+//            let history = History()
+//            history.date = Date() as NSDate
+//            history.isDone = false
+//            history.thingToDo = thing
+//            CoreDataManager.instance.saveContext()
             return true
         }
     }

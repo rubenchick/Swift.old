@@ -12,7 +12,7 @@ import CoreData
 class ViewController: UIViewController, NSFetchedResultsControllerDelegate {
     var fetchRequestThingToDo = CoreDataManager.instance.fetchedResultsController(entityName: "ThingToDo", keyForSort: "priority")
     var fetchRequestHistory = CoreDataManager.instance.fetchedResultsController(entityName: "History", keyForSort: "date")
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchRequestHistory.delegate = self
@@ -32,6 +32,16 @@ class ViewController: UIViewController, NSFetchedResultsControllerDelegate {
 //        print("It is work")
   
     }
+    
+    @IBAction func newItemThingToGo(_ sender: UIButton) {
+        print("SaveNewRecords")
+        let thing = ThingToDo()
+        thing.name = "Other Way"
+        thing.priority = 50
+        thing.note = "Second line"
+        CoreDataManager.instance.saveContext()
+        
+    }
     @IBAction func movedButton(_ sender: UIButton) {
         let result = fetchRequestThingToDo.fetchedObjects as! [ThingToDo]
         for thing in result {
@@ -47,11 +57,14 @@ class ViewController: UIViewController, NSFetchedResultsControllerDelegate {
     }
     
     @IBAction func addNewThingButton(_ sender: UIButton) {
-                let item = ThingToDo()
-                item.name = "Clean my teeth"
-                item.isActual = false
-                item.priority = 60
-                CoreDataManager.instance.saveContext()
+//                let item = ThingToDo()
+//                item.name = "Clean my teeth"
+//                item.isActual = false
+//                item.priority = 60
+//                CoreDataManager.instance.saveContext()
+        // reinstall button
+        print("Count ThingToDo- \(String(describing: fetchRequestThingToDo.fetchedObjects?.count))")
+
     }
     
     @IBAction func pressDeleteItemsInHistory(_ sender: UIButton) {
@@ -67,8 +80,7 @@ class ViewController: UIViewController, NSFetchedResultsControllerDelegate {
     }
     
     @IBAction func fetchHowManyCountInHistory(_ sender: UIButton) {
-        print("Count - \(String(describing: fetchRequestHistory.fetchedObjects?.count))")
-        print("Count is work")
+        print("Count History- \(String(describing: fetchRequestHistory.fetchedObjects?.count))")
     }
     
     @IBAction func changeDate(_ sender: UIButton) {

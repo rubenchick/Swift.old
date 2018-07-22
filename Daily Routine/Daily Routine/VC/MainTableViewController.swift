@@ -11,25 +11,25 @@ import CoreData
 
 class MainTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, MainTableViewCellDelegate {
 //    var fetchRequest = CoreDataManager.instance.fetchedResultsController(entityName: "History", keyForSort: "thingToDo.priority")
-    var fetchRequest = History.fetchedResults()
+    var fetchRequest = History.fetchedResultsToday()
     var fetchRequestIsActual = ThingToDo.fetchedResultsIsActual()
     
     let identifierCell = "mainCell"
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .lightContent
         UIApplication.shared.statusBarView?.backgroundColor = .black
         tableView.tableFooterView = UIView()
-   
+        tableView.reloadData()
+        checkDateInToday()
+        
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
+//        self.navigationItem.rightBarButtonItem = self.editButtonItem
         fetchRequestIsActual.delegate = self
         
         do {
@@ -37,9 +37,7 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
         } catch {
             print(error)
         }
-        checkDateInToday()
         
-//        self.navigationItem.rightBarButtonItem = self.editButtonItem
         fetchRequest.delegate = self
         do {
             try fetchRequest.performFetch()
@@ -50,7 +48,7 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
     // MARK:  Add Function
     func checkDateInToday() {
         //#needAdd
-        // Доработать
+        // Доработать дата должна быть согласно локации
 //        var calendar = Calendar.current
 //        calendar.timeZone = NSTimeZone.local
 //        let dayToday = calendar.startOfDay(for: Date())
@@ -125,7 +123,7 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
             let formatter = DateFormatter()
             formatter.timeStyle = .none
             formatter.dateStyle = .short
-            let newData = Thing(name: (todayThing.thingToDo?.name)! + " \(formatter.string(from: todayThing.date as! Date))",
+            let newData = Thing(name: (todayThing.thingToDo?.name)! + " \(formatter.string(from: todayThing.date! as Date))",
                                 note: "any text", isActual: todayThing.isDone)
             cell.getData(item: newData)
             cell.delegate = self
@@ -142,59 +140,61 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath)
     }
-    
+    //MARK: Delegate for change data
     func didTappedSwitchCell(cell: MainTableViewCell) {
         let indexPath = tableView.indexPath(for: cell)
         let thing = fetchRequest.object(at: indexPath!) as! History
         thing.isDone = cell.isActualSwitch.isOn
         CoreDataManager.instance.saveContext()
-        
-//        print(indexPath,cell.isActualSwitch.isOn)
     }
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-        return true
+    //MARK: Delegate for editing Table
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
     }
-    */
-
-    /*
-    // Override to support editing the table view.
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+//        switch type {
+//        case .insert:
+//            if let indexPath = newIndexPath {
+//                tableView.insertRows(at: [indexPath], with: .automatic)
+//            }
+//        case .update:
+//            if let indexPath = indexPath {
+//                let history = fetchRequest.object(at: indexPath) as! History
+//                let cell = tableView.dequeueReusableCell(withIdentifier: identifierCell, for: indexPath) as? MainTableViewCell
+//
+//                let formatter = DateFormatter()
+//                formatter.timeStyle = .none
+//                formatter.dateStyle = .short
+//                let newData = Thing(name: (history.thingToDo?.name)! + " \(formatter.string(from: history.date! as Date))",
+//                    note: "any text", isActual: history.isDone)
+//                cell?.getData(item: newData)
+//
+//
+//            }
+//        case .move:
+//            if let indexPath = indexPath {
+//                tableView.deleteRows(at: [indexPath], with: .automatic)
+//            }
+//            if let newIndexPath = newIndexPath {
+//                tableView.insertRows(at: [newIndexPath], with: .fade)
+//            }
+//        case .delete:
+//            if let indexPath = indexPath {
+//                tableView.deleteRows(at: [indexPath], with: .automatic)
+//            }
+//        }
+    }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+//        if editingStyle == .delete {
+//            let managedObject = fetchRequest.object(at: indexPath) as! NSManagedObject
+//            CoreDataManager.instance.persistentContainer.viewContext.delete(managedObject)
+//            CoreDataManager.instance.saveContext()
+//        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
