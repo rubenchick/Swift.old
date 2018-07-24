@@ -11,6 +11,18 @@
 		CA2DDC092103336A00CD7123 /* SecondThingToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2DDC082103336A00CD7123 /* SecondThingToDoTableViewController.swift */; };
 		CA2DDC0B2103391B00CD7123 /* SecondDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2DDC0A2103391B00CD7123 /* SecondDetailViewController.swift */; };
 		CA2DDC0F2103945100CD7123 /* SecondTodayHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2DDC0E2103945100CD7123 /* SecondTodayHistoryTableViewCell.swift */; };
+		CA6BB9542104DDA200FD0710 /* iconToDo120_.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6BB9472104DDA000FD0710 /* iconToDo120_.png */; };
+		CA6BB9552104DDA200FD0710 /* iconToDo180_.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6BB9482104DDA000FD0710 /* iconToDo180_.png */; };
+		CA6BB9562104DDA200FD0710 /* iconToDo40_.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6BB9492104DDA000FD0710 /* iconToDo40_.png */; };
+		CA6BB9572104DDA200FD0710 /* iconToDo152_.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6BB94A2104DDA100FD0710 /* iconToDo152_.png */; };
+		CA6BB9582104DDA200FD0710 /* iconToDo167_.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6BB94B2104DDA100FD0710 /* iconToDo167_.png */; };
+		CA6BB9592104DDA200FD0710 /* iconToDo20_.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6BB94C2104DDA100FD0710 /* iconToDo20_.png */; };
+		CA6BB95B2104DDA200FD0710 /* iconToDo29_.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6BB94E2104DDA100FD0710 /* iconToDo29_.png */; };
+		CA6BB95C2104DDA200FD0710 /* iconToDo58_.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6BB94F2104DDA100FD0710 /* iconToDo58_.png */; };
+		CA6BB95D2104DDA200FD0710 /* iconToDo76_.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6BB9502104DDA200FD0710 /* iconToDo76_.png */; };
+		CA6BB95E2104DDA200FD0710 /* iconToDo60_.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6BB9512104DDA200FD0710 /* iconToDo60_.png */; };
+		CA6BB95F2104DDA200FD0710 /* iconToDo87_.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6BB9522104DDA200FD0710 /* iconToDo87_.png */; };
+		CA6BB9602104DDA200FD0710 /* iconToDo80_.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6BB9532104DDA200FD0710 /* iconToDo80_.png */; };
 		CA6CEDCC20FB583900C4374F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CEDCB20FB583900C4374F /* AppDelegate.swift */; };
 		CA6CEDCE20FB583900C4374F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CEDCD20FB583900C4374F /* ViewController.swift */; };
 		CA6CEDD120FB583900C4374F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6CEDCF20FB583900C4374F /* Main.storyboard */; };
@@ -26,11 +38,7 @@
 		CA6CEE0F20FB65D500C4374F /* ThingToDo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CEDFF20FB65C100C4374F /* ThingToDo+CoreDataClass.swift */; };
 		CA6CEE1020FB65D500C4374F /* ThingToDo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CEE0020FB65C100C4374F /* ThingToDo+CoreDataProperties.swift */; };
 		CA6CEE7320FCB5C800C4374F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CEE7220FCB5C800C4374F /* CoreDataManager.swift */; };
-		CA6CEE7520FCF8D100C4374F /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CEE7420FCF8D100C4374F /* MainTableViewController.swift */; };
 		CA6CEE7820FE24F800C4374F /* ModelDailyRoutineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CEE7720FE24F800C4374F /* ModelDailyRoutineCell.swift */; };
-		CA6CEE7A20FE262700C4374F /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CEE7920FE262700C4374F /* MainTableViewCell.swift */; };
-		CA6CEE7C20FE794700C4374F /* PatternTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CEE7B20FE794700C4374F /* PatternTableViewController.swift */; };
-		CA6CEE7E20FF086600C4374F /* DetailThingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CEE7D20FF086600C4374F /* DetailThingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +46,18 @@
 		CA2DDC082103336A00CD7123 /* SecondThingToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondThingToDoTableViewController.swift; sourceTree = "<group>"; };
 		CA2DDC0A2103391B00CD7123 /* SecondDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondDetailViewController.swift; sourceTree = "<group>"; };
 		CA2DDC0E2103945100CD7123 /* SecondTodayHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTodayHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		CA6BB9472104DDA000FD0710 /* iconToDo120_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconToDo120_.png; sourceTree = "<group>"; };
+		CA6BB9482104DDA000FD0710 /* iconToDo180_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconToDo180_.png; sourceTree = "<group>"; };
+		CA6BB9492104DDA000FD0710 /* iconToDo40_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconToDo40_.png; sourceTree = "<group>"; };
+		CA6BB94A2104DDA100FD0710 /* iconToDo152_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconToDo152_.png; sourceTree = "<group>"; };
+		CA6BB94B2104DDA100FD0710 /* iconToDo167_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconToDo167_.png; sourceTree = "<group>"; };
+		CA6BB94C2104DDA100FD0710 /* iconToDo20_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconToDo20_.png; sourceTree = "<group>"; };
+		CA6BB94E2104DDA100FD0710 /* iconToDo29_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconToDo29_.png; sourceTree = "<group>"; };
+		CA6BB94F2104DDA100FD0710 /* iconToDo58_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconToDo58_.png; sourceTree = "<group>"; };
+		CA6BB9502104DDA200FD0710 /* iconToDo76_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconToDo76_.png; sourceTree = "<group>"; };
+		CA6BB9512104DDA200FD0710 /* iconToDo60_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconToDo60_.png; sourceTree = "<group>"; };
+		CA6BB9522104DDA200FD0710 /* iconToDo87_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconToDo87_.png; sourceTree = "<group>"; };
+		CA6BB9532104DDA200FD0710 /* iconToDo80_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconToDo80_.png; sourceTree = "<group>"; };
 		CA6CEDC820FB583900C4374F /* Daily Routine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Daily Routine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6CEDCB20FB583900C4374F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA6CEDCD20FB583900C4374F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,11 +75,7 @@
 		CA6CEDFF20FB65C100C4374F /* ThingToDo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ThingToDo+CoreDataClass.swift"; path = "Entity/ThingToDo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CA6CEE0020FB65C100C4374F /* ThingToDo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ThingToDo+CoreDataProperties.swift"; path = "Entity/ThingToDo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CA6CEE7220FCB5C800C4374F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		CA6CEE7420FCF8D100C4374F /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		CA6CEE7720FE24F800C4374F /* ModelDailyRoutineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDailyRoutineCell.swift; sourceTree = "<group>"; };
-		CA6CEE7920FE262700C4374F /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
-		CA6CEE7B20FE794700C4374F /* PatternTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternTableViewController.swift; sourceTree = "<group>"; };
-		CA6CEE7D20FF086600C4374F /* DetailThingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailThingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,20 +89,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CA2DDC0521032FBC00CD7123 /* VC2 */ = {
+		CA2DDC0521032FBC00CD7123 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CA6CEDCD20FB583900C4374F /* ViewController.swift */,
 				CA2DDC062103300E00CD7123 /* SecondTodayHistoryTableViewController.swift */,
 				CA2DDC082103336A00CD7123 /* SecondThingToDoTableViewController.swift */,
 				CA2DDC0E2103945100CD7123 /* SecondTodayHistoryTableViewCell.swift */,
 				CA2DDC0A2103391B00CD7123 /* SecondDetailViewController.swift */,
 			);
-			path = VC2;
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CA6BB9462104DD6F00FD0710 /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				CA6BB94C2104DDA100FD0710 /* iconToDo20_.png */,
+				CA6BB94E2104DDA100FD0710 /* iconToDo29_.png */,
+				CA6BB9492104DDA000FD0710 /* iconToDo40_.png */,
+				CA6BB94F2104DDA100FD0710 /* iconToDo58_.png */,
+				CA6BB9512104DDA200FD0710 /* iconToDo60_.png */,
+				CA6BB9502104DDA200FD0710 /* iconToDo76_.png */,
+				CA6BB9532104DDA200FD0710 /* iconToDo80_.png */,
+				CA6BB9522104DDA200FD0710 /* iconToDo87_.png */,
+				CA6BB9472104DDA000FD0710 /* iconToDo120_.png */,
+				CA6BB94A2104DDA100FD0710 /* iconToDo152_.png */,
+				CA6BB94B2104DDA100FD0710 /* iconToDo167_.png */,
+				CA6BB9482104DDA000FD0710 /* iconToDo180_.png */,
+			);
+			name = Icon;
 			sourceTree = "<group>";
 		};
 		CA6CEDBF20FB583900C4374F = {
 			isa = PBXGroup;
 			children = (
+				CA6BB9462104DD6F00FD0710 /* Icon */,
 				CA6CEDF020FB650B00C4374F /* Entity */,
 				CA6CEDCA20FB583900C4374F /* Daily Routine */,
 				CA6CEDC920FB583900C4374F /* Products */,
@@ -107,8 +144,7 @@
 				CA6CEDCB20FB583900C4374F /* AppDelegate.swift */,
 				CA6CEE7220FCB5C800C4374F /* CoreDataManager.swift */,
 				CA6CEE7720FE24F800C4374F /* ModelDailyRoutineCell.swift */,
-				CA6CEE7620FCF8E400C4374F /* VC */,
-				CA2DDC0521032FBC00CD7123 /* VC2 */,
+				CA2DDC0521032FBC00CD7123 /* ViewControllers */,
 				CA6CEDCF20FB583900C4374F /* Main.storyboard */,
 				CA6CEDD520FB583E00C4374F /* Assets.xcassets */,
 				CA6CEDD720FB583E00C4374F /* LaunchScreen.storyboard */,
@@ -131,18 +167,6 @@
 				CA6CEE0020FB65C100C4374F /* ThingToDo+CoreDataProperties.swift */,
 			);
 			name = Entity;
-			sourceTree = "<group>";
-		};
-		CA6CEE7620FCF8E400C4374F /* VC */ = {
-			isa = PBXGroup;
-			children = (
-				CA6CEDCD20FB583900C4374F /* ViewController.swift */,
-				CA6CEE7420FCF8D100C4374F /* MainTableViewController.swift */,
-				CA6CEE7920FE262700C4374F /* MainTableViewCell.swift */,
-				CA6CEE7B20FE794700C4374F /* PatternTableViewController.swift */,
-				CA6CEE7D20FF086600C4374F /* DetailThingViewController.swift */,
-			);
-			path = VC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,9 +227,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA6BB95E2104DDA200FD0710 /* iconToDo60_.png in Resources */,
+				CA6BB9542104DDA200FD0710 /* iconToDo120_.png in Resources */,
+				CA6BB95F2104DDA200FD0710 /* iconToDo87_.png in Resources */,
 				CA6CEDD920FB583E00C4374F /* LaunchScreen.storyboard in Resources */,
+				CA6BB95D2104DDA200FD0710 /* iconToDo76_.png in Resources */,
+				CA6BB9572104DDA200FD0710 /* iconToDo152_.png in Resources */,
 				CA6CEDD620FB583E00C4374F /* Assets.xcassets in Resources */,
 				CA6CEDD120FB583900C4374F /* Main.storyboard in Resources */,
+				CA6BB9602104DDA200FD0710 /* iconToDo80_.png in Resources */,
+				CA6BB9592104DDA200FD0710 /* iconToDo20_.png in Resources */,
+				CA6BB9562104DDA200FD0710 /* iconToDo40_.png in Resources */,
+				CA6BB9552104DDA200FD0710 /* iconToDo180_.png in Resources */,
+				CA6BB9582104DDA200FD0710 /* iconToDo167_.png in Resources */,
+				CA6BB95C2104DDA200FD0710 /* iconToDo58_.png in Resources */,
+				CA6BB95B2104DDA200FD0710 /* iconToDo29_.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,13 +252,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA6CEE7C20FE794700C4374F /* PatternTableViewController.swift in Sources */,
-				CA6CEE7E20FF086600C4374F /* DetailThingViewController.swift in Sources */,
 				CA6CEE0920FB65D500C4374F /* History+CoreDataClass.swift in Sources */,
-				CA6CEE7520FCF8D100C4374F /* MainTableViewController.swift in Sources */,
 				CA6CEE0B20FB65D500C4374F /* Week+CoreDataClass.swift in Sources */,
 				CA6CEDCE20FB583900C4374F /* ViewController.swift in Sources */,
-				CA6CEE7A20FE262700C4374F /* MainTableViewCell.swift in Sources */,
 				CA6CEDD420FB583900C4374F /* Daily_Routine.xcdatamodeld in Sources */,
 				CA2DDC072103300E00CD7123 /* SecondTodayHistoryTableViewController.swift in Sources */,
 				CA2DDC092103336A00CD7123 /* SecondThingToDoTableViewController.swift in Sources */,

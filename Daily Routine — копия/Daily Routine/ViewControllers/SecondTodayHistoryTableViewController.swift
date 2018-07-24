@@ -20,6 +20,7 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
     var array : [ThingToDo] = []
   
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         checkDateInToday()
 //        setOrder() // need for record same priority because they don't everyday show
         fetchRequest.delegate = self
@@ -30,6 +31,10 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
             print(error)
         }
         tableView.reloadData()
+        UIApplication.shared.statusBarStyle = .lightContent
+        UIApplication.shared.statusBarView?.backgroundColor = .black
+
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -46,7 +51,7 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
 //        } catch {
 //            print(error)
 //        }
-
+        tableView.tableFooterView = UIView()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
         tap.numberOfTapsRequired = 2
@@ -83,9 +88,13 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
             let formatter = DateFormatter()
             formatter.timeStyle = .none
             formatter.dateStyle = .short
-            let newData = Thing(name: (todayThing.thingToDo?.name)! + " \(formatter.string(from: todayThing.date! as Date))",
-                note: (todayThing.thingToDo?.note)!, isActual: todayThing.isDone)
+            let newData = Thing(name: (todayThing.thingToDo?.name)!, note: (todayThing.thingToDo?.note)!, isActual: todayThing.isDone)
             cell.getData(item: newData)
+            if todayThing.thingToDo?.note == "" {
+                cell.nameLabel.frame = CGRect(x: Int(cell.nameLabel.frame.minX), y: 15, width: Int(cell.nameLabel.frame.width), height: Int(cell.nameLabel.frame.height))
+            }
+
+            // Hidden Switch, if edit styli is ON
             if tableView.isEditing {
                 cell.isActualSwitch.isHidden = true
                 
@@ -265,10 +274,13 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
     }
     
     //MARK: Move to other page
-    @IBAction func addButton(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: identifierSegue, sender: nil)
+//    @IBAction func addButton(_ sender: UIBarButtonItem) {
+//        performSegue(withIdentifier: identifierSegue, sender: nil)
+//    }
+    @IBAction func addNewThingButton(_ sender: UIButton) {
+         performSegue(withIdentifier: identifierSegue, sender: nil)
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == identifierSegue {
             let controller = segue.destination as! SecondDetailViewController
@@ -295,7 +307,7 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
         //        calendar.timeZone = NSTimeZone.local
         //        let dayToday = calendar.startOfDay(for: Date())
         
-        
+        // Don't DELETE!!!
         //        // add yesterday day for testing
 //                let dayToday = Date()
 //                let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: dayToday)
@@ -307,6 +319,8 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
         var savedDate = Date()
         if UserDefaults.standard.value(forKey: "dateToday") != nil {
             savedDate = UserDefaults.standard.value(forKey: "dateToday") as! Date
+        } else {
+           UserDefaults.standard.set(savedDate, forKey: "dateToday")
         }
 
         // check date in User with today()

@@ -1,19 +1,20 @@
 //
-//  MainTableViewCell.swift
+//  SecondTodayHistoryTableViewCell.swift
 //  Daily Routine
 //
-//  Created by Anton Rubenchik on 17.07.2018.
+//  Created by Anton Rubenchik on 21.07.2018.
 //  Copyright © 2018 Anton Rubenchik. All rights reserved.
 //
 
 import UIKit
-protocol MainTableViewCellDelegate {
-    func didTappedSwitchCell(cell: MainTableViewCell)
+protocol SecondMainTableViewCellDelegate {
+    func didTappedSwitchCell(cell: SecondTodayHistoryTableViewCell)
 }
 
-class MainTableViewCell: UITableViewCell {
-    var delegate: MainTableViewCellDelegate!
-    @IBOutlet weak var nameCell: UILabel!
+class SecondTodayHistoryTableViewCell: UITableViewCell {
+    var delegate: SecondMainTableViewCellDelegate!
+    
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var isActualSwitch: UISwitch!
     override func awakeFromNib() {
@@ -27,12 +28,12 @@ class MainTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     public func getData(item: Thing) {
-        nameCell.text = item.name
+        nameLabel.text = item.name
         noteLabel.text = item.note
         isActualSwitch.isOn = item.isActual
+        nameLabel.frame.size = CGSize(width: self.frame.width - 100, height: nameLabel.frame.height)
     }
-    
-    @IBAction func tappedSwitch(_ sender: UISwitch) {
+    @IBAction func isDoneSwitch(_ sender: UISwitch) {
         delegate.didTappedSwitchCell(cell: self)
     }
 }

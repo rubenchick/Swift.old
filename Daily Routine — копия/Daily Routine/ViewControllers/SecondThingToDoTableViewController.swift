@@ -17,6 +17,7 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
     var array : [ThingToDo] = []
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableView.reloadData()
         // ??????? not test it
 //        setOrder() // need for record same priority because they don't everyday show
@@ -24,6 +25,7 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
     
     override func viewWillDisappear(_ animated: Bool) {
         setOrder()
+        
     }
     
     override func viewDidLoad() {
@@ -39,6 +41,7 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
         let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
         tap.numberOfTapsRequired = 2
         view.addGestureRecognizer(tap)
+       
     }
     
     
@@ -65,7 +68,8 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifierCell, for: indexPath)
         if let thingToDo = fetchRequest.object(at: indexPath) as? ThingToDo {
-            cell.textLabel?.text = thingToDo.name! + " \(String(describing: thingToDo.priority))"
+            cell.textLabel?.text = thingToDo.name!// + " \(String(describing: thingToDo.priority))"
+            cell.detailTextLabel?.text = thingToDo.note
         }
         
         return cell
@@ -77,10 +81,10 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
             performSegue(withIdentifier: identifierSegue, sender: thing)
         }
     }
-    @IBAction func addButton(_ sender: UIBarButtonItem) {
+    
+    @IBAction func addNewThingToDoButton(_ sender: UIButton) {
         performSegue(withIdentifier: identifierSegue, sender: nil)
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == identifierSegue {
             let controller = segue.destination as! SecondDetailViewController
@@ -155,9 +159,9 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
 
         if let temp = fetchRequest.fetchedObjects as? [ThingToDo] {
             if temp.count < 2 {
-                if temp.count == 1 {
-                    array[0].priority = 0
-                }
+//                if temp.count == 1 {
+//                    array[0].priority = 0
+//                }
             } else {
                 array = temp
                 array[0].priority = 0
