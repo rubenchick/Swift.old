@@ -79,129 +79,55 @@
                                     <action selector="newItemThingToGo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rw8-VU-KuY"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wEn-DX-5BC">
-                                <rect key="frame" x="33" y="335" width="318" height="328"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOx-Ok-UUd">
+                                <rect key="frame" x="92" y="95" width="190" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Weekly"/>
+                                <connections>
+                                    <action selector="anyTimesButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cvf-Nk-UuN"/>
+                                </connections>
+                            </button>
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DuP-Vq-hp2">
+                                <rect key="frame" x="33" y="143" width="326" height="297"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Укажите сколько раз в день будет выполняться " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8g-TK-nw1">
-                                        <rect key="frame" x="44" y="17" width="231" height="67"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWZ-VE-Hjy">
+                                        <rect key="frame" x="136" y="246" width="57" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Готово"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Укажите по какие дням" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Uc-CO-Xre">
+                                        <rect key="frame" x="69" y="8" width="188" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <pickerView contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dEe-lJ-x8R">
-                                        <rect key="frame" x="96" y="75" width="126" height="89"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    </pickerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Добавить информацию в описание" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ep6-SS-3cl">
-                                        <rect key="frame" x="31" y="167" width="273" height="21"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eH-GJ-Leb">
+                                        <rect key="frame" x="34" y="124" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wKF-EZ-4X6">
-                                        <rect key="frame" x="257" y="196" width="49" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </switch>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7h-fq-e73">
-                                        <rect key="frame" x="135" y="290" width="48" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Готово"/>
+                                        <state key="normal" title="Пн"/>
+                                        <connections>
+                                            <action selector="pressMoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="978-BK-tHi"/>
+                                        </connections>
                                     </button>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="a7A-fh-95f">
-                                        <rect key="frame" x="257" y="235" width="49" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Время выполнения (напр. &quot;в обед&quot;)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbx-3B-6hJ">
-                                        <rect key="frame" x="25" y="242" width="225" height="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Порядковый номер (напр. &quot;1 раз&quot;)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Y5-BC-Udy">
-                                        <rect key="frame" x="25" y="203" width="217" height="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="a6x-8i-MKt">
-                                <rect key="frame" x="34" y="231" width="318" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Нет"/>
-                                    <segment title="Номер"/>
-                                    <segment title="Время"/>
-                                </segments>
-                            </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOx-Ok-UUd">
-                                <rect key="frame" x="92" y="95" width="190" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="Any times"/>
-                                <connections>
-                                    <action selector="anyTimesButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cvf-Nk-UuN"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Сколько раз в день" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKQ-lZ-zJG">
-                                <rect key="frame" x="33" y="146" width="154" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="qCb-za-nRI">
-                                <rect key="frame" x="257" y="142" width="94" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="changeCountTimes:" destination="BYZ-38-t0r" eventType="valueChanged" id="Vea-hG-F97"/>
-                                </connections>
-                            </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Добавить информацию в описание" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dg4-Z1-6aE">
-                                <rect key="frame" x="34" y="189" width="253" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Добавить информацию в описание" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5S-uN-wIg">
-                                <rect key="frame" x="33" y="189" width="253" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="paP-To-ka4">
-                                <rect key="frame" x="195" y="142" width="54" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="addInfoLabel" destination="Dg4-Z1-6aE" id="nBC-sw-TC0"/>
-                        <outlet property="addInfoToNote" destination="a6x-8i-MKt" id="97a-UG-Ox4"/>
-                        <outlet property="anyTimesView" destination="wEn-DX-5BC" id="Fe2-nH-xqE"/>
-                        <outlet property="countTimesStepper" destination="qCb-za-nRI" id="mVg-r1-CRI"/>
-                        <outlet property="countTimesTextField" destination="paP-To-ka4" id="K32-Gb-H3E"/>
+                        <outlet property="moButton" destination="6eH-GJ-Leb" id="FkB-Sh-MdV"/>
+                        <outlet property="weeklyView" destination="DuP-Vq-hp2" id="EhB-FR-vPu"/>
+                        <outlet property="workLabel" destination="2iq-uG-TZd" id="7oa-Nu-MIs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4586" y="1036"/>
+            <point key="canvasLocation" x="4584.8000000000002" y="1035.832083958021"/>
         </scene>
         <!--Second Today History Table View Controller-->
         <scene sceneID="OwO-8F-Fn9">
@@ -507,8 +433,8 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Несколько раз в неделю" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhJ-5Q-OtR">
-                                <rect key="frame" x="11" y="415" width="224" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Несколько раз в неделю" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhJ-5Q-OtR">
+                                <rect key="frame" x="11" y="415" width="236" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -523,16 +449,25 @@
                                 <rect key="frame" x="305" y="365" width="51" height="31"/>
                                 <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="onTintColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="actionDailySwitch:" destination="BzR-ak-gyb" eventType="valueChanged" id="eAH-rX-AQb"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="icw-Pb-vf8">
                                 <rect key="frame" x="305" y="412" width="51" height="31"/>
                                 <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="onTintColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="actionWeeklySwitch:" destination="BzR-ak-gyb" eventType="valueChanged" id="WdX-R4-dm4"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tie-cv-M1a">
                                 <rect key="frame" x="305" y="459" width="51" height="31"/>
                                 <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="onTintColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="actionMonthlySwitch:" destination="BzR-ak-gyb" eventType="valueChanged" id="kbs-oE-VpH"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Несколько раз в месяц" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yw-RX-002">
                                 <rect key="frame" x="11" y="462" width="211" height="24"/>
@@ -551,6 +486,39 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WS-Hs-dnQ">
+                                <rect key="frame" x="24" y="139" width="326" height="218"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ph-M4-zzm">
+                                        <rect key="frame" x="135" y="168" width="57" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Готово">
+                                            <color key="titleColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="readyWeeklyViewButton:" destination="BzR-ak-gyb" eventType="touchUpInside" id="cNZ-xm-wCf"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Укажите в какие дни ставить задачу" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yl3-JN-xgF">
+                                        <rect key="frame" x="55" y="31" width="217" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="217" id="6Tm-YX-7hk"/>
+                                            <constraint firstAttribute="height" constant="50" id="Qvb-Yv-0cN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Yl3-JN-xgF" firstAttribute="top" secondItem="1WS-Hs-dnQ" secondAttribute="top" constant="31" id="ILI-or-FKY"/>
+                                    <constraint firstItem="7Ph-M4-zzm" firstAttribute="centerX" secondItem="1WS-Hs-dnQ" secondAttribute="centerX" id="MdG-Ri-vbB"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Ph-M4-zzm" secondAttribute="bottom" constant="16" id="R0z-fx-AiN"/>
+                                    <constraint firstItem="Yl3-JN-xgF" firstAttribute="centerX" secondItem="1WS-Hs-dnQ" secondAttribute="centerX" constant="0.5" id="YRr-MB-OFk"/>
+                                    <constraint firstAttribute="height" constant="218" id="e4c-uT-URR"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.098039215690000001" green="0.1333333333" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -559,6 +527,7 @@
                             <constraint firstItem="i37-DR-DAI" firstAttribute="leading" secondItem="uiL-TT-xFv" secondAttribute="leading" constant="11" id="3i2-eq-oAL"/>
                             <constraint firstItem="7QR-qg-TX1" firstAttribute="centerY" secondItem="rt3-ew-9Fj" secondAttribute="centerY" id="5f1-Q5-UFt"/>
                             <constraint firstItem="LUY-V0-8mj" firstAttribute="top" secondItem="0ls-cw-SwX" secondAttribute="bottom" constant="19" id="69W-vC-4ze"/>
+                            <constraint firstItem="uiL-TT-xFv" firstAttribute="trailing" secondItem="1WS-Hs-dnQ" secondAttribute="trailing" constant="25" id="7kz-AO-gMW"/>
                             <constraint firstItem="uiL-TT-xFv" firstAttribute="trailing" secondItem="tie-cv-M1a" secondAttribute="trailing" constant="21" id="7xR-Hh-Oce"/>
                             <constraint firstItem="uiL-TT-xFv" firstAttribute="trailing" secondItem="Wca-3k-37f" secondAttribute="trailing" constant="21" id="91S-ch-Mud"/>
                             <constraint firstItem="3Yw-RX-002" firstAttribute="leading" secondItem="uiL-TT-xFv" secondAttribute="leading" constant="11" id="9VA-Ei-uBw"/>
@@ -576,6 +545,7 @@
                             <constraint firstItem="G99-PY-7bB" firstAttribute="centerY" secondItem="Wca-3k-37f" secondAttribute="centerY" id="VBt-qv-0Pv"/>
                             <constraint firstItem="uiL-TT-xFv" firstAttribute="trailing" secondItem="icw-Pb-vf8" secondAttribute="trailing" constant="21" id="Wws-O7-V6Q"/>
                             <constraint firstItem="uiL-TT-xFv" firstAttribute="trailing" secondItem="M3e-4Y-uMD" secondAttribute="trailing" constant="16" id="XCU-qM-NnE"/>
+                            <constraint firstItem="1WS-Hs-dnQ" firstAttribute="leading" secondItem="uiL-TT-xFv" secondAttribute="leading" constant="24" id="XdW-CC-j4x"/>
                             <constraint firstItem="Wca-3k-37f" firstAttribute="top" secondItem="M3e-4Y-uMD" secondAttribute="bottom" constant="30" id="b3H-sA-BmK"/>
                             <constraint firstItem="Pun-Rb-cuY" firstAttribute="leading" secondItem="LUY-V0-8mj" secondAttribute="trailing" constant="8" id="bFC-Xl-Ujs"/>
                             <constraint firstItem="qb8-GM-Ux7" firstAttribute="top" secondItem="0ls-cw-SwX" secondAttribute="bottom" constant="16" id="bFh-Tn-PRD"/>
@@ -588,6 +558,7 @@
                             <constraint firstItem="uiL-TT-xFv" firstAttribute="trailing" secondItem="k4K-VY-Mct" secondAttribute="trailing" constant="16" id="ioG-Di-ofI"/>
                             <constraint firstItem="PhJ-5Q-OtR" firstAttribute="leading" secondItem="uiL-TT-xFv" secondAttribute="leading" constant="11" id="kF1-2I-92H"/>
                             <constraint firstItem="eZh-TT-qcy" firstAttribute="leading" secondItem="uiL-TT-xFv" secondAttribute="leading" constant="11" id="n7B-xA-3Do"/>
+                            <constraint firstItem="1WS-Hs-dnQ" firstAttribute="top" secondItem="uiL-TT-xFv" secondAttribute="top" constant="119" id="nW1-qq-eoS"/>
                             <constraint firstItem="uiL-TT-xFv" firstAttribute="trailing" secondItem="qb8-GM-Ux7" secondAttribute="trailing" constant="16" id="oHE-2n-2zP"/>
                             <constraint firstItem="uiL-TT-xFv" firstAttribute="trailing" secondItem="i37-DR-DAI" secondAttribute="trailing" constant="21" id="pEK-Xk-DTz"/>
                             <constraint firstItem="M3e-4Y-uMD" firstAttribute="top" secondItem="i37-DR-DAI" secondAttribute="bottom" constant="16" id="pvi-WY-oEr"/>
@@ -603,9 +574,18 @@
                         <outlet property="addInfoToNoteLabel" destination="i37-DR-DAI" id="lmA-pL-ER4"/>
                         <outlet property="countTimesStepperOutlet" destination="qb8-GM-Ux7" id="AgX-ds-TEb"/>
                         <outlet property="countTimesTextField" destination="Pun-Rb-cuY" id="ZaT-zy-3fm"/>
+                        <outlet property="dailySwitch" destination="Wca-3k-37f" id="8bB-Up-Jhe"/>
                         <outlet property="infoToNoteSegmentControl" destination="M3e-4Y-uMD" id="6iK-Ns-x09"/>
+                        <outlet property="monthlyLabel" destination="3Yw-RX-002" id="KvR-7X-q4Z"/>
+                        <outlet property="monthlySwitch" destination="tie-cv-M1a" id="f9B-Uz-Crh"/>
                         <outlet property="nameTextField" destination="k4K-VY-Mct" id="FDw-JR-whF"/>
                         <outlet property="noteTExtField" destination="0ls-cw-SwX" id="aO2-dG-in3"/>
+                        <outlet property="notificationSwitch" destination="rt3-ew-9Fj" id="Eu9-Kb-nFZ"/>
+                        <outlet property="pressCancelButton" destination="2Xq-ch-utU" id="azs-Io-I2P"/>
+                        <outlet property="pressSaveButton" destination="mrC-Vl-k92" id="iUY-wx-vdp"/>
+                        <outlet property="weeklyLabel" destination="PhJ-5Q-OtR" id="gdB-eK-Xcb"/>
+                        <outlet property="weeklySwitch" destination="icw-Pb-vf8" id="baV-Bv-ZoX"/>
+                        <outlet property="weeklyView" destination="1WS-Hs-dnQ" id="b3i-l3-4n5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scW-LL-O4q" userLabel="First Responder" sceneMemberID="firstResponder"/>

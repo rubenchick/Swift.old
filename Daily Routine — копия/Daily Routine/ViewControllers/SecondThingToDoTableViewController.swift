@@ -69,7 +69,24 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
         let cell = tableView.dequeueReusableCell(withIdentifier: identifierCell, for: indexPath)
         if let thingToDo = fetchRequest.object(at: indexPath) as? ThingToDo {
             cell.textLabel?.text = thingToDo.name!// + " \(String(describing: thingToDo.priority))"
-            cell.detailTextLabel?.text = thingToDo.note
+            var addWeekly = ""
+            if thingToDo.weekly {
+                print("Weekly")
+                addWeekly = " ["
+                if let newWeek = thingToDo.week {
+                    if newWeek.monday { addWeekly = addWeekly + "Пн." }
+                    if newWeek.tuesday { addWeekly = addWeekly + " Вт." }
+                    if newWeek.wednesday { addWeekly = addWeekly + " Ср." }
+                    if newWeek.thursday { addWeekly = addWeekly + " Чт." }
+                    if newWeek.friday { addWeekly = addWeekly + " Пт." }
+                    if newWeek.saturday { addWeekly = addWeekly + " Сб." }
+                    if newWeek.sunday { addWeekly = addWeekly + " Вс." }
+                }
+                addWeekly = addWeekly + " ]"
+                if addWeekly == " [ ]" { addWeekly = ""}
+            }
+            cell.detailTextLabel?.text = thingToDo.note! + addWeekly
+            
         }
         
         return cell

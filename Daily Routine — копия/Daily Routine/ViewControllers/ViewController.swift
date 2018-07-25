@@ -13,8 +13,17 @@ class ViewController: UIViewController, NSFetchedResultsControllerDelegate {
 //    var fetchRequestThingToDo = CoreDataManager.instance.fetchedResultsController(entityName: "ThingToDo", keyForSort: "priority")
 //    var fetchRequestHistory = CoreDataManager.instance.fetchedResultsController(entityName: "History", keyForSort: "date")
 //
+    @IBOutlet weak var moButton: UIButton!
+    @IBOutlet weak var weeklyView: UIView!
+    @IBAction func anyTimesButton(_ sender: UIButton) {
+        weeklyView.isHidden = false
+    }
+    @IBOutlet weak var workLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        createStartElement()
+        weeklyView.frame.size.height = weeklyView.frame.size.width
 //        fetchRequestHistory.delegate = self
 //        fetchRequestThingToDo.delegate = self
 //        do {
@@ -30,29 +39,56 @@ class ViewController: UIViewController, NSFetchedResultsControllerDelegate {
 //        print("Count - \(String(describing: fetchRequest.fetchedObjects?.count))")
 
 //        print("It is work")
-  
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        workLabel.isUserInteractionEnabled = true
+        workLabel.addGestureRecognizer(tapGesture)
     }
     
-    @IBOutlet weak var addInfoToNote: UISegmentedControl!
-
-    @IBOutlet weak var addInfoLabel: UILabel!
-    @IBOutlet weak var countTimesTextField: UITextField!
-    @IBOutlet weak var countTimesStepper: UIStepper!
-    @IBOutlet weak var anyTimesView: UIView!
-    @IBAction func anyTimesButton(_ sender: UIButton) {
-        anyTimesView.isHidden = false
-        
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        guard let a = (sender.view as? UILabel)?.text else { return }
+        print(a)
         
     }
-    @IBAction func changeCountTimes(_ sender: UIStepper) {
-        countTimesTextField.text = "\(Int(countTimesStepper.value))"
-        if countTimesStepper.value > 1 {
-            addInfoLabel.isEnabled = true
-            addInfoToNote.isEnabled  = true
-        } else {
-            addInfoLabel.isEnabled = false
-            addInfoToNote.isEnabled = false
+    
+    func createStartElement() {
+        weeklyView.layer.cornerRadius = 15
+        let dayArray = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"]
+        let widht = Int(weeklyView.frame.size.width / 13)
+        print(weeklyView.frame.size.width)
+        print(widht)
+        for i in 1...7 {
+            let dayButton = UIButton(type: .system)
+            
+            dayButton.frame = CGRect(x: Int(Double(widht)*1.5) + (i - 1) * Int(Double(widht) * 1.5) , y: widht * 2, width: widht, height: widht)
+            dayButton.layer.cornerRadius = CGFloat(Double(widht) / 2)
+            if i > 4 {
+            dayButton.layer.cornerRadius = CGFloat(Double(widht) / 2)
+            }
+            else {
+             dayButton.layer.cornerRadius = CGFloat(Double(widht) / 5)
+            }
+            dayButton.clipsToBounds = true
+            dayButton.backgroundColor = .lightGray
+            dayButton.setTitle(dayArray[i - 1], for : UIControlState.normal)
+            dayButton.setTitleColor(UIColor(red: 51/255, green: 102/255, blue: 153/255, alpha: 1), for: .normal)
+            dayButton.setTitleColor(.lightGray, for: .selected)
+            dayButton.tag = i
+            dayButton.addTarget(self, action: #selector(pressButton), for: .touchDown)
+            weeklyView.addSubview(dayButton)
         }
+    }
+    
+    @objc func pressButton(_ sender: UIButton){
+        sender.isSelected = !sender.isSelected
+    }
+    
+    @IBAction func pressMoButton(_ sender: UIButton) {
+        let x = sender.tag
+        moButton.isSelected = !moButton.isSelected
+    }
+    
+    @IBAction func changeCountTimes(_ sender: UIStepper) {
         
     }
     @IBAction func newItemThingToGo(_ sender: UIButton) {
@@ -152,11 +188,5 @@ class ViewController: UIViewController, NSFetchedResultsControllerDelegate {
 //            }
 //        }
     }
-    
-    //1 раз, 2 раз, 3 раз, 4 раз, 5 раз
-    // утром,перед обедом, в обед, вечером, ночью (5)
-    
-    
-    
 }
 
