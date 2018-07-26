@@ -82,6 +82,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOx-Ok-UUd">
                                 <rect key="frame" x="92" y="95" width="190" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.32156862749999998" green="0.64313725489999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Weekly"/>
                                 <connections>
                                     <action selector="anyTimesButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cvf-Nk-UuN"/>
@@ -195,7 +196,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qXu-NA-Uzt">
-                                            <rect key="frame" x="308" y="15" width="49" height="31"/>
+                                            <rect key="frame" x="308" y="15" width="51" height="31"/>
                                             <color key="tintColor" red="0.40392156862745099" green="0.46274509803921571" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="onTintColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
@@ -489,9 +490,10 @@
                             <view hidden="YES" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WS-Hs-dnQ">
                                 <rect key="frame" x="24" y="139" width="326" height="218"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ph-M4-zzm">
-                                        <rect key="frame" x="135" y="168" width="57" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ph-M4-zzm">
+                                        <rect key="frame" x="133" y="166" width="62" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Готово">
                                             <color key="titleColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -500,23 +502,50 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Укажите в какие дни ставить задачу" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yl3-JN-xgF">
-                                        <rect key="frame" x="55" y="31" width="217" height="50"/>
+                                        <rect key="frame" x="55" y="20" width="217" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="217" id="6Tm-YX-7hk"/>
                                             <constraint firstAttribute="height" constant="50" id="Qvb-Yv-0cN"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Yl3-JN-xgF" firstAttribute="top" secondItem="1WS-Hs-dnQ" secondAttribute="top" constant="31" id="ILI-or-FKY"/>
-                                    <constraint firstItem="7Ph-M4-zzm" firstAttribute="centerX" secondItem="1WS-Hs-dnQ" secondAttribute="centerX" id="MdG-Ri-vbB"/>
-                                    <constraint firstAttribute="bottom" secondItem="7Ph-M4-zzm" secondAttribute="bottom" constant="16" id="R0z-fx-AiN"/>
+                                    <constraint firstItem="Yl3-JN-xgF" firstAttribute="top" secondItem="1WS-Hs-dnQ" secondAttribute="top" constant="20" id="ILI-or-FKY"/>
                                     <constraint firstItem="Yl3-JN-xgF" firstAttribute="centerX" secondItem="1WS-Hs-dnQ" secondAttribute="centerX" constant="0.5" id="YRr-MB-OFk"/>
                                     <constraint firstAttribute="height" constant="218" id="e4c-uT-URR"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5l0-hv-Oci">
+                                <rect key="frame" x="24" y="149" width="327" height="368"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mK-WA-db7">
+                                        <rect key="frame" x="128" y="320" width="62" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Готово">
+                                            <color key="titleColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Укажите в какие дни ставить задачу" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5ft-Jt-zlo">
+                                        <rect key="frame" x="59" y="15" width="217" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="217" id="VNu-bn-cm8"/>
+                                            <constraint firstAttribute="height" constant="50" id="b8D-Ff-GMK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="5ft-Jt-zlo" secondAttribute="bottom" constant="303" id="dwR-vW-gyB"/>
+                                    <constraint firstAttribute="height" constant="368" id="wkY-Sm-cyQ"/>
+                                    <constraint firstItem="5ft-Jt-zlo" firstAttribute="centerX" secondItem="5l0-hv-Oci" secondAttribute="centerX" constant="4" id="y3N-pu-5Zr"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -537,8 +566,11 @@
                             <constraint firstItem="qb8-GM-Ux7" firstAttribute="leading" secondItem="Pun-Rb-cuY" secondAttribute="trailing" constant="8" id="FIx-ds-4Rv"/>
                             <constraint firstItem="i37-DR-DAI" firstAttribute="top" secondItem="LUY-V0-8mj" secondAttribute="bottom" constant="17" id="Gye-ui-rpJ"/>
                             <constraint firstItem="7QR-qg-TX1" firstAttribute="leading" secondItem="uiL-TT-xFv" secondAttribute="leading" constant="11" id="I70-WN-mf2"/>
+                            <constraint firstItem="5l0-hv-Oci" firstAttribute="top" secondItem="uiL-TT-xFv" secondAttribute="top" constant="129" id="JP8-RI-lyS"/>
                             <constraint firstItem="tie-cv-M1a" firstAttribute="top" secondItem="icw-Pb-vf8" secondAttribute="bottom" constant="16" id="KC2-g0-lhd"/>
+                            <constraint firstItem="uiL-TT-xFv" firstAttribute="trailing" secondItem="5l0-hv-Oci" secondAttribute="trailing" constant="24" id="KDV-BP-fPL"/>
                             <constraint firstItem="yJE-DJ-Yfx" firstAttribute="leading" secondItem="uiL-TT-xFv" secondAttribute="leading" constant="11" id="LyA-Eo-Qqg"/>
+                            <constraint firstItem="5l0-hv-Oci" firstAttribute="leading" secondItem="uiL-TT-xFv" secondAttribute="leading" constant="24" id="NIi-MK-fE6"/>
                             <constraint firstItem="uiL-TT-xFv" firstAttribute="trailing" secondItem="0ls-cw-SwX" secondAttribute="trailing" constant="16" id="NNS-rj-6gY"/>
                             <constraint firstItem="PhJ-5Q-OtR" firstAttribute="centerY" secondItem="icw-Pb-vf8" secondAttribute="centerY" id="PQH-cC-IG0"/>
                             <constraint firstItem="M3e-4Y-uMD" firstAttribute="leading" secondItem="uiL-TT-xFv" secondAttribute="leading" constant="11" id="UoC-ag-81q"/>
@@ -578,11 +610,13 @@
                         <outlet property="infoToNoteSegmentControl" destination="M3e-4Y-uMD" id="6iK-Ns-x09"/>
                         <outlet property="monthlyLabel" destination="3Yw-RX-002" id="KvR-7X-q4Z"/>
                         <outlet property="monthlySwitch" destination="tie-cv-M1a" id="f9B-Uz-Crh"/>
+                        <outlet property="monthlyView" destination="5l0-hv-Oci" id="Npo-j0-8Wt"/>
                         <outlet property="nameTextField" destination="k4K-VY-Mct" id="FDw-JR-whF"/>
                         <outlet property="noteTExtField" destination="0ls-cw-SwX" id="aO2-dG-in3"/>
                         <outlet property="notificationSwitch" destination="rt3-ew-9Fj" id="Eu9-Kb-nFZ"/>
                         <outlet property="pressCancelButton" destination="2Xq-ch-utU" id="azs-Io-I2P"/>
                         <outlet property="pressSaveButton" destination="mrC-Vl-k92" id="iUY-wx-vdp"/>
+                        <outlet property="readyWeeklyViewOutlet" destination="7Ph-M4-zzm" id="nhb-ce-yiA"/>
                         <outlet property="weeklyLabel" destination="PhJ-5Q-OtR" id="gdB-eK-Xcb"/>
                         <outlet property="weeklySwitch" destination="icw-Pb-vf8" id="baV-Bv-ZoX"/>
                         <outlet property="weeklyView" destination="1WS-Hs-dnQ" id="b3i-l3-4n5"/>

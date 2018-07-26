@@ -6,8 +6,18 @@
 //  Copyright © 2018 Anton Rubenchik. All rights reserved.
 
 // Закончил полностью функционал Weekly для нового Thing.
-// 1. Нужно грузить weekly для уже существующих thing
+// + 1. Нужно грузить weekly для уже существующих thing
 // 2. Сделать monthly.
+// 3. Отображать в списке Today согласно weekly и monthly
+// 4. Проверить, где еще иcпользуется Today. Может быть moved???
+// AppStore
+// 5. Сделать обучающие слайды???
+// 6. После добавления 3-х записей, указать, как можно менять порядок/удалить
+// 7. При первом открытии, указать что это за страница, и где посмотреть список всех дел
+// 8. При удалении thing in Today сообщить, что он удалится только сегодня, и нужно удалить в списке, если на всегда
+// 9. Английская версия
+// 10. Notification. Сколько не прочитанных сообщений
+// 11. Почистить код.
 
 import UIKit
 
@@ -21,6 +31,7 @@ class SecondDetailViewController: UIViewController {
     @IBOutlet weak var infoToNoteSegmentControl: UISegmentedControl!
     @IBOutlet weak var countTimesStepperOutlet: UIStepper!
     @IBOutlet weak var weeklyView: UIView!
+    @IBOutlet weak var monthlyView: UIView!
     @IBOutlet weak var weeklyLabel: UILabel!
     @IBOutlet weak var monthlyLabel: UILabel!
     @IBOutlet weak var weeklySwitch: UISwitch!
@@ -29,6 +40,7 @@ class SecondDetailViewController: UIViewController {
     @IBOutlet weak var pressSaveButton: UIBarButtonItem!
     @IBOutlet weak var pressCancelButton: UIBarButtonItem!
     @IBOutlet weak var notificationSwitch: UISwitch!
+    @IBOutlet weak var readyWeeklyViewOutlet: UIButton!
     
         
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +55,23 @@ class SecondDetailViewController: UIViewController {
         if let thingToDo = thingToDo {
             nameTextField.text = thingToDo.name
             noteTExtField.text = thingToDo.note
+            if thingToDo.weekly {
+                installSwitchForDaily(howOften: 2)
+                if let weekly = thingToDo.week {
+                    createElementForWeeklyView()
+                    for i in 1...7 {
+                        if let item = self.view.viewWithTag(i) as? UIButton {
+                            if (weekly.monday) && (i == 1) { item.isSelected = true }
+                            if (weekly.tuesday) && (i == 2) { item.isSelected = true }
+                            if (weekly.wednesday) && (i == 3) { item.isSelected = true }
+                            if (weekly.thursday) && (i == 4) { item.isSelected = true }
+                            if (weekly.friday) && (i == 5) { item.isSelected = true }
+                            if (weekly.saturday) && (i == 6) { item.isSelected = true }
+                            if (weekly.sunday) && (i == 7) { item.isSelected = true }
+                        }
+                    }
+                }
+            }
         }
         
         weeklyView.frame.size.height = weeklyView.frame.size.width / 2
@@ -231,25 +260,66 @@ class SecondDetailViewController: UIViewController {
         
         weeklyView.layer.cornerRadius = 15
         let dayArray = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"] // tag 1...7
-        let widht = Int(weeklyView.frame.size.width / 13)
+        let widht = Int(weeklyView.frame.size.width / 11)
         for i in 1...7 {
             // проверка создавались ли уже кнопки
             if let _ = self.view.viewWithTag(i) as? UIButton {
             } else {
                 let dayButton = UIButton(type: .system)
-                dayButton.frame = CGRect(x: Int(Double(widht)*1.5) + (i - 1) * Int(Double(widht) * 1.5) , y: widht * 4, width: widht, height: widht)
+                dayButton.frame = CGRect(x: Int(Double(widht)*1) + (i - 1) * Int(Double(widht) * 1.4) , y: widht * 4, width: widht, height: widht)
                 dayButton.layer.cornerRadius = CGFloat(Double(widht) / 5)
                 dayButton.clipsToBounds = true
                 dayButton.backgroundColor = .lightGray
                 dayButton.setTitle(dayArray[i - 1], for : UIControlState.normal)
                 dayButton.setTitleColor(UIColor(red: 51/255, green: 102/255, blue: 153/255, alpha: 1), for: .normal)
                 dayButton.setTitleColor(.lightGray, for: .selected)
+                dayButton.tintColor = UIColor(red: 51/255, green: 102/255, blue: 153/255, alpha: 1)
+                dayButton.setBackgroundColor(UIColor(red: 51/255, green: 102/255, blue: 153/255, alpha: 1), for: .selected)
                 dayButton.tag = i
                 dayButton.addTarget(self, action: #selector(pressButton), for: .touchDown)
                 weeklyView.addSubview(dayButton)
             }
         }
+        readyWeeklyViewOutlet.sizeToFit()
+        weeklyView.frame.size.height = CGFloat(widht * 8)
+        readyWeeklyViewOutlet.center.x = CGFloat(Double(widht) * 5.6)
+        readyWeeklyViewOutlet.center.y = CGFloat(Double(widht) * 6.5)
     }
+    // tag 101...131
+    func createElementForMonthlyView() {
+        
+        monthlyView.layer.cornerRadius = 15
+//        let dayArray = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"] // tag 1...7
+        let widht = Int(monthlyView.frame.size.width / 11)
+        var row = 1
+        var column = 1
+        for i in 1...31 {
+            // проверка создавались ли уже кнопки
+            if let _ = self.view.viewWithTag(100+i) as? UIButton {
+            } else {
+                let dayButton = UIButton(type: .system)
+                dayButton.frame = CGRect(x: Int(Double(widht)*1) + (column - 1) * Int(Double(widht) * 1.4) , y: Int(Double(widht) * (3.5 + 1.4 * Double((row - 1)) )), width: widht, height: widht)
+                dayButton.layer.cornerRadius = CGFloat(Double(widht) / 5)
+                dayButton.clipsToBounds = true
+                dayButton.backgroundColor = .lightGray
+                dayButton.setTitle("\(i)", for : UIControlState.normal)
+                dayButton.setTitleColor(UIColor(red: 51/255, green: 102/255, blue: 153/255, alpha: 1), for: .normal)
+                dayButton.setTitleColor(.lightGray, for: .selected)
+                dayButton.setBackgroundColor(UIColor(red: 51/255, green: 102/255, blue: 153/255, alpha: 1), for: .selected)
+                dayButton.tag = 100 + i
+                dayButton.addTarget(self, action: #selector(pressButton), for: .touchDown)
+                monthlyView.addSubview(dayButton)
+            }
+            column += 1
+            if (i % 7) == 0 {
+                row += 1
+                column = 1
+            }
+        }
+        monthlyView.frame.size.height = CGFloat(Double(widht) * 12.7)
+    }
+
+    
     // choose weekly day on add View
     @objc func pressButton(_ sender: UIButton){
         sender.isSelected = !sender.isSelected
@@ -291,6 +361,7 @@ class SecondDetailViewController: UIViewController {
     @IBAction func actionDailySwitch(_ sender: UISwitch) {
         installSwitchForDaily(howOften: 1)
     }
+    
     // choose 2 from 3
     @IBAction func actionWeeklySwitch(_ sender: UISwitch) {
         installSwitchForDaily(howOften: 2)
@@ -298,10 +369,15 @@ class SecondDetailViewController: UIViewController {
         enabledElementInVC(is: false)
         createElementForWeeklyView()
     }
+    
     // choose 3 from 3
     @IBAction func actionMonthlySwitch(_ sender: UISwitch) {
-         installSwitchForDaily(howOften: 3)
+        installSwitchForDaily(howOften: 3)
+        monthlyView.isHidden = false
+        enabledElementInVC(is: false)
+        createElementForMonthlyView()
     }
+    
     // close WeeklyView
     @IBAction func readyWeeklyViewButton(_ sender: UIButton) {
         var isSelected = false
@@ -327,6 +403,28 @@ class SecondDetailViewController: UIViewController {
         }
     }
     
+    @IBAction func readyMonthlyViewButton(_ sender: UIButton) {
+        // need code
+    }
     
 }
 
+extension UIButton {
+    private func imageWithColor(color: UIColor) -> UIImage? {
+        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        
+        context?.setFillColor(color.cgColor)
+        context?.fill(rect)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+    
+    func setBackgroundColor(_ color: UIColor, for state: UIControlState) {
+        self.setBackgroundImage(imageWithColor(color: color), for: state)
+    }
+}
