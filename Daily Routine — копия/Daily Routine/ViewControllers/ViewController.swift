@@ -39,6 +39,18 @@ class ViewController: UIViewController, NSFetchedResultsControllerDelegate {
 //        print("Count - \(String(describing: fetchRequest.fetchedObjects?.count))")
 
 //        print("It is work")
+        
+        /// Test
+        print("Yes")
+        
+        let data = Date()
+        print(data)
+        print(data.dayNumberOfWeek()!)
+        print(data.dayNumberOfMonth()!)
+        
+        
+        
+        
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         workLabel.isUserInteractionEnabled = true

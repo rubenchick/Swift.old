@@ -8,7 +8,8 @@
 // Закончил полностью функционал Weekly для нового Thing.
 // + 1. Нужно грузить weekly для уже существующих thing
 // + 2. Сделать monthly.
-// 3. Отображать в списке Today согласно weekly и monthly
+// + 3. Отображать в списке Today согласно weekly и monthly
+// 3.5 Не создавать в History новую записть, при создании новой Thing если этого не нужно делать Weekly and Monthly
 // 4. Проверить, где еще иcпользуется Today. Может быть moved???
 // 5. После добавления 3-х записей, указать, как можно менять порядок/удалить
 // 6. При удалении thing in Today сообщить, что он удалится только сегодня, и нужно удалить в списке, если на всегда
@@ -293,23 +294,6 @@ class SecondDetailViewController: UIViewController {
                                 newThingToDo.weekly = true
                                 let week = Week()
                                 record(week: week)
-//                                for i in 1...7 {
-//                                    if let newButton = self.view.viewWithTag(i) as? UIButton {
-//                                        if newButton.isSelected {
-////                                          bad idea, I known
-//                                            switch i {
-//                                            case 1: weekly.monday = true
-//                                            case 2: weekly.tuesday = true
-//                                            case 3: weekly.wednesday = true
-//                                            case 4: weekly.thursday = true
-//                                            case 5: weekly.friday = true
-//                                            case 6: weekly.saturday = true
-//                                            case 7: weekly.sunday = true
-//                                            default: break
-//                                            }
-//                                        }
-//                                    }
-//                                }
                                 newThingToDo.week = week
                             } else {
                                 if monthlySwitch.isOn {

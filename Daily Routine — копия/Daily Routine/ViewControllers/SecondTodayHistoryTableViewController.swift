@@ -293,6 +293,52 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
     }
     
     // MARK:  Add Function
+    func isNeedToday(thing: ThingToDo)-> Bool {
+        let today = Date()
+        if thing.weekly {
+            if let week = thing.week {
+                if let dayOfWeek = today.dayNumberOfWeek() {
+                    switch dayOfWeek {
+                    case 1: if week.sunday    { return true }
+                    case 2: if week.monday    { return true }
+                    case 3: if week.tuesday   { return true }
+                    case 4: if week.wednesday { return true }
+                    case 5: if week.thursday  { return true }
+                    case 6: if week.friday    { return true }
+                    case 7: if week.saturday  { return true }
+                    default: return false
+                    }
+                }
+            }
+            return false
+        } else {
+            if thing.monthly {
+                let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DayOfMonth")
+                let predicate = NSPredicate(format: "%K == %@", "thingToDo", thing)
+                request.predicate = predicate
+                do {
+                    let days = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request) as! [DayOfMonth]
+                    for day in days {
+                        if day.date?.intValue == today.dayNumberOfMonth(){
+                            return true
+                        }
+                    }
+                    return false
+                } catch {
+                    print(error)
+                }
+            }
+        }
+
+//
+//        let data = Date()
+//        print(data.dayNumberOfWeek()!)
+//        print(data.dayNumberOfMonth()!)
+        
+        
+        return true
+    }
+    
     func checkDateInToday() {
         //#needAdd
         // Доработать дата должна быть согласно локации
@@ -328,16 +374,25 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ThingToDo")
             let sortDescription = NSSortDescriptor(key: "priority", ascending: true)
             request.sortDescriptors = [sortDescription]
-            let predicate = NSPredicate(format: "%K == %@", "isActual", NSNumber(value: true))
-            request.predicate = predicate
+            // Difficilt predicate daily, weekly, monthly
+            // first filtred isActual
+            let predicateIsActual = NSPredicate(format: "%K == %@", "isActual", NSNumber(value: true))
+            // second filtred weekly
+            
+            // third filtred monthly
+            
+//            let compound = NSCompoundPredicate.init(andPredicateWithSubpredicates:[predicateIsActual])
+            request.predicate = predicateIsActual
             do {
                 let thingToDo = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request)
                 if let thingToDo = thingToDo as? [ThingToDo] {
                     for thing in thingToDo {
-                        let history = History()
-                        history.date = dateToday as NSDate
-                        history.thingToDo = thing
-                        history.isDone = false
+                        if isNeedToday(thing: thing) {
+                            let history = History()
+                            history.date = dateToday as NSDate
+                            history.thingToDo = thing
+                            history.isDone = false
+                        }
                     }
                 }
             } catch {
@@ -351,4 +406,12 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
         }
     }
 
+}
+extension Date {
+    func dayNumberOfWeek() -> Int? {
+        return Calendar.current.dateComponents([.weekday], from: self).weekday
+    }
+    func dayNumberOfMonth() -> Int? {
+        return Calendar.current.dateComponents([.day], from: self).day
+    }
 }
