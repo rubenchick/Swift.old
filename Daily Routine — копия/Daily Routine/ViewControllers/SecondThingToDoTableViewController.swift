@@ -69,23 +69,45 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
         let cell = tableView.dequeueReusableCell(withIdentifier: identifierCell, for: indexPath)
         if let thingToDo = fetchRequest.object(at: indexPath) as? ThingToDo {
             cell.textLabel?.text = thingToDo.name!// + " \(String(describing: thingToDo.priority))"
-            var addWeekly = ""
-            if thingToDo.weekly {
-                print("Weekly")
-                addWeekly = " ["
-                if let newWeek = thingToDo.week {
-                    if newWeek.monday { addWeekly = addWeekly + "Пн." }
-                    if newWeek.tuesday { addWeekly = addWeekly + " Вт." }
-                    if newWeek.wednesday { addWeekly = addWeekly + " Ср." }
-                    if newWeek.thursday { addWeekly = addWeekly + " Чт." }
-                    if newWeek.friday { addWeekly = addWeekly + " Пт." }
-                    if newWeek.saturday { addWeekly = addWeekly + " Сб." }
-                    if newWeek.sunday { addWeekly = addWeekly + " Вс." }
+            var addInfo = ""
+            if !thingToDo.daily {
+                if thingToDo.weekly {
+                    addInfo = " ["
+                    if let newWeek = thingToDo.week {
+                        if newWeek.monday { addInfo = addInfo + "Пн." }
+                        if newWeek.tuesday { addInfo = addInfo + " Вт." }
+                        if newWeek.wednesday { addInfo = addInfo + " Ср." }
+                        if newWeek.thursday { addInfo = addInfo + " Чт." }
+                        if newWeek.friday { addInfo = addInfo + " Пт." }
+                        if newWeek.saturday { addInfo = addInfo + " Сб." }
+                        if newWeek.sunday { addInfo = addInfo + " Вс." }
+                    }
+                    addInfo = addInfo + " ]"
+                    if addInfo == " [ ]" { addInfo = ""}
+                } else {
+                    if thingToDo.monthly {
+                        addInfo = " [ каждое"
+                        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DayOfMonth")
+                        let sortDescription = NSSortDescriptor(key: "date", ascending: true)
+                        request.sortDescriptors = [sortDescription]
+                        let predicate = NSPredicate(format: "%K == %@", "thingToDo", thingToDo)
+                        request.predicate = predicate
+                        do {
+                            let dayOfMonth = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request)
+                            if let dayOfMonth = dayOfMonth as? [DayOfMonth] {
+                                for item in dayOfMonth {
+                                    addInfo = addInfo + " \(String(describing: item.date!))"
+                                }
+                            }
+                        } catch {
+                            print(error)
+                        }
+                        addInfo = addInfo + " ]"
+                        if addInfo == " [ каждое ]" { addInfo = ""}
+                    }
                 }
-                addWeekly = addWeekly + " ]"
-                if addWeekly == " [ ]" { addWeekly = ""}
             }
-            cell.detailTextLabel?.text = thingToDo.note! + addWeekly
+            cell.detailTextLabel?.text = thingToDo.note! + addInfo
             
         }
         

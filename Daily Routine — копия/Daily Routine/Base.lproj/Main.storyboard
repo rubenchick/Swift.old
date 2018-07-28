@@ -529,6 +529,9 @@
                                         <state key="normal" title="Готово">
                                             <color key="titleColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="readyMonthlyViewButton:" destination="BzR-ak-gyb" eventType="touchUpInside" id="2iL-Df-kXO"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Укажите в какие дни ставить задачу" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5ft-Jt-zlo">
                                         <rect key="frame" x="59" y="15" width="217" height="50"/>

@@ -7,23 +7,27 @@
 
 // Закончил полностью функционал Weekly для нового Thing.
 // + 1. Нужно грузить weekly для уже существующих thing
-// 2. Сделать monthly.
+// + 2. Сделать monthly.
 // 3. Отображать в списке Today согласно weekly и monthly
 // 4. Проверить, где еще иcпользуется Today. Может быть moved???
-// AppStore
-// 5. Сделать обучающие слайды???
-// 6. После добавления 3-х записей, указать, как можно менять порядок/удалить
+// 5. После добавления 3-х записей, указать, как можно менять порядок/удалить
+// 6. При удалении thing in Today сообщить, что он удалится только сегодня, и нужно удалить в списке, если на всегда
 // 7. При первом открытии, указать что это за страница, и где посмотреть список всех дел
-// 8. При удалении thing in Today сообщить, что он удалится только сегодня, и нужно удалить в списке, если на всегда
-// 9. Английская версия
-// 10. Notification. Сколько не прочитанных сообщений
-// 11. Почистить код.
+// 8. ДОбавить срок выполнения. % 5 дней
+// AppStore
+// 9. Сделать обучающие слайды???
+// 10. Английская версия
+// 11. Notification. Сколько не прочитанных сообщений
+// 12. Почистить код.
 
 import UIKit
+import CoreData
 
 class SecondDetailViewController: UIViewController {
+    // MARK: Var
     var thingToDo: ThingToDo?
     var count: Int?
+    // MARK: @IBOutlet
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var noteTExtField: UITextField!
     @IBOutlet weak var addInfoToNoteLabel: UILabel!
@@ -42,7 +46,7 @@ class SecondDetailViewController: UIViewController {
     @IBOutlet weak var notificationSwitch: UISwitch!
     @IBOutlet weak var readyWeeklyViewOutlet: UIButton!
     
-        
+    // MARK: own function
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .lightContent
@@ -59,6 +63,7 @@ class SecondDetailViewController: UIViewController {
                 installSwitchForDaily(howOften: 2)
                 if let weekly = thingToDo.week {
                     createElementForWeeklyView()
+//                    bad idea, I known
                     for i in 1...7 {
                         if let item = self.view.viewWithTag(i) as? UIButton {
                             if (weekly.monday) && (i == 1) { item.isSelected = true }
@@ -71,16 +76,45 @@ class SecondDetailViewController: UIViewController {
                         }
                     }
                 }
+            } else {
+                if thingToDo.monthly {
+                    installSwitchForDaily(howOften: 3)
+                    createElementForMonthlyView()
+                    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DayOfMonth")
+//                    let sortDescription = NSSortDescriptor(key: "date", ascending: true)
+//                    request.sortDescriptors = [sortDescription]
+                    let predicate = NSPredicate(format: "%K == %@", "thingToDo", thingToDo)
+                    request.predicate = predicate
+                    do {
+                        let dayOfMonth = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request)
+                        if let days = dayOfMonth as? [DayOfMonth] {
+                            for day in days {
+                                if let i = day.date?.intValue {
+                                    if let item = self.view.viewWithTag(100 + i) as? UIButton {
+                                        print(i)
+                                        item.isSelected = true
+                                    }
+                                }
+                            }
+                        }
+                    } catch {
+                        print(error)
+                    }
+                }
             }
         }
         
-        weeklyView.frame.size.height = weeklyView.frame.size.width / 2
+//        weeklyView.frame.size.height = weeklyView.frame.size.width / 2
         // tap for WeeklyLabel
         let tapGestureForWeeklyLabel = UITapGestureRecognizer(target: self, action: #selector(tapForWeeklyLabel))
         weeklyLabel.isUserInteractionEnabled = true
         weeklyLabel.addGestureRecognizer(tapGestureForWeeklyLabel)
+        
+        let tapGestureForMonthlyLabel = UITapGestureRecognizer(target: self, action: #selector(tapForMonthlyLabel))
+        monthlyLabel.isUserInteractionEnabled = true
+        monthlyLabel.addGestureRecognizer(tapGestureForMonthlyLabel)
     }
-
+    // MARK: Button on Navigation
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         if saveThingToDo() {
             dismiss(animated: true, completion: nil)
@@ -116,9 +150,57 @@ class SecondDetailViewController: UIViewController {
         }
         return addInfo
     }
+    // MARK: For Save Record
+    // record from WeekView To ThingToDo.Week entity Week
+    func record(week: Week){
+        for i in 1...7 {
+            if let newButton = self.view.viewWithTag(i) as? UIButton {
+                if newButton.isSelected {
+                    switch i {
+                    case 1: week.monday = true
+                    case 2: week.tuesday = true
+                    case 3: week.wednesday = true
+                    case 4: week.thursday = true
+                    case 5: week.friday = true
+                    case 6: week.saturday = true
+                    case 7: week.sunday = true
+                    default: break
+                    }
+                } else {
+                    switch i {
+                    case 1: week.monday = false
+                    case 2: week.tuesday = false
+                    case 3: week.wednesday = false
+                    case 4: week.thursday = false
+                    case 5: week.friday = false
+                    case 6: week.saturday = false
+                    case 7: week.sunday = false
+                    default: break
+                    }
+                }
+            }
+        }
+    }
     
+    func deleteOldRecordInDayOfMonthFrom(thingToDo: ThingToDo){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DayOfMonth")
+        let predicate = NSPredicate(format: "%K == %@", "thingToDo", thingToDo)
+        request.predicate = predicate
+        do {
+            let dayOfMonth = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request) as! [NSManagedObject]
+            for day in dayOfMonth {
+                CoreDataManager.instance.persistentContainer.viewContext.delete(day)
+            }
+            CoreDataManager.instance.saveContext()
+        } catch {
+            print(error)
+        }
+    }
+    
+    // this is bad code. ;-(
     func saveThingToDo() -> Bool {
         if nameTextField.text != "" {
+            // newRecord
             if thingToDo == nil {
                 thingToDo = ThingToDo()
                 let history = History()
@@ -132,35 +214,57 @@ class SecondDetailViewController: UIViewController {
                 }
                 thingToDo?.isActual = true
             }
+            // oldRecord or continue newRecord
             if dailySwitch.isOn {
                 thingToDo?.daily = true
-            } else {
+                thingToDo?.weekly = false
+                thingToDo?.monthly = false
                 
+            } else {
                 if weeklySwitch.isOn {
+                    thingToDo?.daily = false
                     thingToDo?.weekly = true
-                    let weekly = Week()
-                    for i in 1...7 {
-                        if let newButton = self.view.viewWithTag(i) as? UIButton {
-                            if newButton.isSelected {
-                                switch i {
-                                case 1: weekly.monday = true
-                                case 2: weekly.tuesday = true
-                                case 3: weekly.wednesday = true
-                                case 4: weekly.thursday = true
-                                case 5: weekly.friday = true
-                                case 6: weekly.saturday = true
-                                case 7: weekly.sunday = true
-                                default: break
+                    thingToDo?.monthly = false
+//                    if thingToDo?.week != nil {
+//                        record(week: (thingToDo?.week)!)
+//                    } else {
+//                        let week = Week()
+//                        thingToDo?.week = week
+//                        record(week: (thingToDo?.week)!)
+//                    }
+                    
+                    if thingToDo?.week == nil {
+                        let week = Week()
+                        thingToDo?.week = week
+                    }
+                    
+                    record(week: (thingToDo?.week)!)
+//                    let weekly = Week()
+
+//                    thingToDo?.week = weekly
+                } else {
+                    if monthlySwitch.isOn {
+                        print("monthlySwitch")
+                        thingToDo?.daily = false
+                        thingToDo?.weekly = false
+                        thingToDo?.monthly = true
+                        // delete old record in DayOfMonth
+                        
+                        deleteOldRecordInDayOfMonthFrom(thingToDo: thingToDo!)
+                        
+                        
+                        for i in 1...31 {
+                            if let newButton = self.view.viewWithTag(100 + i) as? UIButton {
+                                if newButton.isSelected {
+                                    let dayOfMonth = DayOfMonth()
+                                    dayOfMonth.date = NSDecimalNumber(decimal: Decimal(i))
+                                    dayOfMonth.thingToDo = thingToDo
                                 }
                             }
                         }
                     }
-                    thingToDo?.week = weekly
-                } else {
-                    if monthlySwitch.isOn {
-                        
-                    }
                 }
+                
             }
             thingToDo?.name = nameTextField.text
             thingToDo?.note = addInfoToNote(atIndex: 1) + noteTExtField.text!
@@ -187,31 +291,42 @@ class SecondDetailViewController: UIViewController {
                         } else {
                             if weeklySwitch.isOn {
                                 newThingToDo.weekly = true
-                                let weekly = Week()
-                                for i in 1...7 {
-                                    if let newButton = self.view.viewWithTag(i) as? UIButton {
-                                        if newButton.isSelected {
-                                            switch i {
-                                            case 1: weekly.monday = true
-                                            case 2: weekly.tuesday = true
-                                            case 3: weekly.wednesday = true
-                                            case 4: weekly.thursday = true
-                                            case 5: weekly.friday = true
-                                            case 6: weekly.saturday = true
-                                            case 7: weekly.sunday = true
-                                            default: break
+                                let week = Week()
+                                record(week: week)
+//                                for i in 1...7 {
+//                                    if let newButton = self.view.viewWithTag(i) as? UIButton {
+//                                        if newButton.isSelected {
+////                                          bad idea, I known
+//                                            switch i {
+//                                            case 1: weekly.monday = true
+//                                            case 2: weekly.tuesday = true
+//                                            case 3: weekly.wednesday = true
+//                                            case 4: weekly.thursday = true
+//                                            case 5: weekly.friday = true
+//                                            case 6: weekly.saturday = true
+//                                            case 7: weekly.sunday = true
+//                                            default: break
+//                                            }
+//                                        }
+//                                    }
+//                                }
+                                newThingToDo.week = week
+                            } else {
+                                if monthlySwitch.isOn {
+                                    print("monthlySwitch")
+                                    newThingToDo.monthly = true
+                                    for i in 1...31 {
+                                        if let newButton = self.view.viewWithTag(100 + i) as? UIButton {
+                                            if newButton.isSelected {
+                                                let dayOfMonth = DayOfMonth()
+                                                dayOfMonth.date = NSDecimalNumber(decimal: Decimal(i))
+                                                dayOfMonth.thingToDo = newThingToDo
                                             }
                                         }
                                     }
                                 }
-                                newThingToDo.week = weekly
-                            } else {
-                                if monthlySwitch.isOn {
-                                    
-                                }
                             }
                         }
-
                     }
                     CoreDataManager.instance.saveContext()
                 }
@@ -254,8 +369,17 @@ class SecondDetailViewController: UIViewController {
             createElementForWeeklyView()
         }
     }
-    
-    // tag 1...7
+    // tap for MonthlyLabel
+    @objc func tapForMonthlyLabel(sender: UITapGestureRecognizer) {
+        guard let _ = sender.view as? UILabel else { return }
+        if monthlySwitch.isOn {
+            monthlyView.isHidden = false
+            enabledElementInVC(is: false)
+            createElementForMonthlyView()
+        }
+    }
+
+    // tag 1...7 - bad idea, I known
     func createElementForWeeklyView() {
         
         weeklyView.layer.cornerRadius = 15
@@ -285,11 +409,11 @@ class SecondDetailViewController: UIViewController {
         readyWeeklyViewOutlet.center.x = CGFloat(Double(widht) * 5.6)
         readyWeeklyViewOutlet.center.y = CGFloat(Double(widht) * 6.5)
     }
+    
     // tag 101...131
     func createElementForMonthlyView() {
         
         monthlyView.layer.cornerRadius = 15
-//        let dayArray = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"] // tag 1...7
         let widht = Int(monthlyView.frame.size.width / 11)
         var row = 1
         var column = 1
@@ -378,24 +502,32 @@ class SecondDetailViewController: UIViewController {
         createElementForMonthlyView()
     }
     
+    func showAlertWith(message:String) {
+        let alert = UIAlertController(title: "Внимание", message: message, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Хорошо", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        present(alert, animated: true, completion: nil)
+    }
+    
     // close WeeklyView
     @IBAction func readyWeeklyViewButton(_ sender: UIButton) {
         var isSelected = false
         var numberWeeklyDay = 1
-        while numberWeeklyDay != 8 {
+        while numberWeeklyDay != 8 { // I known bad
             if let newButton = self.view.viewWithTag(numberWeeklyDay) as? UIButton {
                 if newButton.isSelected {
                     isSelected = true
                     print(numberWeeklyDay)
                 }
             }
-            numberWeeklyDay += 1
+            if isSelected {
+                numberWeeklyDay = 8
+            } else {
+                numberWeeklyDay += 1
+            }
         }
         if !isSelected {
-            let alert = UIAlertController(title: "Внимание", message: "Не выбран день недели", preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "Хорошо", style: .cancel, handler: nil)
-            alert.addAction(okButton)
-            present(alert, animated: true, completion: nil)
+            showAlertWith(message: "Не выбран день недели")
         }
         else {
             enabledElementInVC(is: true)
@@ -405,10 +537,32 @@ class SecondDetailViewController: UIViewController {
     
     @IBAction func readyMonthlyViewButton(_ sender: UIButton) {
         // need code
+        var isSelected = false
+        var numberDay = 1
+        while numberDay != 32 { // I known bad
+            if let newButton = self.view.viewWithTag(100 + numberDay) as? UIButton {
+                if newButton.isSelected {
+                    isSelected = true
+                }
+            }
+            if isSelected {
+                numberDay = 32
+            } else {
+                numberDay += 1
+            }
+        }
+        if !isSelected {
+            showAlertWith(message: "Не выбраны даты")
+        }
+        else {
+            enabledElementInVC(is: true)
+            monthlyView.isHidden = true
+        }
     }
     
 }
 
+// set Color in backGround if button is Selected = true
 extension UIButton {
     private func imageWithColor(color: UIColor) -> UIImage? {
         let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)

@@ -44,13 +44,6 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        fetchRequest.delegate = self
-//        // History
-//        do {
-//            try fetchRequest.performFetch()
-//        } catch {
-//            print(error)
-//        }
         tableView.tableFooterView = UIView()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
