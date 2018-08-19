@@ -106,6 +106,11 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
                         if addInfo == " [ каждое ]" { addInfo = ""}
                     }
                 }
+            } else {
+                // задано количество дней, в которые нужно выполнять задание
+                if let finishDate = thingToDo.time {
+                    addInfo = "\(finishDate)"
+                }
             }
             cell.detailTextLabel?.text = thingToDo.note! + addInfo
             

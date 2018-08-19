@@ -9,12 +9,14 @@
 // + 1. Нужно грузить weekly для уже существующих thing
 // + 2. Сделать monthly.
 // + 3. Отображать в списке Today согласно weekly и monthly
-// 3.5 Не создавать в History новую записть, при создании новой Thing если этого не нужно делать Weekly and Monthly
+// + 3.5 Не создавать в History новую записть, при создании новой Thing если этого не нужно делать Weekly and Monthly
+// + 3.6 If times>1 need check algoritm (Do you need new record in History)
 // 4. Проверить, где еще иcпользуется Today. Может быть moved???
 // 5. После добавления 3-х записей, указать, как можно менять порядок/удалить
 // 6. При удалении thing in Today сообщить, что он удалится только сегодня, и нужно удалить в списке, если на всегда
 // 7. При первом открытии, указать что это за страница, и где посмотреть список всех дел
-// 8. ДОбавить срок выполнения. % 5 дней
+// + 8. Добавить срок выполнения. % 5 дней
+// 8.5 Убрать желтые предупреждения
 // AppStore
 // 9. Сделать обучающие слайды???
 // 10. Английская версия
@@ -33,8 +35,10 @@ class SecondDetailViewController: UIViewController {
     @IBOutlet weak var noteTExtField: UITextField!
     @IBOutlet weak var addInfoToNoteLabel: UILabel!
     @IBOutlet weak var countTimesTextField: UITextField!
+    @IBOutlet weak var duringTextField: UITextField!
     @IBOutlet weak var infoToNoteSegmentControl: UISegmentedControl!
     @IBOutlet weak var countTimesStepperOutlet: UIStepper!
+    @IBOutlet weak var duringStepperOutlet: UIStepper!
     @IBOutlet weak var weeklyView: UIView!
     @IBOutlet weak var monthlyView: UIView!
     @IBOutlet weak var weeklyLabel: UILabel!
@@ -60,46 +64,57 @@ class SecondDetailViewController: UIViewController {
         if let thingToDo = thingToDo {
             nameTextField.text = thingToDo.name
             noteTExtField.text = thingToDo.note
-            if thingToDo.weekly {
-                installSwitchForDaily(howOften: 2)
-                if let weekly = thingToDo.week {
-                    createElementForWeeklyView()
-//                    bad idea, I known
-                    for i in 1...7 {
-                        if let item = self.view.viewWithTag(i) as? UIButton {
-                            if (weekly.monday) && (i == 1) { item.isSelected = true }
-                            if (weekly.tuesday) && (i == 2) { item.isSelected = true }
-                            if (weekly.wednesday) && (i == 3) { item.isSelected = true }
-                            if (weekly.thursday) && (i == 4) { item.isSelected = true }
-                            if (weekly.friday) && (i == 5) { item.isSelected = true }
-                            if (weekly.saturday) && (i == 6) { item.isSelected = true }
-                            if (weekly.sunday) && (i == 7) { item.isSelected = true }
+            
+            if thingToDo.daily {
+                if thingToDo.time != nil {
+                    let finishDay = thingToDo.time as? Date
+                    if finishDay != nil {
+                        if let diffInDays = Calendar.current.dateComponents([.day], from: Date(), to: finishDay!).day {
+                            duringTextField.text = "\(Int(diffInDays)+1)"
+                            duringStepperOutlet.value = Double(diffInDays+1)
                         }
                     }
                 }
             } else {
-                if thingToDo.monthly {
-                    installSwitchForDaily(howOften: 3)
-                    createElementForMonthlyView()
-                    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DayOfMonth")
-//                    let sortDescription = NSSortDescriptor(key: "date", ascending: true)
-//                    request.sortDescriptors = [sortDescription]
-                    let predicate = NSPredicate(format: "%K == %@", "thingToDo", thingToDo)
-                    request.predicate = predicate
-                    do {
-                        let dayOfMonth = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request)
-                        if let days = dayOfMonth as? [DayOfMonth] {
-                            for day in days {
-                                if let i = day.date?.intValue {
-                                    if let item = self.view.viewWithTag(100 + i) as? UIButton {
-                                        print(i)
-                                        item.isSelected = true
+                if thingToDo.weekly {
+                    installSwitchForDaily(howOften: 2)
+                    if let weekly = thingToDo.week {
+                        createElementForWeeklyView()
+                        //                    bad idea, I known
+                        for i in 1...7 {
+                            if let item = self.view.viewWithTag(i) as? UIButton {
+                                if (weekly.monday) && (i == 1) { item.isSelected = true }
+                                if (weekly.tuesday) && (i == 2) { item.isSelected = true }
+                                if (weekly.wednesday) && (i == 3) { item.isSelected = true }
+                                if (weekly.thursday) && (i == 4) { item.isSelected = true }
+                                if (weekly.friday) && (i == 5) { item.isSelected = true }
+                                if (weekly.saturday) && (i == 6) { item.isSelected = true }
+                                if (weekly.sunday) && (i == 7) { item.isSelected = true }
+                            }
+                        }
+                    }
+                } else {
+                    if thingToDo.monthly {
+                        installSwitchForDaily(howOften: 3)
+                        createElementForMonthlyView()
+                        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DayOfMonth")
+                        let predicate = NSPredicate(format: "%K == %@", "thingToDo", thingToDo)
+                        request.predicate = predicate
+                        do {
+                            let dayOfMonth = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request)
+                            if let days = dayOfMonth as? [DayOfMonth] {
+                                for day in days {
+                                    if let i = day.date?.intValue {
+                                        if let item = self.view.viewWithTag(100 + i) as? UIButton {
+                                            print(i)
+                                            item.isSelected = true
+                                        }
                                     }
                                 }
                             }
+                        } catch {
+                            print(error)
                         }
-                    } catch {
-                        print(error)
                     }
                 }
             }
@@ -183,6 +198,62 @@ class SecondDetailViewController: UIViewController {
         }
     }
     
+    // MARK:  Add Function
+    // check property this thingToDo, and desicion need do this Thing today or not
+    func isNeedToday()-> Bool {
+        let today = Date()
+        if dailySwitch.isOn {
+             return true
+        }
+        else {
+            if weeklySwitch.isOn {
+                let dayNumberOfWeek = (today.dayNumberOfWeek() != 1) ? (today.dayNumberOfWeek()! - 1) : 7
+                if let newButton = self.view.viewWithTag(dayNumberOfWeek) as? UIButton {
+                    if newButton.isSelected {
+                        return true
+                    } else {
+                        return false
+                    }
+                }
+            } else {
+                if monthlySwitch.isOn {
+                    if let newButton = self.view.viewWithTag(100 + today.dayNumberOfMonth()!) as? UIButton {
+                        if newButton.isSelected {
+                            return true
+                        }
+                        else {
+                            return false
+                        }
+                    }
+                }
+            }
+        }
+        return false
+    }
+    // check entity History. Is record present or not?
+    func isRecordInHistoryForToday(thingToDo: ThingToDo) -> Bool {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "History")
+        var calendar = Calendar.current
+        calendar.timeZone = NSTimeZone.local
+        let dateFrom = calendar.startOfDay(for: Date()) // eg. 2016-10-10 00:00:00
+        let predicateDate = NSPredicate(format: "%K >= %@", "date", dateFrom as NSDate)
+        let predicateThingToDo = NSPredicate(format: "%K == %@", "thingToDo",thingToDo)
+        let compound = NSCompoundPredicate(andPredicateWithSubpredicates: [predicateDate,predicateThingToDo])
+        request.predicate = compound
+        do {
+            let things = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request) as! [NSManagedObject]
+            if things.count > 0 {
+                return true
+            } else {
+                return false
+            }
+        } catch {
+            print(error)
+        }
+        return true
+    }
+    
     func deleteOldRecordInDayOfMonthFrom(thingToDo: ThingToDo){
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DayOfMonth")
         let predicate = NSPredicate(format: "%K == %@", "thingToDo", thingToDo)
@@ -192,7 +263,30 @@ class SecondDetailViewController: UIViewController {
             for day in dayOfMonth {
                 CoreDataManager.instance.persistentContainer.viewContext.delete(day)
             }
-            CoreDataManager.instance.saveContext()
+//            CoreDataManager.instance.saveContext()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func deleteFromHistoryToday(thingToDo: ThingToDo) {
+        // делаем список всех history за сегодняшний день от этого thingToDo и удаляем их
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "History")
+        var calendar = Calendar.current
+        calendar.timeZone = NSTimeZone.local
+        let dateFrom = calendar.startOfDay(for: Date()) // eg. 2016-10-10 00:00:00
+        let predicateDate = NSPredicate(format: "%K >= %@", "date", dateFrom as NSDate)
+        let predicateThingToDo = NSPredicate(format: "%K == %@", "thingToDo",thingToDo)
+        let compound = NSCompoundPredicate(andPredicateWithSubpredicates: [predicateDate,predicateThingToDo])
+        request.predicate = compound
+        do {
+            let things = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request) as! [NSManagedObject]
+            if things.count > 0 {
+                for thing in things {
+                    CoreDataManager.instance.persistentContainer.viewContext.delete(thing)
+                }
+                CoreDataManager.instance.saveContext()
+            }
         } catch {
             print(error)
         }
@@ -204,10 +298,12 @@ class SecondDetailViewController: UIViewController {
             // newRecord
             if thingToDo == nil {
                 thingToDo = ThingToDo()
-                let history = History()
-                history.date = Date() as NSDate
-                history.isDone = false
-                history.thingToDo = thingToDo
+                if dailySwitch.isOn {
+                    let history = History()
+                    history.date = Date() as NSDate
+                    history.isDone = false
+                    history.thingToDo = thingToDo
+                }
                 if let count = count {
                     thingToDo?.priority = NSDecimalNumber(value: count)
                 } else {
@@ -215,24 +311,44 @@ class SecondDetailViewController: UIViewController {
                 }
                 thingToDo?.isActual = true
             }
+            // проверка указано ли количество дней, в которые нужно выполнять задание
+            if duringStepperOutlet.value > 0 {
+                let dayToday = Date()
+                thingToDo?.time = Calendar.current.date(byAdding: .day, value: Int(duringStepperOutlet.value), to: dayToday)! as NSDate
+            } else {
+                thingToDo?.time = nil
+            }
+            
             // oldRecord or continue newRecord
             if dailySwitch.isOn {
                 thingToDo?.daily = true
                 thingToDo?.weekly = false
                 thingToDo?.monthly = false
+                // если нет созданного history Today, нужно создать
+                if !isRecordInHistoryForToday(thingToDo: thingToDo!) {
+                    let history = History()
+                    history.date = Date() as NSDate
+                    history.isDone = false
+                    history.thingToDo = thingToDo
+                }
                 
             } else {
                 if weeklySwitch.isOn {
                     thingToDo?.daily = false
                     thingToDo?.weekly = true
                     thingToDo?.monthly = false
-//                    if thingToDo?.week != nil {
-//                        record(week: (thingToDo?.week)!)
-//                    } else {
-//                        let week = Week()
-//                        thingToDo?.week = week
-//                        record(week: (thingToDo?.week)!)
-//                    }
+                    // check and create new record in History
+                    if isNeedToday() {
+                        if !isRecordInHistoryForToday(thingToDo: thingToDo!) {
+                            let history = History()
+                            history.date = Date() as NSDate
+                            history.isDone = false
+                            history.thingToDo = thingToDo
+                        }
+                    } else {
+//                        проверка есть ли уже запись в History и удалить ее
+                        deleteFromHistoryToday(thingToDo: thingToDo!)
+                    }
                     
                     if thingToDo?.week == nil {
                         let week = Week()
@@ -240,20 +356,28 @@ class SecondDetailViewController: UIViewController {
                     }
                     
                     record(week: (thingToDo?.week)!)
-//                    let weekly = Week()
-
-//                    thingToDo?.week = weekly
                 } else {
                     if monthlySwitch.isOn {
-                        print("monthlySwitch")
                         thingToDo?.daily = false
                         thingToDo?.weekly = false
                         thingToDo?.monthly = true
-                        // delete old record in DayOfMonth
                         
+                        // delete old record in DayOfMonth
                         deleteOldRecordInDayOfMonthFrom(thingToDo: thingToDo!)
                         
-                        
+                        // check and create new record in History
+                        if isNeedToday() {
+                            if !isRecordInHistoryForToday(thingToDo: thingToDo!) {
+                                let history = History()
+                                history.date = Date() as NSDate
+                                history.isDone = false
+                                history.thingToDo = thingToDo
+                            }
+                        } else {
+                            //  проверка есть ли уже запись в History и удалить ее
+                            deleteFromHistoryToday(thingToDo: thingToDo!)
+                        }
+                        // create new record in Entity DayOfMonth
                         for i in 1...31 {
                             if let newButton = self.view.viewWithTag(100 + i) as? UIButton {
                                 if newButton.isSelected {
@@ -275,10 +399,15 @@ class SecondDetailViewController: UIViewController {
                 if times > 1 {
                     for i in 2...times {
                         let newThingToDo = ThingToDo()
-                        let newHistory = History()
-                        newHistory.date = Date() as NSDate
-                        newHistory.isDone = false
-                        newHistory.thingToDo = newThingToDo
+                        
+                        // нужно создавать не всегда
+                        if  isNeedToday() {
+                            let newHistory = History()
+                            newHistory.date = Date() as NSDate
+                            newHistory.isDone = false
+                            newHistory.thingToDo = newThingToDo
+                        }
+                        
                         if let count = count {
                             newThingToDo.priority = NSDecimalNumber(value: count + i)
                         } else {
@@ -289,15 +418,27 @@ class SecondDetailViewController: UIViewController {
                         newThingToDo.note = addInfoToNote(atIndex: i) + noteTExtField.text!
                         if dailySwitch.isOn {
                             newThingToDo.daily = true
+                            newThingToDo.weekly = false
+                            newThingToDo.monthly = false
+                            
+                            // проверка указано ли количество дней, в которые нужно выполнять задание
+                            if duringStepperOutlet.value > 0 {
+                                let dayToday = Date()
+                                newThingToDo.time = Calendar.current.date(byAdding: .day, value: Int(duringStepperOutlet.value), to: dayToday)! as NSDate
+                            }
+                            
                         } else {
                             if weeklySwitch.isOn {
+                                newThingToDo.daily = false
                                 newThingToDo.weekly = true
+                                newThingToDo.monthly = false
                                 let week = Week()
                                 record(week: week)
                                 newThingToDo.week = week
                             } else {
                                 if monthlySwitch.isOn {
-                                    print("monthlySwitch")
+                                    newThingToDo.daily = false
+                                    newThingToDo.weekly = false
                                     newThingToDo.monthly = true
                                     for i in 1...31 {
                                         if let newButton = self.view.viewWithTag(100 + i) as? UIButton {
@@ -339,6 +480,14 @@ class SecondDetailViewController: UIViewController {
         }
     }
     
+    @IBAction func duringStepper(_ sender: UIStepper) {
+        if duringStepperOutlet.value == 0 {
+            duringTextField.text = "∞"
+        } else {
+            duringTextField.text = "\(Int(duringStepperOutlet.value))"
+        }
+        installSwitchForDaily(howOften: 1)
+    }
     // убрать клавиатуру, когда нажали на "другую" часть экрана
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -476,6 +625,8 @@ class SecondDetailViewController: UIViewController {
         weeklyView.isHidden = false
         enabledElementInVC(is: false)
         createElementForWeeklyView()
+        duringTextField.text = "∞"
+        duringStepperOutlet.value = 0
     }
     
     // choose 3 from 3
@@ -484,6 +635,8 @@ class SecondDetailViewController: UIViewController {
         monthlyView.isHidden = false
         enabledElementInVC(is: false)
         createElementForMonthlyView()
+        duringTextField.text = "∞"
+        duringStepperOutlet.value = 0
     }
     
     func showAlertWith(message:String) {

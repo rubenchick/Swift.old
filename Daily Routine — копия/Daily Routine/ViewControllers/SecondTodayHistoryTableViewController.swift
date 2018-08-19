@@ -329,13 +329,6 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
                 }
             }
         }
-
-//
-//        let data = Date()
-//        print(data.dayNumberOfWeek()!)
-//        print(data.dayNumberOfMonth()!)
-        
-        
         return true
     }
     
@@ -375,23 +368,34 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
             let sortDescription = NSSortDescriptor(key: "priority", ascending: true)
             request.sortDescriptors = [sortDescription]
             // Difficilt predicate daily, weekly, monthly
-            // first filtred isActual
             let predicateIsActual = NSPredicate(format: "%K == %@", "isActual", NSNumber(value: true))
-            // second filtred weekly
-            
-            // third filtred monthly
-            
-//            let compound = NSCompoundPredicate.init(andPredicateWithSubpredicates:[predicateIsActual])
             request.predicate = predicateIsActual
             do {
                 let thingToDo = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request)
                 if let thingToDo = thingToDo as? [ThingToDo] {
+                    var calendar = Calendar.current
+                    calendar.timeZone = NSTimeZone.local
+                    let dateFrom = calendar.startOfDay(for: Date()) // eg. 2016-10-10 00:00:00
                     for thing in thingToDo {
-                        if isNeedToday(thing: thing) {
-                            let history = History()
-                            history.date = dateToday as NSDate
-                            history.thingToDo = thing
-                            history.isDone = false
+                        if let finishedTime = thing.time as Date? {
+                            if finishedTime < dateFrom {
+                                thing.isActual = false
+                                CoreDataManager.instance.saveContext()
+                            } else {
+                                if isNeedToday(thing: thing) {
+                                    let history = History()
+                                    history.date = dateToday as NSDate
+                                    history.thingToDo = thing
+                                    history.isDone = false
+                                }
+                            }
+                        } else {
+                            if isNeedToday(thing: thing) {
+                                let history = History()
+                                history.date = dateToday as NSDate
+                                history.thingToDo = thing
+                                history.isDone = false
+                            }
                         }
                     }
                 }
@@ -413,5 +417,11 @@ extension Date {
     }
     func dayNumberOfMonth() -> Int? {
         return Calendar.current.dateComponents([.day], from: self).day
+    }
+    func monthOfYear() -> Int? {
+        return Calendar.current.dateComponents([.month], from: self).month
+    }
+    func year() -> Int? {
+        return Calendar.current.dateComponents([.year], from: self).year
     }
 }
