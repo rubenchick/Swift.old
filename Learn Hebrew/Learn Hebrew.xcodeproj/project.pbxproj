@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		CA0EF46F212801C8000C7BC9 /* AddNewWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0EF46E212801C8000C7BC9 /* AddNewWords.swift */; };
 		CA0EF471212815C2000C7BC9 /* TypeOfCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0EF470212815C2000C7BC9 /* TypeOfCard.swift */; };
+		CA0EF473212D4C6E000C7BC9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0EF472212D4C6E000C7BC9 /* CoreDataManager.swift */; };
+		CA0EF476212D4D12000C7BC9 /* Learn_Hebrew.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA0EF474212D4D12000C7BC9 /* Learn_Hebrew.xcdatamodeld */; };
+		CA0EF493212D53AF000C7BC9 /* Words+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0EF48F212D53AF000C7BC9 /* Words+CoreDataClass.swift */; };
+		CA0EF494212D53AF000C7BC9 /* Words+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0EF490212D53AF000C7BC9 /* Words+CoreDataProperties.swift */; };
+		CA0EF495212D53AF000C7BC9 /* Statistic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0EF491212D53AF000C7BC9 /* Statistic+CoreDataClass.swift */; };
+		CA0EF496212D53AF000C7BC9 /* Statistic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0EF492212D53AF000C7BC9 /* Statistic+CoreDataProperties.swift */; };
 		CA8EB4DE211C75A200F36B6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EB4DD211C75A200F36B6C /* AppDelegate.swift */; };
 		CA8EB4E0211C75A200F36B6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EB4DF211C75A200F36B6C /* ViewController.swift */; };
 		CA8EB4E3211C75A200F36B6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8EB4E1211C75A200F36B6C /* Main.storyboard */; };
@@ -20,6 +26,12 @@
 /* Begin PBXFileReference section */
 		CA0EF46E212801C8000C7BC9 /* AddNewWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWords.swift; sourceTree = "<group>"; };
 		CA0EF470212815C2000C7BC9 /* TypeOfCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfCard.swift; sourceTree = "<group>"; };
+		CA0EF472212D4C6E000C7BC9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		CA0EF475212D4D12000C7BC9 /* Learn_Hebrew.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Learn_Hebrew.xcdatamodel; sourceTree = "<group>"; };
+		CA0EF48F212D53AF000C7BC9 /* Words+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Words+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CA0EF490212D53AF000C7BC9 /* Words+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Words+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CA0EF491212D53AF000C7BC9 /* Statistic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Statistic+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CA0EF492212D53AF000C7BC9 /* Statistic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Statistic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CA8EB4DA211C75A200F36B6C /* Learn Hebrew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Learn Hebrew.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8EB4DD211C75A200F36B6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA8EB4DF211C75A200F36B6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +56,10 @@
 		CA8EB4D1211C75A200F36B6C = {
 			isa = PBXGroup;
 			children = (
+				CA0EF48F212D53AF000C7BC9 /* Words+CoreDataClass.swift */,
+				CA0EF490212D53AF000C7BC9 /* Words+CoreDataProperties.swift */,
+				CA0EF491212D53AF000C7BC9 /* Statistic+CoreDataClass.swift */,
+				CA0EF492212D53AF000C7BC9 /* Statistic+CoreDataProperties.swift */,
 				CA8EB4DC211C75A200F36B6C /* Learn Hebrew */,
 				CA8EB4DB211C75A200F36B6C /* Products */,
 			);
@@ -63,12 +79,14 @@
 				CA8EB4DD211C75A200F36B6C /* AppDelegate.swift */,
 				CA8EB4DF211C75A200F36B6C /* ViewController.swift */,
 				CA0EF46E212801C8000C7BC9 /* AddNewWords.swift */,
+				CA0EF472212D4C6E000C7BC9 /* CoreDataManager.swift */,
 				CA8EB4EF211C765000F36B6C /* model.swift */,
 				CA0EF470212815C2000C7BC9 /* TypeOfCard.swift */,
 				CA8EB4E1211C75A200F36B6C /* Main.storyboard */,
 				CA8EB4E4211C75A600F36B6C /* Assets.xcassets */,
 				CA8EB4E6211C75A600F36B6C /* LaunchScreen.storyboard */,
 				CA8EB4E9211C75A600F36B6C /* Info.plist */,
+				CA0EF474212D4D12000C7BC9 /* Learn_Hebrew.xcdatamodeld */,
 			);
 			path = "Learn Hebrew";
 			sourceTree = "<group>";
@@ -144,11 +162,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA0EF473212D4C6E000C7BC9 /* CoreDataManager.swift in Sources */,
 				CA8EB4E0211C75A200F36B6C /* ViewController.swift in Sources */,
+				CA0EF476212D4D12000C7BC9 /* Learn_Hebrew.xcdatamodeld in Sources */,
 				CA8EB4F0211C765000F36B6C /* model.swift in Sources */,
+				CA0EF494212D53AF000C7BC9 /* Words+CoreDataProperties.swift in Sources */,
 				CA0EF46F212801C8000C7BC9 /* AddNewWords.swift in Sources */,
+				CA0EF495212D53AF000C7BC9 /* Statistic+CoreDataClass.swift in Sources */,
 				CA8EB4DE211C75A200F36B6C /* AppDelegate.swift in Sources */,
 				CA0EF471212815C2000C7BC9 /* TypeOfCard.swift in Sources */,
+				CA0EF496212D53AF000C7BC9 /* Statistic+CoreDataProperties.swift in Sources */,
+				CA0EF493212D53AF000C7BC9 /* Words+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +319,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L3BD88N55V;
 				INFOPLIST_FILE = "Learn Hebrew/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,6 +338,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L3BD88N55V;
 				INFOPLIST_FILE = "Learn Hebrew/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -346,6 +372,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CA0EF474212D4D12000C7BC9 /* Learn_Hebrew.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CA0EF475212D4D12000C7BC9 /* Learn_Hebrew.xcdatamodel */,
+			);
+			currentVersion = CA0EF475212D4D12000C7BC9 /* Learn_Hebrew.xcdatamodel */;
+			path = Learn_Hebrew.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CA8EB4D2211C75A200F36B6C /* Project object */;
 }

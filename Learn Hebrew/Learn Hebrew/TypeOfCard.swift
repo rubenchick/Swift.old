@@ -10,6 +10,7 @@ enum TypeOfCard : Int {
     case pictureAndTranslateChooseWrite
     case prononceChooseWrite
     case prononceChoosePicture
+    case writeChoosePicture
     case prononceAndWriteChooseTranslate
     case createFromLetter
     case prononceChooseTranslate
@@ -24,9 +25,16 @@ enum TypeOfButton : Int{
     case forget
     case pronunciationBig
     case pronunciationNormal
+    case choosePicture
 }
 
 enum TypeOfPicture : Int{
     case main = 0
     case choose
 }
+
+enum TypeOfRequest : Int {
+    case all = 0
+    case actual
+}
+
