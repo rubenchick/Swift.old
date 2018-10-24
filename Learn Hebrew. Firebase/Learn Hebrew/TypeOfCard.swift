@@ -27,6 +27,7 @@ enum TypeOfButton : Int{
     case pronunciationNormal
     case choosePicture
     case edit
+    case add
 }
 
 enum TypeOfPicture : Int{

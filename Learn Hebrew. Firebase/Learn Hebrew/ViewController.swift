@@ -161,7 +161,7 @@ class ViewController: UIViewController {
         
         
 //        --- Work block
-        print("Yes. VC\(user)")
+
         if user != nil {
             readRecords(typeOfRequest: .all)    // Загружаем все записи из CoreData
             addNewWords()        // Добавляем новые слова
@@ -259,7 +259,7 @@ class ViewController: UIViewController {
             let wordsForChange = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request) as! [Words]
             print(wordsForChange.count)
             for word in wordsForChange {
-                word.foreign =  "כֵּלֵב"
+//                word.foreign =  "כֵּלֵב"
 //                word.original = "мы"
 //                word.isLearned = false
 //                word.levelOfLearning = 0
@@ -270,7 +270,8 @@ class ViewController: UIViewController {
 //                word.mistake = 0
 //                word.discription = "299550@gmail.com"
 //                word.simple = "шиур"
-                print("The correction is finished")
+//                print("The correction is finished")
+//                print(word.image!)
             }
             CoreDataManager.instance.saveContext()
         } catch {
@@ -444,6 +445,12 @@ class ViewController: UIViewController {
             }
 //            newButton.backgroundColor = backgroundForWord
 //            newButton.addTarget(self, action: #selector(pronunciationWord), for: .touchDown)
+        case .add:
+            newButton = UIButton(type: .custom)
+            newButton.frame = CGRect(x: CGFloat(posX - posY/10), y: CGFloat(posY/17), width: CGFloat(posY/20), height: CGFloat(posY/20))
+            if let newImage = UIImage(named: "addnew.png") {
+                newButton.setImage(newImage, for: .normal)
+            }
         case .choose:
             newButton.frame = CGRect(x: CGFloat(posX), y: CGFloat(posY), width: view.frame.width-CGFloat(posX)*2, height: view.frame.height / 15)
             newButton.setTitle(text, for: .normal)
@@ -659,6 +666,48 @@ class ViewController: UIViewController {
         let card = wordForLearningInThisIteration[numberCard]
         showDetailPage(word: wordArray[card.0])
         detailPage.isHidden = false
+    }
+    
+    @objc func pressedAdd(){
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Words")
+        var userFrom = ""
+        if user != nil {
+            if user! == "anton.rubenchik@gmail.com" {
+                userFrom = "tatyana.rubenchik@gmail.com"
+            } else {
+                if user! == "299550@gmail.com" {
+                    userFrom = "maria.rubenchik@gmail.com"
+                }
+            }
+            
+            let predicate = NSPredicate(format: "%K == %@", "discription", userFrom)
+            //        let predicate = NSPredicate(format: "%K == %@", "isLearned", NSNumber(value: false)) // all records
+            request.predicate = predicate
+            do {
+                let wordsForChange = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request) as! [Words]
+                print(wordsForChange.count)
+                for word in wordsForChange {
+                    //                word.foreign =  "כֵּלֵב"
+                    //                word.original = "мы"
+                    //                word.isLearned = false
+                    //                word.levelOfLearning = 0
+                    //                word.nextContact = Date() as NSDate
+                    //                word.dontWantToLearn = false
+                    //                word.isLearned = false
+                    //                word.image = "water"
+                    //                word.mistake = 0
+                    word.discription = user!
+                    //                word.simple = "шиур"
+                    //                print("The correction is finished")
+                    //                print(word.image!)
+                }
+                CoreDataManager.instance.saveContext()
+            } catch {
+                print(error)
+            }
+        }
+        showStartPage()
     }
     
     @objc func pressedStart(){
@@ -1123,8 +1172,17 @@ class ViewController: UIViewController {
                                       size: 20,
                                       color: UIColor(red: 153/255, green: 204/255, blue: 102/255, alpha: 1))
         nextButton.addTarget(self, action: #selector(pressedStart), for: .touchDown)
+
+        let addButton = createButton(type: TypeOfButton.add,
+                                      posX: Int(self.view.frame.width),
+                                      posY: Int(self.view.frame.height),
+                                      text: nil,
+                                      size: nil,
+                                      color: UIColor(red: 153/255, green: 204/255, blue: 102/255, alpha: 1))
+        addButton.addTarget(self, action: #selector(pressedAdd), for: .touchDown)
         
         startPage.addSubview(nextButton)
+        startPage.addSubview(addButton)
         startPage.addSubview(informationLabel)
         startPage.addSubview(progressInformation)
         self.view.addSubview(startPage)
@@ -1231,7 +1289,19 @@ class ViewController: UIViewController {
                     }
                     firstLabel = false
                 } else {
-                    newlabel.text = "Итерация \(countIterationToday)\n" + informationAboutSituation
+                    //Information Alert
+                    let zeroLevel = wordsCoreDataArray.filter({ (word) -> Bool in
+                        return word.levelOfLearning == 0 ? true : false
+                    })
+                    let learndLevel = wordsCoreDataArray.filter({ (word) -> Bool in
+                        return (word.levelOfLearning == 1) || (word.levelOfLearning == 2) || (word.levelOfLearning == 3) ? true : false
+                    })
+                    
+                    let fourthLevel = wordsCoreDataArray.filter({ (word) -> Bool in
+                        return word.levelOfLearning > 3 ? true : false
+                    })
+
+                    newlabel.text = "Итерация \(countIterationToday)\n" + "Всего слов \(wordsCoreDataArray.count) \nНовых слов \(zeroLevel.count)\nВыучено слов \(fourthLevel.count)\nСлов на изучении \(learndLevel.count)\n \(user!)"
                     newlabel.sizeToFit()
                 }
                 
