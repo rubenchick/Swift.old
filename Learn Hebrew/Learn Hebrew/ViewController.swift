@@ -104,13 +104,23 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //--- Delete block
 // // // // // //       deletRecord() // Worked
+        //---
+        
+        //--- Work block
+        
         readRecords(typeOfRequest: .all)    // Загружаем все записи из CoreData
         addNewWords()        // Добавляем новые слова
         createMaketOfCards() // Создаем макеты карточке
         showStartPage()
+        
+        //---
+        
+        
+        //--- Correct block
 //        correctCoreData() // if need
+        //---
 //
 //        let speakTalk   = AVSpeechSynthesizer()
 //        let speakMsg    = AVSpeechUtterance(string: "אַחַת עֵשׂרֶא")
@@ -129,23 +139,23 @@ class ViewController: UIViewController {
         
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Words")
-        let predicate = NSPredicate(format: "%K == %@", "image", "")
+        let predicate = NSPredicate(format: "%K == %@", "image", "bed")
         request.predicate = predicate
         do {
             let wordsForChange = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request) as! [Words]
             print(wordsForChange.count)
             for word in wordsForChange {
-                word.foreign = "אׂכֶל"
-                word.original = "еда, пища"
-                word.isLearned = false
-                word.levelOfLearning = 0
-                word.nextContact = Date() as NSDate
-                word.dontWantToLearn = false
-                word.isLearned = false
-                word.image = "food"
-                word.mistake = 0
-                word.discription = ""
-                word.simple = "о́хэл"
+//                word.foreign =  "אַנַחנוּ"
+//                word.original = "мы"
+//                word.isLearned = false
+//                word.levelOfLearning = 0
+//                word.nextContact = Date() as NSDate
+//                word.dontWantToLearn = false
+//                word.isLearned = false
+                word.image = "bad"
+//                word.mistake = 0
+//                word.discription = ""
+//                word.simple = "шиур"
                 print("The correction is finished")
             }
             CoreDataManager.instance.saveContext()
@@ -180,6 +190,13 @@ class ViewController: UIViewController {
             if wordsCoreDataArray.count > 0 {
                 for word in wordsCoreDataArray {
                     print(" Слово -",word.foreign," ; Уровень -",word.levelOfLearning," ; Дата -",word.nextContact)
+                    // create data to txt file
+//                    let dateDiff = Calendar.current.dateComponents([.day], from: dateFrom, to: word.nextContact! as Date).day
+//                    var prononce = ""
+//                    if word.simple != nil {
+//                        prononce = (word.simple as? String)!
+//                    }
+//                    print("\(word.foreign!)\n\(word.original!)\n\(word.levelOfLearning)\n\(dateDiff!)\n\(word.image!)\n\(word.mistake)\n\(prononce)\n")
                 }
             }
         } catch {

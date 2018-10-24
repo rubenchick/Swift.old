@@ -29,7 +29,7 @@ import CoreData
 class SecondDetailViewController: UIViewController {
     // MARK: Var
     var thingToDo: ThingToDo?
-    var count: Int?
+    var count: Int? //????
     // MARK: @IBOutlet
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var noteTExtField: UITextField!

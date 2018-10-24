@@ -1,0 +1,6 @@
+framework module Pods_Learn_Hebrew {
+  umbrella header "Pods-Learn Hebrew-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -21,6 +21,8 @@
 		CA8EB4E5211C75A600F36B6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA8EB4E4211C75A600F36B6C /* Assets.xcassets */; };
 		CA8EB4E8211C75A600F36B6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8EB4E6211C75A600F36B6C /* LaunchScreen.storyboard */; };
 		CA8EB4F0211C765000F36B6C /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EB4EF211C765000F36B6C /* model.swift */; };
+		CA95FE7B2149073900D197DC /* israel120.png in Resources */ = {isa = PBXBuildFile; fileRef = CA95FE792149073900D197DC /* israel120.png */; };
+		CA95FE7C2149073900D197DC /* israel180.png in Resources */ = {isa = PBXBuildFile; fileRef = CA95FE7A2149073900D197DC /* israel180.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		CA8EB4E7211C75A600F36B6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA8EB4E9211C75A600F36B6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA8EB4EF211C765000F36B6C /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
+		CA95FE792149073900D197DC /* israel120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = israel120.png; sourceTree = "<group>"; };
+		CA95FE7A2149073900D197DC /* israel180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = israel180.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 				CA0EF492212D53AF000C7BC9 /* Statistic+CoreDataProperties.swift */,
 				CA8EB4DC211C75A200F36B6C /* Learn Hebrew */,
 				CA8EB4DB211C75A200F36B6C /* Products */,
+				CA95FE792149073900D197DC /* israel120.png */,
+				CA95FE7A2149073900D197DC /* israel180.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,6 +158,8 @@
 				CA8EB4E8211C75A600F36B6C /* LaunchScreen.storyboard in Resources */,
 				CA8EB4E5211C75A600F36B6C /* Assets.xcassets in Resources */,
 				CA8EB4E3211C75A200F36B6C /* Main.storyboard in Resources */,
+				CA95FE7B2149073900D197DC /* israel120.png in Resources */,
+				CA95FE7C2149073900D197DC /* israel180.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,4 +1,4 @@
-//
+// FOR TEST. Doesn't use in real program
 //  ViewController.swift
 //  Daily Routine
 //

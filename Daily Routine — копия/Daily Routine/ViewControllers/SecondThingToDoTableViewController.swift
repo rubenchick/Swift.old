@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Foundation
 
 class SecondThingToDoTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
@@ -69,6 +70,7 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
         let cell = tableView.dequeueReusableCell(withIdentifier: identifierCell, for: indexPath)
         if let thingToDo = fetchRequest.object(at: indexPath) as? ThingToDo {
             cell.textLabel?.text = thingToDo.name!// + " \(String(describing: thingToDo.priority))"
+//            cell.textLabel?.text = thingToDo.name! + " \(String(describing: thingToDo.priority))"
             var addInfo = ""
             if !thingToDo.daily {
                 if thingToDo.weekly {
@@ -108,11 +110,27 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
                 }
             } else {
                 // задано количество дней, в которые нужно выполнять задание
+                
                 if let finishDate = thingToDo.time {
-                    addInfo = "\(finishDate)"
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "dd.MM.YY"
+                    let correctedDate = dateFormatter.string(from: finishDate as Date)
+                    addInfo = " (до \(correctedDate))"
+                    
+//                    addInfo = "\(finishDate)"
                 }
             }
-            cell.detailTextLabel?.text = thingToDo.note! + addInfo
+            if let note = thingToDo.note {
+                cell.detailTextLabel?.text = note + addInfo
+            } else {
+               cell.detailTextLabel?.text = addInfo
+            }
+//            if thingToDo.note != nil {
+//                cell.detailTextLabel?.text = thingToDo.note! + addInfo
+//            } else {
+//                cell.detailTextLabel?.text = addInfo
+//            }
+          //  cell.detailTextLabel?.text = thingToDo.note! + addInfo
             
         }
         
@@ -133,7 +151,7 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
         if segue.identifier == identifierSegue {
             let controller = segue.destination as! SecondDetailViewController
             let thingToDoActualArray = fetchRequest.fetchedObjects?.count
-            controller.count = thingToDoActualArray
+            controller.count = thingToDoActualArray //?
             controller.thingToDo = sender as? ThingToDo
         }
     }
