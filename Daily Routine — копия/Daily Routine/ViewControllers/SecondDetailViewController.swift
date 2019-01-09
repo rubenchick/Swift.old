@@ -20,8 +20,12 @@
 // AppStore
 // 9. Сделать обучающие слайды???
 // 10. Английская версия
-// 11. Notification. Сколько не прочитанных сообщений
+// 11. Почистить ViewDidLoad
 // 12. Почистить код.
+// 13.
+// 14. Поддержка IPad
+
+
 
 import UIKit
 import CoreData
@@ -50,20 +54,23 @@ class SecondDetailViewController: UIViewController {
     @IBOutlet weak var pressCancelButton: UIBarButtonItem!
     @IBOutlet weak var notificationSwitch: UISwitch!
     @IBOutlet weak var readyWeeklyViewOutlet: UIButton!
+    @IBOutlet weak var titleOnMonthlyView: UILabel!
     
     // MARK: own function
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .lightContent
         UIApplication.shared.statusBarView?.backgroundColor = .black
+//        createElementsBeforeStart()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if let thingToDo = thingToDo {
             nameTextField.text = thingToDo.name
             noteTExtField.text = thingToDo.note
+            createElementsBeforeStart()
             
             if thingToDo.daily {
                 if thingToDo.time != nil {
@@ -199,6 +206,23 @@ class SecondDetailViewController: UIViewController {
     }
     
     // MARK:  Add Function
+    
+    func createElementsBeforeStart() {
+        let widthView = view.frame.size.width
+//        monthlyView.frame.size.height = widthView * 0.95
+        let widthOneButton = Double(monthlyView.frame.size.width / 11)
+        let monthlyViewMixY = nameTextField.frame.maxY + (nameTextField.frame.maxY - nameTextField.frame.minY ) / 2
+        let monthlyViewWidth = Int(widthView) - Int(widthOneButton * 1.6)
+        let titleMaxY = titleOnMonthlyView.frame.maxY //MaxY for title in this View
+
+
+        monthlyView.frame = CGRect(x: Int(widthOneButton * 0.8),
+                                       y: Int(monthlyViewMixY),
+                                       width: Int(monthlyViewWidth),
+                                       height: Int(Int(titleMaxY) + Int(Double(widthOneButton) * (2.2  + 1.4 * 5)))
+                )
+    }
+    
     // check property this thingToDo, and desicion need do this Thing today or not
     func isNeedToday()-> Bool {
         let today = Date()
@@ -523,7 +547,11 @@ class SecondDetailViewController: UIViewController {
             if let _ = self.view.viewWithTag(i) as? UIButton {
             } else {
                 let dayButton = UIButton(type: .system)
-                dayButton.frame = CGRect(x: Int(Double(widht)*1) + (i - 1) * Int(Double(widht) * 1.4) , y: widht * 4, width: widht, height: widht)
+                // old data
+//                dayButton.frame = CGRect(x: Int(Double(widht)*1) + (i - 1) * Int(Double(widht) * 1.4) , y: widht * 4, width: widht, height: widht)
+                dayButton.frame = CGRect(x: Int(Double(widht)*1) + (i - 1) * Int(Double(widht) * 1.4) ,
+                                         y: Int(weeklyView.frame.height / 2) ,
+                                         width: widht, height: widht)
                 dayButton.layer.cornerRadius = CGFloat(Double(widht) / 5)
                 dayButton.clipsToBounds = true
                 dayButton.backgroundColor = .lightGray
@@ -547,7 +575,7 @@ class SecondDetailViewController: UIViewController {
     func createElementForMonthlyView() {
         
         monthlyView.layer.cornerRadius = 15
-        let widht = Int(monthlyView.frame.size.width / 11)
+        let width = Int(monthlyView.frame.size.width / 11)
         var row = 1
         var column = 1
         for i in 1...31 {
@@ -555,8 +583,15 @@ class SecondDetailViewController: UIViewController {
             if let _ = self.view.viewWithTag(100+i) as? UIButton {
             } else {
                 let dayButton = UIButton(type: .system)
-                dayButton.frame = CGRect(x: Int(Double(widht)*1) + (column - 1) * Int(Double(widht) * 1.4) , y: Int(Double(widht) * (3.5 + 1.4 * Double((row - 1)) )), width: widht, height: widht)
-                dayButton.layer.cornerRadius = CGFloat(Double(widht) / 5)
+                let startY = titleOnMonthlyView.frame.maxY //MaxY for title in this View
+                // old version
+//                dayButton.frame = CGRect(x: Int(Double(width)*1) + (column - 1) * Int(Double(width) * 1.4) ,
+//                                         y: Int(Double(width) * (3.5 + 1.4 * Double((row - 1)) )),
+//                                         width: width, height: width)
+                dayButton.frame = CGRect(x: Int(Double(width)*1) + (column - 1) * Int(Double(width) * 1.4) ,
+                                         y: Int(startY) + Int(Double(width) * (0.7 + 1.4 * Double((row - 1)) )),
+                                         width: width, height: width)
+                dayButton.layer.cornerRadius = CGFloat(Double(width) / 5)
                 dayButton.clipsToBounds = true
                 dayButton.backgroundColor = .lightGray
                 dayButton.setTitle("\(i)", for : UIControlState.normal)
@@ -566,6 +601,9 @@ class SecondDetailViewController: UIViewController {
                 dayButton.tag = 100 + i
                 dayButton.addTarget(self, action: #selector(pressButton), for: .touchDown)
                 monthlyView.addSubview(dayButton)
+                if row == 5 {
+                    print("row = 5",Int(startY) + Int(Double(width) * (0.7 + 1.4 * Double((row - 1)) )))
+                }
             }
             column += 1
             if (i % 7) == 0 {
@@ -573,7 +611,22 @@ class SecondDetailViewController: UIViewController {
                 column = 1
             }
         }
-        monthlyView.frame.size.height = CGFloat(Double(widht) * 12.7)
+        
+//        let width8 = Double(monthlyView.frame.size.width / 11)
+//        let yyy = nameTextField.frame.maxY + (nameTextField.frame.maxY - nameTextField.frame.minY ) / 2
+//        let width2 = view.frame.size.width
+//        let width3 = Int(width2) - Int(width8 * 1.6)
+////        let newView = UIView()
+//        let startY = titleOnMonthlyView.frame.maxY //MaxY for title in this View
+//        monthlyView.frame = CGRect(x: Int(width8 * 0.8),
+//                               y: Int(yyy),
+//                               width: Int(width3),
+//                               height: Int(Int(startY) + Int(Double(width8) * (2.2  + 1.4 * 5)))
+//        )
+//        newView.backgroundColor = .blue
+//        view.addSubview(newView)
+////        monthlyView.frame.size.height = CGFloat(Double(width) * 12.7)
+//        monthlyView.frame.size.height = 200
     }
 
     

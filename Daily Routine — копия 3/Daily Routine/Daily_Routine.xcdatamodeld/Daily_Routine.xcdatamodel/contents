@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DayOfMonth" representedClassName=".DayOfMonth" syncable="YES">
+        <attribute name="date" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="thingToDo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThingToDo" inverseName="dayOfMonth" inverseEntity="ThingToDo" syncable="YES"/>
+    </entity>
+    <entity name="History" representedClassName=".History" syncable="YES">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isDone" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="thingToDo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThingToDo" inverseName="history" inverseEntity="ThingToDo" syncable="YES"/>
+    </entity>
+    <entity name="ThingToDo" representedClassName=".ThingToDo" syncable="YES">
+        <attribute name="daily" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isActual" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="monthly" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notification" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="priority" optional="YES" attributeType="Decimal" defaultValueString="100" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="weekly" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="dayOfMonth" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DayOfMonth" inverseName="thingToDo" inverseEntity="DayOfMonth" syncable="YES"/>
+        <relationship name="history" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="History" inverseName="thingToDo" inverseEntity="History" syncable="YES"/>
+        <relationship name="week" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Week" inverseName="thingToDo" inverseEntity="Week" syncable="YES"/>
+    </entity>
+    <entity name="Week" representedClassName=".Week" syncable="YES">
+        <attribute name="friday" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="monday" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="saturday" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sunday" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="thursday" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="tuesday" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="wednesday" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="thingToDo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThingToDo" inverseName="week" inverseEntity="ThingToDo" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="DayOfMonth" positionX="-279" positionY="-1188" width="128" height="75"/>
+        <element name="History" positionX="232" positionY="-1188" width="128" height="90"/>
+        <element name="ThingToDo" positionX="-0" positionY="-1188" width="128" height="225"/>
+        <element name="Week" positionX="-281" positionY="-945" width="128" height="165"/>
+    </elements>
+</model>

@@ -252,25 +252,28 @@ class ViewController: UIViewController {
         
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Words")
-        let predicate = NSPredicate(format: "%K == %@", "image", "dog")
+//        let predicate = NSPredicate(format: "%K == %@", "image", "travel")
+//        let predicate = NSPredicate(format: "%K == %@", "original", "банкет, вечеринка")
 //        let predicate = NSPredicate(format: "%K == %@", "isLearned", NSNumber(value: false)) // all records
+        let predicate = NSPredicate(format: "%K == %@", "simple", "бизхут")
+
         request.predicate = predicate
         do {
             let wordsForChange = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request) as! [Words]
             print(wordsForChange.count)
             for word in wordsForChange {
-//                word.foreign =  "כֵּלֵב"
+//                word.foreign =  "נוֹסֵעַ"
 //                word.original = "мы"
 //                word.isLearned = false
 //                word.levelOfLearning = 0
 //                word.nextContact = Date() as NSDate
 //                word.dontWantToLearn = false
 //                word.isLearned = false
-//                word.image = "water"
+                word.image = "because2"
 //                word.mistake = 0
 //                word.discription = "299550@gmail.com"
-//                word.simple = "шиур"
-//                print("The correction is finished")
+//                word.simple = "чува"
+                print("The correction is finished")
 //                print(word.image!)
             }
             CoreDataManager.instance.saveContext()
@@ -278,6 +281,7 @@ class ViewController: UIViewController {
             print(error)
         }
     }
+    
     func readRecords(typeOfRequest: TypeOfRequest) {
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Words")
@@ -293,22 +297,39 @@ class ViewController: UIViewController {
 //        print(newDate)
         
 //        let fromPredicate = NSPredicate(format: "%K <= %@", "nextContact", newDate as NSDate)
-        var predicateFirst = NSPredicate(format: "%K == %@", "isLearned", NSNumber(value: false))
-        if typeOfRequest == .actual {
-            predicateFirst = NSPredicate(format: "%K <= %@", "nextContact", newDate as NSDate)
-        }
-        let predicateSecond = NSPredicate(format: "%K == %@", "discription", user!)
+//        var predicateFirst = NSPredicate(format: "%K == %@", "isLearned", NSNumber(value: false))
+//        let predicateSecond = NSPredicate(format: "%K == %@", "discription", user!)
         print("user = \(user!)")
-        let compound = NSCompoundPredicate.init(andPredicateWithSubpredicates: [predicateFirst,predicateSecond])
+        var predicateArray : [NSPredicate] = []
+        predicateArray.append(NSPredicate(format: "%K == %@", "discription", user!))
+        if typeOfRequest == .actual {
+//            let predicateFirst = NSPredicate(format: "%K <= %@", "nextContact", newDate as NSDate)
+//            let predicateThird = NSPredicate(format: "%K == %@", "dontWantToLearn", NSNumber(value: false))
+            predicateArray.append(NSPredicate(format: "%K <= %@", "nextContact", newDate as NSDate))
+            predicateArray.append(NSPredicate(format: "%K == %@", "dontWantToLearn", NSNumber(value: false)))
+        }
+//        else {
+//            predicateArray.append(NSPredicate(format: "%K == %@", "isLearned", NSNumber(value: false)))
+////            let predicateFirst = NSPredicate(format: "%K == %@", "isLearned", NSNumber(value: false))
+//
+//        }
+//        let predicateSecond = NSPredicate(format: "%K == %@", "discription", user!)
+//        print("user = \(user!)")
+        let compound = NSCompoundPredicate.init(andPredicateWithSubpredicates: predicateArray)
         
         request.predicate = compound
         do {
             let words = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request) as! [Words]
             wordsCoreDataArray = words
             print(wordsCoreDataArray.count)
+//            print("start")
+//            var ii = 0
             if wordsCoreDataArray.count > 0 {
                 for word in wordsCoreDataArray {
-                    print(" Слово -",word.foreign," ; Уровень -",word.levelOfLearning," ; Дата -",word.nextContact," ; Юзер -",word.discription)
+//                    print(" Слово -",word.foreign," ; Уровень -",word.levelOfLearning," ; Дата -",word.nextContact," ; Юзер -",word.discription)
+//                    print(word.image!)
+//                    ii += 1
+//
                     // create data to txt file
 //                    let dateDiff = Calendar.current.dateComponents([.day], from: dateFrom, to: word.nextContact! as Date).day
 //                    var prononce = ""
@@ -424,7 +445,10 @@ class ViewController: UIViewController {
             newButton.tintColor = .white
             newButton.backgroundColor = .red
             newButton.layer.cornerRadius = CGFloat(diameter/2)
-            if let newImage = UIImage(named: "forget" ) {
+//            if let newImage = UIImage(named: "forget" ) {
+//                newButton.setImage(newImage, for: .normal)
+//            }
+            if let newImage = UIImage(named: "done" ) {
                 newButton.setImage(newImage, for: .normal)
             }
         case .remember:
@@ -626,6 +650,7 @@ class ViewController: UIViewController {
             }
 
             // upgrade in CoreData
+            // level One. All words
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Words")
             let predicate = NSPredicate(format: "%K == %@", "image", editWord.image)
             request.predicate = predicate
@@ -636,19 +661,44 @@ class ViewController: UIViewController {
                     word.foreign =  textFieldInformation[0]
                     word.original = textFieldInformation[1]
                     word.simple = textFieldInformation[2]
-                    print("Correct information in CoreData")
-                    if boolSwitchInformation[0] == true {
-                        word.levelOfLearning = 1
-                        word.nextContact = Date() as NSDate
-                    }
-                    if boolSwitchInformation[1] == true {
-                        word.dontWantToLearn = true
-                    }
+                    print("Correct information in CoreData. Part 1")
+//                    if boolSwitchInformation[0] == true {
+//                        word.levelOfLearning = 1
+//                        word.nextContact = Date() as NSDate
+//                    }
+//                    if boolSwitchInformation[1] == true {
+//                        word.dontWantToLearn = true
+//                    }
                 }
                 CoreDataManager.instance.saveContext()
             } catch {
                 print(error)
             }
+
+            // level Two. Words this user
+            if boolSwitchInformation[0] || boolSwitchInformation[1] {
+                let predicateFirst = NSPredicate(format: "%K == %@", "image", editWord.image)
+                let predicateSecond = NSPredicate(format: "%K == %@", "discription", user!)
+                let compound = NSCompoundPredicate.init(andPredicateWithSubpredicates: [predicateFirst,predicateSecond])
+                request.predicate = compound
+                do {
+                    let wordsForChange = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request) as! [Words]
+                    print(wordsForChange.count)
+                    for word in wordsForChange {
+                        if boolSwitchInformation[0] == true {
+                            word.levelOfLearning = 1
+                            word.nextContact = Date() as NSDate
+                        }
+                        if boolSwitchInformation[1] == true {
+                            word.dontWantToLearn = true
+                        }
+                    }
+                    print("Correct information in CoreData. Part 2")
+                    CoreDataManager.instance.saveContext()
+                } catch {
+                    print(error)
+                }
+            }           
         }
 
         // close form and start next form
@@ -1290,18 +1340,32 @@ class ViewController: UIViewController {
                     firstLabel = false
                 } else {
                     //Information Alert
-                    let zeroLevel = wordsCoreDataArray.filter({ (word) -> Bool in
-                        return word.levelOfLearning == 0 ? true : false
-                    })
-                    let learndLevel = wordsCoreDataArray.filter({ (word) -> Bool in
-                        return (word.levelOfLearning == 1) || (word.levelOfLearning == 2) || (word.levelOfLearning == 3) ? true : false
-                    })
-                    
-                    let fourthLevel = wordsCoreDataArray.filter({ (word) -> Bool in
-                        return word.levelOfLearning > 3 ? true : false
-                    })
+                    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Words")
+                    let predicateFirst = NSPredicate(format: "%K == %@", "isLearned", NSNumber(value: false))
+                    let predicateSecond = NSPredicate(format: "%K == %@", "discription", user!)
 
-                    newlabel.text = "Итерация \(countIterationToday)\n" + "Всего слов \(wordsCoreDataArray.count) \nНовых слов \(zeroLevel.count)\nВыучено слов \(fourthLevel.count)\nСлов на изучении \(learndLevel.count)\n \(user!)"
+                    let compound = NSCompoundPredicate.init(andPredicateWithSubpredicates: [predicateFirst,predicateSecond])
+                    
+                    request.predicate = compound
+                    do {
+                        let words = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request) as! [Words]
+                        let zeroLevel = words.filter({ (word) -> Bool in
+                            return word.levelOfLearning == 0 ? true : false
+                        })
+                        let learndLevel = words.filter({ (word) -> Bool in
+                            return (word.levelOfLearning == 1) || (word.levelOfLearning == 2) || (word.levelOfLearning == 3) ? true : false
+                        })
+                        
+                        let fourthLevel = words.filter({ (word) -> Bool in
+                            return word.levelOfLearning > 3 ? true : false
+                        })
+                        
+                        newlabel.text = "Итерация \(countIterationToday)\n" + "Всего слов \(words.count) \nНовых слов \(zeroLevel.count)\nВыучено слов \(fourthLevel.count)\nСлов на изучении \(learndLevel.count)\n \(user!)"
+                        
+                    } catch {
+                        print(error)
+                    }
+//                    newlabel.text = "Итерация \(countIterationToday)\n" + informationAboutSituation
                     newlabel.sizeToFit()
                 }
                 

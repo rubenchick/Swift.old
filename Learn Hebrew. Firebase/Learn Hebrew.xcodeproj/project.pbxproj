@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		237DD6271CC7653BD0A4BB1B /* Pods_Learn_Hebrew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB3ACED3DB68409174F65A9 /* Pods_Learn_Hebrew.framework */; };
+		CA04401321A1B39100C05797 /* ListOfWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA04401221A1B39100C05797 /* ListOfWordsViewController.swift */; };
 		CA0EF46F212801C8000C7BC9 /* AddNewWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0EF46E212801C8000C7BC9 /* AddNewWords.swift */; };
 		CA0EF471212815C2000C7BC9 /* TypeOfCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0EF470212815C2000C7BC9 /* TypeOfCard.swift */; };
 		CA0EF473212D4C6E000C7BC9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0EF472212D4C6E000C7BC9 /* CoreDataManager.swift */; };
@@ -32,6 +33,7 @@
 		527155F0B6001594AB2EBABF /* Pods-Learn Hebrew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Learn Hebrew.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Learn Hebrew/Pods-Learn Hebrew.debug.xcconfig"; sourceTree = "<group>"; };
 		8EB3ACED3DB68409174F65A9 /* Pods_Learn_Hebrew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Learn_Hebrew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C490BB85A310A8C65810C08A /* Pods-Learn Hebrew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Learn Hebrew.release.xcconfig"; path = "Pods/Target Support Files/Pods-Learn Hebrew/Pods-Learn Hebrew.release.xcconfig"; sourceTree = "<group>"; };
+		CA04401221A1B39100C05797 /* ListOfWordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfWordsViewController.swift; sourceTree = "<group>"; };
 		CA0EF46E212801C8000C7BC9 /* AddNewWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWords.swift; sourceTree = "<group>"; };
 		CA0EF470212815C2000C7BC9 /* TypeOfCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfCard.swift; sourceTree = "<group>"; };
 		CA0EF472212D4C6E000C7BC9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				CA8EB4DD211C75A200F36B6C /* AppDelegate.swift */,
 				CA8EB4DF211C75A200F36B6C /* ViewController.swift */,
 				CA42BA62216E2843008F1D55 /* StartViewController.swift */,
+				CA04401221A1B39100C05797 /* ListOfWordsViewController.swift */,
 				CA0EF46E212801C8000C7BC9 /* AddNewWords.swift */,
 				CA0EF472212D4C6E000C7BC9 /* CoreDataManager.swift */,
 				CA8EB4EF211C765000F36B6C /* model.swift */,
@@ -255,6 +258,7 @@
 				CA0EF494212D53AF000C7BC9 /* Words+CoreDataProperties.swift in Sources */,
 				CA42BA63216E2843008F1D55 /* StartViewController.swift in Sources */,
 				CA0EF46F212801C8000C7BC9 /* AddNewWords.swift in Sources */,
+				CA04401321A1B39100C05797 /* ListOfWordsViewController.swift in Sources */,
 				CA0EF495212D53AF000C7BC9 /* Statistic+CoreDataClass.swift in Sources */,
 				CA8EB4DE211C75A200F36B6C /* AppDelegate.swift in Sources */,
 				CA0EF471212815C2000C7BC9 /* TypeOfCard.swift in Sources */,
