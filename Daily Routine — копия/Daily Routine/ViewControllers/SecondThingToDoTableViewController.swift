@@ -16,6 +16,7 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
     let identifierSegue = "patternToDetail"
     var fetchRequest = ThingToDo.fetchedResultsIsActual()
     var array : [ThingToDo] = []
+    var helpView = UIView()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,6 +32,7 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkShowHelp()
         fetchRequest.delegate = self
         
         do {
@@ -47,7 +49,13 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
     
     
     @objc func doubleTapped() {
-        tableView.isEditing = !tableView.isEditing
+//        tableView.isEditing = !tableView.isEditing
+        if !helpView.isHidden {
+            helpView.isHidden = true
+        } else {
+            tableView.isEditing = !tableView.isEditing
+            tableView.reloadData()            
+        }
     }
     // MARK: - Table view data source
     
@@ -237,6 +245,7 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
             }
         }
     }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             print("DELETE___________________++++++++++++++++++__________________")
@@ -256,12 +265,126 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
                 }
                 if let historyToDelete = historyFindThisThingToDo.fetchedObjects?.first as? NSManagedObject {
                     CoreDataManager.instance.persistentContainer.viewContext.delete(historyToDelete)
-                    print("delete HIstory- finished")
+//                    print("delete HIstory- finished")
                 }
              }
             let managedObject = fetchRequest.fetchedObjects?.last as! NSManagedObject
             CoreDataManager.instance.persistentContainer.viewContext.delete(managedObject)
             CoreDataManager.instance.saveContext()
+        }
+    }
+    
+    //MARK: Help View
+    func createLabelForHelpView(typeInfo: typeInfoForHelp, text: String) -> UILabel {
+        // create example
+        
+        let label = UILabel()
+        var width = CGFloat()
+        
+        switch typeInfo {
+        case .exit: width = helpView.frame.width*3/4
+        default: width = helpView.frame.width/3
+        }
+        
+        label.frame = CGRect(x: 0, y: 0, width: width, height: helpView.frame.height)
+        if helpView.frame.width > 400 {
+            label.font = UIFont(name: "Marker Felt", size: UIFont.labelFontSize+5)
+        }
+        else {
+            label.font = UIFont(name: "Marker Felt", size: UIFont.labelFontSize)
+        }
+        label.text = text
+        label.numberOfLines = 0
+        label.minimumScaleFactor = 0.2
+        label.adjustsFontSizeToFitWidth = true
+        label.baselineAdjustment = .alignCenters
+        label.textAlignment  = .center
+        label.sizeToFit()
+        
+        var delta = CGFloat(0)
+        switch helpView.frame.height {
+        case 0...569: delta = helpView.frame.height*2/37
+        case 0...668: delta = helpView.frame.height/37
+        default: delta = 0
+        }
+        // change position
+        switch typeInfo {
+        case .main:
+            label.frame = CGRect(x: helpView.frame.width/4,
+                                 y: helpView.frame.height/3,
+                                 width: helpView.frame.width/2,
+                                 height: label.frame.height)
+        case .leftTop:
+            label.frame = CGRect(x: helpView.frame.width/20,
+                                 y: helpView.frame.height/8,
+                                 width: helpView.frame.width/3,
+                                 height: label.frame.height)
+            let image = UIImageView(image: UIImage(named: "arrow left"))
+            image.frame = CGRect(x: helpView.frame.width/9, y: helpView.frame.height/40, width: helpView.frame.width/10, height: helpView.frame.height/12)
+            helpView.addSubview(image)
+        case .detailData:
+            label.frame = CGRect(x: helpView.frame.width*33/60,
+                                 y: helpView.frame.height*4/22 + delta,
+                                 width: helpView.frame.width/3,
+                                 height: label.frame.height)
+            let image = UIImageView(image: UIImage(named: "arrow right"))
+            image.frame = CGRect(x: helpView.frame.width*43/60, y: helpView.frame.height*3/37 + delta, width: helpView.frame.width/10, height: helpView.frame.height/12)
+            helpView.addSubview(image)
+        case .exit:
+            label.frame = CGRect(x: helpView.frame.width/8,
+                                 y: helpView.frame.height*3/4,
+                                 width: helpView.frame.width*3/4,
+                                 height: label.frame.height)
+        default:
+            label.frame = CGRect(x: helpView.frame.width/3,
+                                 y: helpView.frame.height/8,
+                                 width: helpView.frame.width/3,
+                                 height: label.frame.height)
+        }
+        
+        label.textColor = .white
+        //        label.backgroundColor = .blue
+        return label
+    }
+    
+    func showHelpFisrtTime(){
+        helpView.addSubview(createLabelForHelpView(typeInfo: .main,
+                                                   text: "Список задач, которые нужно регулярно выполнять"))
+        helpView.addSubview(createLabelForHelpView(typeInfo: .leftTop,
+                                                   text: "Перейти к списку 'Дела на сегодня'"))
+        helpView.addSubview(createLabelForHelpView(typeInfo: .detailData,
+                                                   text: "Посмотреть/изменить задание"))
+        helpView.addSubview(createLabelForHelpView(typeInfo: .exit,
+                                                   text: "Дважды нажмите на экран, чтобы продолжить" ))
+        view.addSubview(helpView)
+    }
+    
+    func checkShowHelp() {
+        var times = 0
+        // add check
+        if UserDefaults.standard.value(forKey: "pageAllDay") != nil {
+            times = UserDefaults.standard.value(forKey: "pageAllDay") as! Int
+//            UserDefaults.standard.set(0, forKey: "pageAllDay")
+        } else {
+            UserDefaults.standard.set(times, forKey: "pageAllDay")
+        }
+        guard times < 5 else { return }
+        
+//        times = 1 // for test
+        // 0 - never meeting (1 - showed)
+        // 5 - teaching mode is finish
+        if times == 1 {
+            //        helpView = UIView()
+            // !isHide helpView and changeFrame
+            helpView.frame = CGRect(x: view.frame.minX,
+                                    y: view.frame.minY,
+                                    width: view.frame.maxX,
+                                    height: view.frame.maxY)
+            
+            helpView.backgroundColor = .darkGray
+            helpView.alpha = 0.8
+            showHelpFisrtTime()
+            UserDefaults.standard.set(5, forKey: "pageAllDay")
         }
     }
 

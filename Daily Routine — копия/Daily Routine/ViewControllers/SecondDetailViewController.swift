@@ -141,6 +141,16 @@ class SecondDetailViewController: UIViewController {
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         if saveThingToDo() {
             dismiss(animated: true, completion: nil)
+            if UserDefaults.standard.value(forKey: "pageToday") != nil {
+                if UserDefaults.standard.value(forKey: "pageToday") as! Int == 1 {
+                    UserDefaults.standard.set(2, forKey: "pageToday")
+                 }
+            }
+            if UserDefaults.standard.value(forKey: "pageAllDay") != nil {
+                if UserDefaults.standard.value(forKey: "pageAllDay") as! Int == 0 {
+                    UserDefaults.standard.set(1, forKey: "pageAllDay")
+                }
+            }
         } else {
             let alert = UIAlertController(title: "Внимание", message: "Не введено название ", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "Хорошо", style: .cancel, handler: nil)

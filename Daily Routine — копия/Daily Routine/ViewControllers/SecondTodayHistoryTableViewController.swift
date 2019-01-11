@@ -8,6 +8,15 @@
 
 import UIKit
 import CoreData
+enum typeInfoForHelp {
+    case main
+    case rightTop
+    case leftTop
+    case deleteData
+    case editData
+    case detailData
+    case exit
+}
 
 class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, SecondMainTableViewCellDelegate {
 
@@ -18,6 +27,7 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
     
     var fetchRequest = History.fetchedResultsToday()
     var array : [ThingToDo] = []
+    var helpView = UIView()
   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -34,7 +44,7 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
         UIApplication.shared.statusBarStyle = .lightContent
         UIApplication.shared.statusBarView?.backgroundColor = .black
 
-        
+        checkShowHelp()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,8 +62,18 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
     }
     
     @objc func doubleTapped() {
-        tableView.isEditing = !tableView.isEditing
-        tableView.reloadData()
+        if !helpView.isHidden {
+            helpView.isHidden = true
+        } else {
+            tableView.isEditing = !tableView.isEditing
+            tableView.reloadData()
+            if UserDefaults.standard.value(forKey: "pageToday") != nil {
+                if UserDefaults.standard.value(forKey: "pageToday") as! Int == 3 {
+                    UserDefaults.standard.set(4, forKey: "pageToday")
+                    checkShowHelp()
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -332,6 +352,182 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
         return true
     }
     
+    func createLabelForHelpView(typeInfo: typeInfoForHelp, text: String) -> UILabel {
+        // create example
+        
+        let label = UILabel()
+        var width = CGFloat()
+        
+        switch typeInfo {
+        case .exit: width = helpView.frame.width*3/4
+        default: width = helpView.frame.width/3
+        }
+        
+        label.frame = CGRect(x: 0, y: 0, width: width, height: helpView.frame.height)
+//        print(helpView.frame.width)
+//        print(helpView.frame.height)
+        if helpView.frame.width > 400 {
+            label.font = UIFont(name: "Marker Felt", size: UIFont.labelFontSize+5)
+        }
+        else {
+            label.font = UIFont(name: "Marker Felt", size: UIFont.labelFontSize)
+        }
+//        label.font = UIFont(name: "Marker Felt", size: UIFont.labelFontSize+5)
+        label.text = text
+        label.numberOfLines = 0
+        label.minimumScaleFactor = 0.2
+        label.adjustsFontSizeToFitWidth = true
+        label.baselineAdjustment = .alignCenters
+        label.textAlignment  = .center
+        label.sizeToFit()
+        
+        var delta = CGFloat(0)
+        switch helpView.frame.height {
+        case 0...569: delta = helpView.frame.height*2/37
+        case 0...668: delta = helpView.frame.height*1/37
+        default: delta = 0
+        }
+        // change position
+        switch typeInfo {
+        case .main:
+            label.frame = CGRect(x: helpView.frame.width/4,
+                                 y: helpView.frame.height/3,
+                                 width: helpView.frame.width/2,
+                                 height: label.frame.height)
+        case .leftTop:
+            label.frame = CGRect(x: helpView.frame.width/20,
+                                 y: helpView.frame.height/8,
+                                 width: helpView.frame.width/3,
+                                 height: label.frame.height)
+            let image = UIImageView(image: UIImage(named: "arrow left"))
+            image.frame = CGRect(x: helpView.frame.width/9, y: helpView.frame.height/40, width: helpView.frame.width/10, height: helpView.frame.height/12)
+            helpView.addSubview(image)
+        case .rightTop:
+            label.frame = CGRect(x: helpView.frame.width*37/60,
+                                 y: helpView.frame.height/8,
+                                 width: helpView.frame.width/3,
+                                 height: label.frame.height)
+            let image = UIImageView(image: UIImage(named: "arrow right"))
+            image.frame = CGRect(x: helpView.frame.width*47/60, y: helpView.frame.height/40, width: helpView.frame.width/10, height: helpView.frame.height/12)
+            helpView.addSubview(image)
+        case .detailData:
+            label.frame = CGRect(x: helpView.frame.width*33/60,
+                                 y: helpView.frame.height*4/22 + delta,
+                                 width: helpView.frame.width/3,
+                                 height: label.frame.height)
+            let image = UIImageView(image: UIImage(named: "arrow right"))
+            image.frame = CGRect(x: helpView.frame.width*43/60, y: helpView.frame.height*3/37 + delta, width: helpView.frame.width/10, height: helpView.frame.height/12)
+            helpView.addSubview(image)
+        case .deleteData:
+            label.frame = CGRect(x: helpView.frame.width/20,
+                                 y: helpView.frame.height*4/22 + delta,
+                                 width: helpView.frame.width/3,
+                                 height: label.frame.height)
+            let image = UIImageView(image: UIImage(named: "arrow left"))
+            image.frame = CGRect(x: helpView.frame.width/9, y: helpView.frame.height*3/37 + delta, width: helpView.frame.width/10, height: helpView.frame.height/12)
+            helpView.addSubview(image)
+        case .editData:
+            label.frame = CGRect(x: helpView.frame.width/4,
+                                 y: helpView.frame.height*45/100,
+                                 width: helpView.frame.width/2,
+                                 height: label.frame.height)
+            let image = UIImageView(image: UIImage(named: "double-tap"))
+            image.frame = CGRect(x: helpView.frame.width/2 - helpView.frame.height/24, y: helpView.frame.height*45/100 - helpView.frame.height/12, width: helpView.frame.height/12, height: helpView.frame.height/12)
+            helpView.addSubview(image)
+        case .exit:
+            label.frame = CGRect(x: helpView.frame.width/8,
+                                 y: helpView.frame.height*3/4,
+                                 width: helpView.frame.width*3/4,
+                                 height: label.frame.height)
+        default:
+            label.frame = CGRect(x: helpView.frame.width/3,
+                                 y: helpView.frame.height/8,
+                                 width: helpView.frame.width/3,
+                                 height: label.frame.height)
+        }
+
+        label.textColor = .white
+//        label.backgroundColor = .blue
+        return label
+    }
+    
+    func showHelpFisrtTime(){
+        helpView.addSubview(createLabelForHelpView(typeInfo: .main,
+                                                   text: "Список дел, которые нужно выполнить сегодня"))
+        helpView.addSubview(createLabelForHelpView(typeInfo: .leftTop,
+                                                   text: "Перейти к 'Список всех дел'"))
+        helpView.addSubview(createLabelForHelpView(typeInfo: .rightTop,
+                                                   text: "Добавить новое дело"))
+        helpView.addSubview(createLabelForHelpView(typeInfo: .exit,
+                                                   text: "Дважды нажмите на экран, чтобы продолжить"))
+        view.addSubview(helpView)
+    }
+    
+    func showHelpAddFisrtTask(){
+        helpView.addSubview(createLabelForHelpView(typeInfo: .editData,
+                                                   text: "Для удаления или изменения последовательности заданий, коснитесь два раза"))
+        helpView.addSubview(createLabelForHelpView(typeInfo: .leftTop,
+                                                   text: "Перейти к 'Список всех дел'"))
+        helpView.addSubview(createLabelForHelpView(typeInfo: .detailData,
+                                                   text: "Отмечаем выполненное задание"))
+        helpView.addSubview(createLabelForHelpView(typeInfo: .exit,
+                                                   text: "Дважды нажмите на экран, чтобы продолжить"))
+        view.addSubview(helpView)
+    }
+    func showHelpDeleteTask(){
+        helpView.addSubview(createLabelForHelpView(typeInfo: .editData,
+                                                   text: "Для выхода из режима редактирования, коснитесь два раза"))
+        helpView.addSubview(createLabelForHelpView(typeInfo: .deleteData,
+                                                   text: "Нажмите, для удаления задания˚" ))
+        helpView.addSubview(createLabelForHelpView(typeInfo: .detailData,
+                                                   text: "Потяните, чтобы изменить порядок"))
+        helpView.addSubview(createLabelForHelpView(typeInfo: .exit,
+                                                   text: "˚ - Задача удалится только из списке 'Дела на сегодня'. Для полного удаления, пререйдите на страницу 'Список всех дел'" ))
+        view.addSubview(helpView)
+    }
+    
+    func checkShowHelp() {
+        var times = 0
+        // add check
+        if UserDefaults.standard.value(forKey: "pageToday") != nil {
+            times = UserDefaults.standard.value(forKey: "pageToday") as! Int
+//            UserDefaults.standard.set(3, forKey: "pageToday") for test
+        } else {
+            UserDefaults.standard.set(times, forKey: "pageToday")
+        }
+//        print("Times -",times)
+        guard times < 5 else { return }
+        helpView = UIView()
+        // !isHide helpView and changeFrame
+        helpView.frame = CGRect(x: view.frame.minX,
+                                y: view.frame.minY,
+                                width: view.frame.maxX,
+                                height: view.frame.maxY)
+        
+        helpView.backgroundColor = .darkGray
+        helpView.alpha = 0.8
+        
+//         times = 4 // for test
+        // 0 - never meeting (1 - showed)
+        // 2 - add first task and never show nelp (3 - showed)
+        // 4 - first time double click and never show nelp
+        // 5 - teaching mode is finish
+        switch times {
+        case 0:
+            showHelpFisrtTime()
+            UserDefaults.standard.set(1, forKey: "pageToday")
+        case 2:
+            helpView.isHidden = false
+            showHelpAddFisrtTask()
+            UserDefaults.standard.set(3, forKey: "pageToday")
+        case 4:
+            helpView.isHidden = false
+            showHelpDeleteTask()
+            UserDefaults.standard.set(5, forKey: "pageToday") //uncomment!!!!!!!!!!!!
+        default: return
+        }
+    }
+    
     func checkDateInToday() {
         //#needAdd
         // Доработать дата должна быть согласно локации
@@ -406,11 +602,12 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
             // save today in UserDefaults
             UserDefaults.standard.set(dateToday, forKey: "dateToday")
             UserDefaults.standard.synchronize()
-            print("!= old date is \(formatter.string(from: savedDate))")
+//            print("!= old date is \(formatter.string(from: savedDate))")
         }
     }
 
 }
+
 extension Date {
     func dayNumberOfWeek() -> Int? {
         return Calendar.current.dateComponents([.weekday], from: self).weekday
