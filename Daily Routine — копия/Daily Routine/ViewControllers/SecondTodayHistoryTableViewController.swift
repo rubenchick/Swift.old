@@ -145,12 +145,12 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
-            print("INSERT Today___________________++++++++++++++++++__________________")
+//            print("INSERT Today___________________++++++++++++++++++__________________")
             if let indexPath = newIndexPath {
                 tableView.insertRows(at: [indexPath], with: .automatic)
             }
         case .update:
-            print("Update TODAY___________________++++++++++++++++++__________________")
+//            print("Update TODAY___________________++++++++++++++++++__________________")
             if let indexPath = indexPath {
                 let todayThing = fetchRequest.object(at: indexPath) as! History
                 
@@ -163,7 +163,7 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
                 cell?.getData(item: newData)
             }
         case .move:
-            print("MOVE Today___________________++++++++++++++++++__________________")
+//            print("MOVE Today___________________++++++++++++++++++__________________")
             if let indexPath = indexPath {
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
@@ -171,7 +171,7 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
                 tableView.insertRows(at: [newIndexPath], with: .fade)
             }
         case .delete:
-            print("DELETE Today___________________++++++++++++++++++__________________")
+//            print("DELETE Today___________________++++++++++++++++++__________________")
             if let indexPath = indexPath {
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
@@ -206,7 +206,7 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
                             }
                         }
                         if isFromMove && isToMove {
-                            print("From - \(sourceIndexPathThing) To - \(destinationIndexPathThing)")
+//                            print("From - \(sourceIndexPathThing) To - \(destinationIndexPathThing)")
                             
                             setOrder()
                             array = thingToDo
@@ -523,7 +523,7 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
         case 4:
             helpView.isHidden = false
             showHelpDeleteTask()
-            UserDefaults.standard.set(5, forKey: "pageToday") //uncomment!!!!!!!!!!!!
+            UserDefaults.standard.set(5, forKey: "pageToday") 
         default: return
         }
     }

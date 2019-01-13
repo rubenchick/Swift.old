@@ -1,0 +1,24 @@
+/* Class = "UILabel"; text = "Tap, \"Main list\" to add / edit task"; ObjectID = "7Qv-Bk-6AV"; */
+"7Qv-Bk-6AV.text" = "Нажмите \"Главный лист\" для редактирования или добавления задач";
+
+/* Class = "UILabel"; text = "Tap to exit"; ObjectID = "HTu-DU-MSx"; */
+"HTu-DU-MSx.text" = "Нажмите для выхода";
+
+/* Class = "UILabel"; text = "Today"; ObjectID = "RXx-0n-FU2"; */
+"RXx-0n-FU2.text" = "Сегодня";
+
+/* Class = "UILabel"; text = "Pilul"; ObjectID = "U1M-kz-xt2"; */
+"U1M-kz-xt2.text" = "Лекарство";
+
+/* Class = "UILabel"; text = "Teacher"; ObjectID = "vIl-PL-RpY"; */
+"vIl-PL-RpY.text" = "Репетитор";
+
+/* Class = "UILabel"; text = "Back"; ObjectID = "WpQ-s8-1Df"; */
+"WpQ-s8-1Df.text" = "Назад";
+
+/* Class = "UILabel"; text = "Next"; ObjectID = "YTk-70-9t7"; */
+"YTk-70-9t7.text" = "Далее";
+
+/* Class = "UILabel"; text = "Run"; ObjectID = "z8t-YR-Q3P"; */
+"z8t-YR-Q3P.text" = "Бег";
+

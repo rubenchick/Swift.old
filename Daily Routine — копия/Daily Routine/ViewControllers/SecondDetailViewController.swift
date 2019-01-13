@@ -167,13 +167,13 @@ class SecondDetailViewController: UIViewController {
                                     3: ["утром","днем","вечером"],
                                     4: ["утром","до обеда","после обеда","вечером"],
                                     5: ["утром","до обеда","после обеда","вечером","ночью"]]
-        let endOfNumbersArray = ["-ой","-ый","-ой","-ий","-ый","-ый","-ой","-ой","-ой","-ой","-ой"]
+        let endOfNumbersArray = ["-ой","-ый","-ой","-ий","-ый","-ый","-ой","-ой","-ой","-ый","-ый"]
         var addInfo = ""
         if let times = Int(countTimesTextField.text!) {
             if times > 1 {
                 if infoToNoteSegmentControl.selectedSegmentIndex != 0 {
                     if infoToNoteSegmentControl.selectedSegmentIndex == 1 {
-                        addInfo = "(\(index)\(endOfNumbersArray[index]) раз) "
+                        addInfo = "(\(index)\(endOfNumbersArray[index])" + " раз) "
                     } else {
                         let timeForDayArray = timeForDayDictionary[times]
                         addInfo = "( " + timeForDayArray![index-1] + " ) "
@@ -611,9 +611,9 @@ class SecondDetailViewController: UIViewController {
                 dayButton.tag = 100 + i
                 dayButton.addTarget(self, action: #selector(pressButton), for: .touchDown)
                 monthlyView.addSubview(dayButton)
-                if row == 5 {
-                    print("row = 5",Int(startY) + Int(Double(width) * (0.7 + 1.4 * Double((row - 1)) )))
-                }
+//                if row == 5 {
+//                    print("row = 5",Int(startY) + Int(Double(width) * (0.7 + 1.4 * Double((row - 1)) )))
+//                }
             }
             column += 1
             if (i % 7) == 0 {

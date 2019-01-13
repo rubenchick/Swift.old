@@ -85,11 +85,11 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
                     addInfo = " ["
                     if let newWeek = thingToDo.week {
                         if newWeek.monday { addInfo = addInfo + "Пн." }
-                        if newWeek.tuesday { addInfo = addInfo + " Вт." }
-                        if newWeek.wednesday { addInfo = addInfo + " Ср." }
-                        if newWeek.thursday { addInfo = addInfo + " Чт." }
-                        if newWeek.friday { addInfo = addInfo + " Пт." }
-                        if newWeek.saturday { addInfo = addInfo + " Сб." }
+                        if newWeek.tuesday { addInfo = addInfo + " " + "Вт." }
+                        if newWeek.wednesday { addInfo = addInfo + " " + "Ср." }
+                        if newWeek.thursday { addInfo = addInfo + " " + "Чт." }
+                        if newWeek.friday { addInfo = addInfo + " " + "Пт." }
+                        if newWeek.saturday { addInfo = addInfo + " " + "Сб." }
                         if newWeek.sunday { addInfo = addInfo + " Вс." }
                     }
                     addInfo = addInfo + " ]"
@@ -123,7 +123,7 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "dd.MM.YY"
                     let correctedDate = dateFormatter.string(from: finishDate as Date)
-                    addInfo = " (до \(correctedDate))"
+                    addInfo = " (до " + "\(correctedDate))"
                     
 //                    addInfo = "\(finishDate)"
                 }
@@ -248,7 +248,7 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("DELETE___________________++++++++++++++++++__________________")
+//            print("DELETE___________________++++++++++++++++++__________________")
             // lifehack
             let reserve = ThingToDo()
             reserve.name = "TEst Delete"

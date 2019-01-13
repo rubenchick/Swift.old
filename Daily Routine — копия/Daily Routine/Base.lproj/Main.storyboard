@@ -660,7 +660,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back-thin" width="102.40000152587891" height="102.40000152587891"/>
+        <image name="back-thin" width="96" height="96"/>
         <image name="inbox" width="96" height="96"/>
         <image name="plus" width="102.40000152587891" height="102.40000152587891"/>
     </resources>
