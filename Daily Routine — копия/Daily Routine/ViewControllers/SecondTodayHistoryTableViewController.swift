@@ -41,9 +41,8 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
             print(error)
         }
         tableView.reloadData()
-        UIApplication.shared.statusBarStyle = .lightContent
+//        UIApplication.shared.statusBarStyle = .lightContent
         UIApplication.shared.statusBarView?.backgroundColor = .black
-
         checkShowHelp()
     }
     
@@ -447,42 +446,53 @@ class SecondTodayHistoryTableViewController: UITableViewController, NSFetchedRes
         }
 
         label.textColor = .white
-//        label.backgroundColor = .blue
         return label
     }
     
     func showHelpFisrtTime(){
         helpView.addSubview(createLabelForHelpView(typeInfo: .main,
-                                                   text: "Список дел, которые нужно выполнить сегодня"))
+                                                   text: NSLocalizedString("Today's to do list", comment: "")))
+//                                                   text: "Список дел, которые нужно выполнить сегодня"))
         helpView.addSubview(createLabelForHelpView(typeInfo: .leftTop,
-                                                   text: "Перейти к 'Список всех дел'"))
+                                                   text: NSLocalizedString("Tap to 'All tasks'", comment: "")))
+//                                                   text: "Перейти к 'Список всех дел'"))
         helpView.addSubview(createLabelForHelpView(typeInfo: .rightTop,
-                                                   text: "Добавить новое дело"))
+                                                   text: NSLocalizedString("Add a new task", comment: "")))
+//                                                    text: "Добавить новое дело"))
         helpView.addSubview(createLabelForHelpView(typeInfo: .exit,
-                                                   text: "Дважды нажмите на экран, чтобы продолжить"))
+                                                   text: NSLocalizedString("Double-tap to continue", comment: "")))
+//        text: "Дважды нажмите на экран, чтобы продолжить"))
         view.addSubview(helpView)
     }
     
     func showHelpAddFisrtTask(){
         helpView.addSubview(createLabelForHelpView(typeInfo: .editData,
-                                                   text: "Для удаления или изменения последовательности заданий, коснитесь два раза"))
+                                                   text: NSLocalizedString("Tap twice to delete or change a task sequence", comment: "")))
+//        text: "Для удаления или изменения последовательности заданий, коснитесь два раза"))
         helpView.addSubview(createLabelForHelpView(typeInfo: .leftTop,
-                                                   text: "Перейти к 'Список всех дел'"))
+                                                   text: NSLocalizedString("Tap to 'All tasks'", comment: "")))
+//        text: "Перейти к 'Список всех дел'"))
         helpView.addSubview(createLabelForHelpView(typeInfo: .detailData,
-                                                   text: "Отмечаем выполненное задание"))
+                                                   text: NSLocalizedString("Mark the completed task", comment: "")))
+//        text: "Отмечаем выполненное задание"))
         helpView.addSubview(createLabelForHelpView(typeInfo: .exit,
-                                                   text: "Дважды нажмите на экран, чтобы продолжить"))
+                                                   text: NSLocalizedString("Double-tap to continue", comment: "")))
+//        text: "Дважды нажмите на экран, чтобы продолжить"))
         view.addSubview(helpView)
     }
     func showHelpDeleteTask(){
         helpView.addSubview(createLabelForHelpView(typeInfo: .editData,
-                                                   text: "Для выхода из режима редактирования, коснитесь два раза"))
+                                                   text: NSLocalizedString("Double-tap to exit edit mode", comment: "")))
+//        text: "Для выхода из режима редактирования, коснитесь два раза"))
         helpView.addSubview(createLabelForHelpView(typeInfo: .deleteData,
-                                                   text: "Нажмите, для удаления задания˚" ))
+                                                   text: NSLocalizedString("Tap to delete the task ˚", comment: "")))
+//        text: "Нажмите, для удаления задания ˚" ))
         helpView.addSubview(createLabelForHelpView(typeInfo: .detailData,
-                                                   text: "Потяните, чтобы изменить порядок"))
+                                                   text: NSLocalizedString("Tap to change order", comment: "")))
+//        text: "Потяните, чтобы изменить порядок"))
         helpView.addSubview(createLabelForHelpView(typeInfo: .exit,
-                                                   text: "˚ - Задача удалится только из списке 'Дела на сегодня'. Для полного удаления, пререйдите на страницу 'Список всех дел'" ))
+                                                   text: NSLocalizedString("˚ - The task will only be removed from the list 'Tasks for today'. For complete removal, go to the 'All tasks' page.", comment: "")))
+//        text: "˚ - Задача удалится только из списке 'Дела на сегодня'. Для полного удаления, пререйдите на страницу 'Список всех дел'" ))
         view.addSubview(helpView)
     }
     

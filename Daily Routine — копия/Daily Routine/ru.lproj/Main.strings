@@ -1,0 +1,90 @@
+/* Class = "UITextField"; placeholder = "Enter a description (e.g. 30 minutes before mealtime)"; ObjectID = "0ls-cw-SwX"; */
+"0ls-cw-SwX.placeholder" = "Введите описание (напр. за 30 мин до еды)";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "2mK-WA-db7"; */
+"2mK-WA-db7.normalTitle" = "Готово";
+
+/* Class = "UIBarButtonItem"; title = "< Back"; ObjectID = "2Xq-ch-utU"; */
+"2Xq-ch-utU.title" = "< Назад";
+
+/* Class = "UILabel"; text = "Several times a month"; ObjectID = "3Yw-RX-002"; */
+"3Yw-RX-002.text" = "Несколько раз в месяц";
+
+/* Class = "UILabel"; text = "Specify which days to set the task"; ObjectID = "5ft-Jt-zlo"; */
+"5ft-Jt-zlo.text" = "Укажите в какие дни ставить задачу";
+
+/* Class = "UILabel"; text = "Additional information"; ObjectID = "6rP-TX-TiO"; */
+"6rP-TX-TiO.text" = "Добавить информацию в описание";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "7Ph-M4-zzm"; */
+"7Ph-M4-zzm.normalTitle" = "Готово";
+
+/* Class = "UIViewController"; title = "SecondDeteail"; ObjectID = "BzR-ak-gyb"; */
+"BzR-ak-gyb.title" = "SecondDeteail";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "edP-6M-VIj"; */
+"edP-6M-VIj.text" = "Subtitle";
+
+/* Class = "UILabel"; text = "What should be done:"; ObjectID = "eZh-TT-qcy"; */
+"eZh-TT-qcy.text" = "Что нужно сделать:";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "fuG-VR-xSn"; */
+"fuG-VR-xSn.text" = "Title";
+
+/* Class = "UILabel"; text = "Daily"; ObjectID = "G99-PY-7bB"; */
+"G99-PY-7bB.text" = "Ежедневно";
+
+/* Class = "UILabel"; text = "Add information to the description"; ObjectID = "i37-DR-DAI"; */
+"i37-DR-DAI.text" = "Добавить информацию в описание";
+
+/* Class = "UILabel"; text = "All tasks"; ObjectID = "iwT-YI-rYj"; */
+"iwT-YI-rYj.text" = "Полный список";
+
+/* Class = "UILabel"; text = "Duration"; ObjectID = "Jyn-gj-UmW"; */
+"Jyn-gj-UmW.text" = "Продолжительность";
+
+/* Class = "UITextField"; placeholder = "Enter a new task"; ObjectID = "k4K-VY-Mct"; */
+"k4K-VY-Mct.placeholder" = "Введите новое задание";
+
+/* Class = "UILabel"; text = "How many times a day"; ObjectID = "LUY-V0-8mj"; */
+"LUY-V0-8mj.text" = "Cколько раз в день";
+
+/* Class = "UISegmentedControl"; M3e-4Y-uMD.segmentTitles[0] = "No"; ObjectID = "M3e-4Y-uMD"; */
+"M3e-4Y-uMD.segmentTitles[0]" = "Нет";
+
+/* Class = "UISegmentedControl"; M3e-4Y-uMD.segmentTitles[1] = "Times"; ObjectID = "M3e-4Y-uMD"; */
+"M3e-4Y-uMD.segmentTitles[1]" = "Номер";
+
+/* Class = "UISegmentedControl"; M3e-4Y-uMD.segmentTitles[2] = "Time"; ObjectID = "M3e-4Y-uMD"; */
+"M3e-4Y-uMD.segmentTitles[2]" = "Время";
+
+/* Class = "UILabel"; text = "Task"; ObjectID = "mfT-6Z-e9B"; */
+"mfT-6Z-e9B.text" = "Задание";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "mrC-Vl-k92"; */
+"mrC-Vl-k92.title" = "Готово";
+
+/* Class = "UILabel"; text = "Today's tasks"; ObjectID = "O5f-T2-PBo"; */
+"O5f-T2-PBo.text" = " Дела на сегодня";
+
+/* Class = "UITextField"; text = "∞"; ObjectID = "P7J-v3-Lml"; */
+"P7J-v3-Lml.text" = "∞";
+
+/* Class = "UILabel"; text = "Several times a week"; ObjectID = "PhJ-5Q-OtR"; */
+"PhJ-5Q-OtR.text" = "Несколько раз в неделю";
+
+/* Class = "UITextField"; text = "1"; ObjectID = "Pun-Rb-cuY"; */
+"Pun-Rb-cuY.text" = "1";
+
+/* Class = "UINavigationItem"; title = "Pattern"; ObjectID = "Pv0-pQ-Y7m"; */
+"Pv0-pQ-Y7m.title" = "Pattern";
+
+/* Class = "UILabel"; text = "Description (not obligatory)"; ObjectID = "yJE-DJ-Yfx"; */
+"yJE-DJ-Yfx.text" = "Описание (не обязательно)";
+
+/* Class = "UILabel"; text = "Specify which days to set the task"; ObjectID = "Yl3-JN-xgF"; */
+"Yl3-JN-xgF.text" = "Укажите в какие дни ставить задачу";
+
+/* Class = "UILabel"; text = "Thing To Do"; ObjectID = "ZTP-pn-9nS"; */
+"ZTP-pn-9nS.text" = "Thing To Do";
+

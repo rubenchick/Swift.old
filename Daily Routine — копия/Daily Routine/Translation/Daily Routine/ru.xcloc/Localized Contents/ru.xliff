@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="Daily Routine/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.1" build-num="10B61"/>
+    </header>
+    <body>
+      <trans-unit id="0ls-cw-SwX.placeholder">
+        <source>Enter a description (e.g. 30 minutes before mealtime)</source>
+        <target>Введите описание (напр. за 30 мин до еды)</target>
+        <note>Class = "UITextField"; placeholder = "Enter a description (e.g. 30 minutes before mealtime)"; ObjectID = "0ls-cw-SwX";</note>
+      </trans-unit>
+      <trans-unit id="2Xq-ch-utU.title">
+        <source>&lt; Back</source>
+        <target>&lt; Назад</target>
+        <note>Class = "UIBarButtonItem"; title = "&lt; Back"; ObjectID = "2Xq-ch-utU";</note>
+      </trans-unit>
+      <trans-unit id="2mK-WA-db7.normalTitle">
+        <source>Done</source>
+        <target>Готово</target>
+        <note>Class = "UIButton"; normalTitle = "Done"; ObjectID = "2mK-WA-db7";</note>
+      </trans-unit>
+      <trans-unit id="3Yw-RX-002.text">
+        <source>Several times a month</source>
+        <target>Несколько раз в месяц</target>
+        <note>Class = "UILabel"; text = "Several times a month"; ObjectID = "3Yw-RX-002";</note>
+      </trans-unit>
+      <trans-unit id="5ft-Jt-zlo.text">
+        <source>Specify which days to set the task</source>
+        <target>Укажите в какие дни ставить задачу</target>
+        <note>Class = "UILabel"; text = "Specify which days to set the task"; ObjectID = "5ft-Jt-zlo";</note>
+      </trans-unit>
+      <trans-unit id="6rP-TX-TiO.text">
+        <source>Additional information</source>
+        <target>Добавить информацию в описание</target>
+        <note>Class = "UILabel"; text = "Additional information"; ObjectID = "6rP-TX-TiO";</note>
+      </trans-unit>
+      <trans-unit id="7Ph-M4-zzm.normalTitle">
+        <source>Done</source>
+        <target>Готово</target>
+        <note>Class = "UIButton"; normalTitle = "Done"; ObjectID = "7Ph-M4-zzm";</note>
+      </trans-unit>
+      <trans-unit id="BzR-ak-gyb.title">
+        <source>SecondDeteail</source>
+        <target>SecondDeteail</target>
+        <note>Class = "UIViewController"; title = "SecondDeteail"; ObjectID = "BzR-ak-gyb";</note>
+      </trans-unit>
+      <trans-unit id="G99-PY-7bB.text">
+        <source>Daily</source>
+        <target>Ежедневно</target>
+        <note>Class = "UILabel"; text = "Daily"; ObjectID = "G99-PY-7bB";</note>
+      </trans-unit>
+      <trans-unit id="Jyn-gj-UmW.text">
+        <source>Duration</source>
+        <target>Продолжительность</target>
+        <note>Class = "UILabel"; text = "Duration"; ObjectID = "Jyn-gj-UmW";</note>
+      </trans-unit>
+      <trans-unit id="LUY-V0-8mj.text">
+        <source>How many times a day</source>
+        <target>Cколько раз в день</target>
+        <note>Class = "UILabel"; text = "How many times a day"; ObjectID = "LUY-V0-8mj";</note>
+      </trans-unit>
+      <trans-unit id="M3e-4Y-uMD.segmentTitles[0]">
+        <source>Нет</source>
+        <target>Нет</target>
+        <note>Class = "UISegmentedControl"; M3e-4Y-uMD.segmentTitles[0] = "Нет"; ObjectID = "M3e-4Y-uMD";</note>
+      </trans-unit>
+      <trans-unit id="M3e-4Y-uMD.segmentTitles[1]">
+        <source>Номер</source>
+        <target>Номер</target>
+        <note>Class = "UISegmentedControl"; M3e-4Y-uMD.segmentTitles[1] = "Номер"; ObjectID = "M3e-4Y-uMD";</note>
+      </trans-unit>
+      <trans-unit id="M3e-4Y-uMD.segmentTitles[2]">
+        <source>Время</source>
+        <target>Время</target>
+        <note>Class = "UISegmentedControl"; M3e-4Y-uMD.segmentTitles[2] = "Время"; ObjectID = "M3e-4Y-uMD";</note>
+      </trans-unit>
+      <trans-unit id="O5f-T2-PBo.text">
+        <source>Today's tasks</source>
+        <target> Дела на сегодня</target>
+        <note>Class = "UILabel"; text = "Today's tasks"; ObjectID = "O5f-T2-PBo";</note>
+      </trans-unit>
+      <trans-unit id="P7J-v3-Lml.text">
+        <source>∞</source>
+        <target>∞</target>
+        <note>Class = "UITextField"; text = "∞"; ObjectID = "P7J-v3-Lml";</note>
+      </trans-unit>
+      <trans-unit id="PhJ-5Q-OtR.text">
+        <source>Few times a week</source>
+        <target>Несколько раз в неделю</target>
+        <note>Class = "UILabel"; text = "Few times a week"; ObjectID = "PhJ-5Q-OtR";</note>
+      </trans-unit>
+      <trans-unit id="Pun-Rb-cuY.text">
+        <source>1</source>
+        <target>1</target>
+        <note>Class = "UITextField"; text = "1"; ObjectID = "Pun-Rb-cuY";</note>
+      </trans-unit>
+      <trans-unit id="Pv0-pQ-Y7m.title">
+        <source>Pattern</source>
+        <target>Pattern</target>
+        <note>Class = "UINavigationItem"; title = "Pattern"; ObjectID = "Pv0-pQ-Y7m";</note>
+      </trans-unit>
+      <trans-unit id="Yl3-JN-xgF.text">
+        <source>Specify which days to set the task</source>
+        <target>Укажите в какие дни ставить задачу</target>
+        <note>Class = "UILabel"; text = "Specify which days to set the task"; ObjectID = "Yl3-JN-xgF";</note>
+      </trans-unit>
+      <trans-unit id="ZTP-pn-9nS.text">
+        <source>Thing To Do</source>
+        <target>Thing To Do</target>
+        <note>Class = "UILabel"; text = "Thing To Do"; ObjectID = "ZTP-pn-9nS";</note>
+      </trans-unit>
+      <trans-unit id="eZh-TT-qcy.text">
+        <source>What should be done:</source>
+        <target>Что нужно сделать:</target>
+        <note>Class = "UILabel"; text = "What should be done:"; ObjectID = "eZh-TT-qcy";</note>
+      </trans-unit>
+      <trans-unit id="edP-6M-VIj.text">
+        <source>Subtitle</source>
+        <target>Subtitle</target>
+        <note>Class = "UILabel"; text = "Subtitle"; ObjectID = "edP-6M-VIj";</note>
+      </trans-unit>
+      <trans-unit id="fuG-VR-xSn.text">
+        <source>Title</source>
+        <target>Title</target>
+        <note>Class = "UILabel"; text = "Title"; ObjectID = "fuG-VR-xSn";</note>
+      </trans-unit>
+      <trans-unit id="i37-DR-DAI.text">
+        <source>Add information to the description</source>
+        <target>Добавить информацию в описание</target>
+        <note>Class = "UILabel"; text = "Add information to the description"; ObjectID = "i37-DR-DAI";</note>
+      </trans-unit>
+      <trans-unit id="iwT-YI-rYj.text">
+        <source>All tasks</source>
+        <target>Полный список</target>
+        <note>Class = "UILabel"; text = "All tasks"; ObjectID = "iwT-YI-rYj";</note>
+      </trans-unit>
+      <trans-unit id="k4K-VY-Mct.placeholder">
+        <source>Enter a new task</source>
+        <target>Введите новое задание</target>
+        <note>Class = "UITextField"; placeholder = "Enter a new task"; ObjectID = "k4K-VY-Mct";</note>
+      </trans-unit>
+      <trans-unit id="mfT-6Z-e9B.text">
+        <source>Task</source>
+        <target>Задание</target>
+        <note>Class = "UILabel"; text = "Task"; ObjectID = "mfT-6Z-e9B";</note>
+      </trans-unit>
+      <trans-unit id="mrC-Vl-k92.title">
+        <source>Done</source>
+        <target>Готово</target>
+        <note>Class = "UIBarButtonItem"; title = "Done"; ObjectID = "mrC-Vl-k92";</note>
+      </trans-unit>
+      <trans-unit id="yJE-DJ-Yfx.text">
+        <source>Description (not obligatory)</source>
+        <target>Описание (не обязательно)</target>
+        <note>Class = "UILabel"; text = "Description (not obligatory)"; ObjectID = "yJE-DJ-Yfx";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Daily Routine/en.lproj/InfoPlist.strings" datatype="plaintext" source-language="en" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.1" build-num="10B61"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Daily Routine/en.lproj/Localizable.strings" datatype="plaintext" source-language="en" target-language="ru">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.1" build-num="10B61"/>
+    </header>
+    <body>
+      <trans-unit id=" (to ">
+        <source> (to </source>
+        <target> (до </target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id=" [ each">
+        <source> [ each</source>
+        <target> [ каждое</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id=" [ each ]">
+        <source> [ each ]</source>
+        <target> [ каждое ]</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id=" times)">
+        <source> times)</source>
+        <target> раз)</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Add a new task">
+        <source>Add a new task</source>
+        <target>Добавить новую задачу</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Attention">
+        <source>Attention</source>
+        <target>Внимание</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Dates are not selected">
+        <source>Dates are not selected</source>
+        <target>Не выбраны даты</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Double-tap to continue">
+        <source>Double-tap to continue</source>
+        <target>Дважды нажмите, чтобы продолжить</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Double-tap to exit edit mode">
+        <source>Double-tap to exit edit mode</source>
+        <target>Для выхода из режима редактирования, коснитесь два раза</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Fr">
+        <source>Fr</source>
+        <target>Пт</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Fr.">
+        <source>Fr.</source>
+        <target>Пт.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Mark the completed task">
+        <source>Mark the completed task</source>
+        <target>Отмечаем выполненное задание</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Mo">
+        <source>Mo</source>
+        <target>Пн</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Mo.">
+        <source>Mo.</source>
+        <target>Пн.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="No title entered">
+        <source>No title entered</source>
+        <target>Не введено название </target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="OK">
+        <source>OK</source>
+        <target>Хорошо</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Sa">
+        <source>Sa</source>
+        <target>Сб</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Sa.">
+        <source>Sa.</source>
+        <target>Сб.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Su">
+        <source>Su</source>
+        <target>Вс</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Su.">
+        <source>Su.</source>
+        <target>Вс.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Tap to 'All tasks'">
+        <source>Tap to 'All tasks'</source>
+        <target>Перейти к 'Список всех дел'</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Tap to 'Today's tasks'">
+        <source>Tap to 'Today's tasks'</source>
+        <target>Перейти к списку 'Дела на сегодня'</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Tap to change order">
+        <source>Tap to change order</source>
+        <target>Потяните, чтобы изменить порядок</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Tap to show / edit task">
+        <source>Tap to show / edit task</source>
+        <target>Посмотреть / изменить задание</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Tap twice To delete or change a task sequence">
+        <source>Tap twice To delete or change a task sequence</source>
+        <target>Для удаления или изменения последовательности заданий, коснитесь два раза</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Tasks to be performed regularly">
+        <source>Tasks to be performed regularly</source>
+        <target>Список задач, которые нужно регулярно выполнять</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Th">
+        <source>Th</source>
+        <target>Чт</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Th.">
+        <source>Th.</source>
+        <target>Чт.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="The day of the week is not selected">
+        <source>The day of the week is not selected</source>
+        <target>Не выбран день недели</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="To exit edit mode, double-tap.">
+        <source>To exit edit mode, double-tap.</source>
+        <target>Для выхода из режима редактирования, коснитесь два раза</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Today's to do list">
+        <source>Today's to do list</source>
+        <target>Список дел, которые нужно выполнить сегодня</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Tu">
+        <source>Tu</source>
+        <target>Вт</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Tu.">
+        <source>Tu.</source>
+        <target>Вт.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="We">
+        <source>We</source>
+        <target>Ср</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="We.">
+        <source>We.</source>
+        <target>Ср.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="after lunch">
+        <source>after lunch</source>
+        <target>после обеда</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="at night">
+        <source>at night</source>
+        <target>ночью</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="before lunch">
+        <source>before lunch</source>
+        <target>до обеда</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="in the evening">
+        <source>in the evening</source>
+        <target>вечером</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="in the midday">
+        <source>in the midday</source>
+        <target>днем</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="in the morning">
+        <source>in the morning</source>
+        <target>утром</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="nd">
+        <source>nd</source>
+        <target>-ой</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="rd">
+        <source>rd</source>
+        <target>-ий</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="st">
+        <source>-ый</source>
+        <target></target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="th">
+        <source>-ый</source>
+        <target></target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

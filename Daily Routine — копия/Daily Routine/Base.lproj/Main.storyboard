@@ -10,126 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Daily_Routine" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ax-8D-hq4">
-                                <rect key="frame" x="88" y="335" width="211" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="moved to History"/>
-                                <connections>
-                                    <action selector="movedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OiP-zg-3hF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1t4-sk-31y">
-                                <rect key="frame" x="82" y="396" width="211" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="deleted History"/>
-                                <connections>
-                                    <action selector="pressDeleteItemsInHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LTJ-pk-hzq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBy-ae-fL1">
-                                <rect key="frame" x="56" y="457" width="264" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="fetch count in History"/>
-                                <connections>
-                                    <action selector="fetchHowManyCountInHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ghm-ml-ey1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEG-Ia-qMM">
-                                <rect key="frame" x="33" y="516" width="310" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="fetch count in ThingToDo"/>
-                                <connections>
-                                    <action selector="addNewThingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cJM-GQ-aAe"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxF-MT-IyQ">
-                                <rect key="frame" x="55" y="572" width="264" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="change Date"/>
-                                <connections>
-                                    <action selector="changeDate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6aX-Hv-MLB"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Work" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2iq-uG-TZd">
-                                <rect key="frame" x="152" y="59" width="207" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Brw-Ge-YYs">
-                                <rect key="frame" x="69" y="273" width="248" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="New Record ThingToDo"/>
-                                <connections>
-                                    <action selector="newItemThingToGo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rw8-VU-KuY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOx-Ok-UUd">
-                                <rect key="frame" x="92" y="95" width="190" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.32156862749999998" green="0.64313725489999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Weekly"/>
-                                <connections>
-                                    <action selector="anyTimesButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cvf-Nk-UuN"/>
-                                </connections>
-                            </button>
-                            <view alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DuP-Vq-hp2">
-                                <rect key="frame" x="33" y="143" width="326" height="297"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWZ-VE-Hjy">
-                                        <rect key="frame" x="136" y="246" width="57" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="Готово"/>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Укажите по какие дням" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Uc-CO-Xre">
-                                        <rect key="frame" x="69" y="8" width="188" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eH-GJ-Leb">
-                                        <rect key="frame" x="34" y="124" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Пн"/>
-                                        <connections>
-                                            <action selector="pressMoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="978-BK-tHi"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <connections>
-                        <outlet property="moButton" destination="6eH-GJ-Leb" id="FkB-Sh-MdV"/>
-                        <outlet property="weeklyView" destination="DuP-Vq-hp2" id="EhB-FR-vPu"/>
-                        <outlet property="workLabel" destination="2iq-uG-TZd" id="7oa-Nu-MIs"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4584.057971014493" y="1035.2678571428571"/>
-        </scene>
         <!--Second Today History Table View Controller-->
         <scene sceneID="OwO-8F-Fn9">
             <objects>
@@ -142,8 +22,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Дела на сегодня" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="O5f-T2-PBo">
-                                    <rect key="frame" x="104.5" y="5.5" width="205" height="33"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="O5f-T2-PBo">
+                                    <rect key="frame" x="126.5" y="5.5" width="161" height="33"/>
                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="27"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -250,8 +130,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Полный список" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwT-YI-rYj">
-                                    <rect key="frame" x="102.5" y="5.5" width="188" height="33"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwT-YI-rYj">
+                                    <rect key="frame" x="146" y="5.5" width="101" height="33"/>
                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="27"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -342,52 +222,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Что нужно сделать:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="eZh-TT-qcy">
-                                <rect key="frame" x="11" y="86" width="382" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What should be done:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="eZh-TT-qcy">
+                                <rect key="frame" x="11" y="90" width="382" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Описание (не обязательно)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="yJE-DJ-Yfx">
-                                <rect key="frame" x="11" y="159" width="252" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description (not obligatory)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="yJE-DJ-Yfx">
+                                <rect key="frame" x="11" y="163" width="237.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите новое задание" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k4K-VY-Mct">
-                                <rect key="frame" x="11" y="115" width="387" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a new task" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="k4K-VY-Mct">
+                                <rect key="frame" x="11" y="119" width="387" height="30"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите описание (напр. за 30 мин до еды)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ls-cw-SwX">
-                                <rect key="frame" x="11" y="191" width="387" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a description (e.g. 30 minutes before mealtime)" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="0ls-cw-SwX">
+                                <rect key="frame" x="11" y="195" width="387" height="30"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <navigationBar contentMode="scaleAspectFit" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Cz2-Lw-g8J">
-                                <rect key="frame" x="0.0" y="36" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <navigationBar contentMode="scaleAspectFit" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cz2-Lw-g8J">
+                                <rect key="frame" x="0.0" y="40" width="414" height="44"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <viewLayoutGuide key="safeArea" id="4C4-cb-hy2"/>
                                 <color key="tintColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.36969232833395299" green="0.3761831706005927" blue="0.40642845812182737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="D7f-Zh-aG6">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt; Назад" id="2Xq-ch-utU">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="2Xq-ch-utU">
                                             <connections>
                                                 <action selector="cancelButton:" destination="BzR-ak-gyb" id="S8O-UE-RJY"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Готово" id="mrC-Vl-k92">
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="mrC-Vl-k92">
                                             <connections>
                                                 <action selector="saveButton:" destination="BzR-ak-gyb" id="FF7-hy-wlC"/>
                                             </connections>
@@ -395,14 +275,14 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Cколько раз в день" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="LUY-V0-8mj">
-                                <rect key="frame" x="11" y="240" width="223" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="How many times a day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="LUY-V0-8mj">
+                                <rect key="frame" x="11" y="244" width="223" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pun-Rb-cuY">
-                                <rect key="frame" x="242" y="237" width="54" height="30"/>
+                                <rect key="frame" x="242" y="241" width="54" height="30"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -413,35 +293,35 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="qb8-GM-Ux7">
-                                <rect key="frame" x="304" y="237" width="94" height="29"/>
+                                <rect key="frame" x="304" y="241" width="94" height="29"/>
                                 <color key="tintColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="countTimesStepper:" destination="BzR-ak-gyb" eventType="valueChanged" id="fgB-SN-nu7"/>
                                 </connections>
                             </stepper>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="M3e-4Y-uMD">
-                                <rect key="frame" x="11" y="320" width="387" height="29"/>
+                                <rect key="frame" x="11" y="324" width="387" height="29"/>
                                 <segments>
-                                    <segment title="Нет"/>
-                                    <segment title="Номер"/>
-                                    <segment title="Время"/>
+                                    <segment title="No"/>
+                                    <segment title="Times"/>
+                                    <segment title="Time"/>
                                 </segments>
                                 <color key="tintColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавить информацию в описание" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i37-DR-DAI">
-                                <rect key="frame" x="11" y="281" width="382" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add information to the description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i37-DR-DAI">
+                                <rect key="frame" x="11" y="285" width="382" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ежедневно" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G99-PY-7bB">
-                                <rect key="frame" x="11" y="382.5" width="104" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G99-PY-7bB">
+                                <rect key="frame" x="11" y="371.5" width="43.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wca-3k-37f">
-                                <rect key="frame" x="344" y="379" width="51" height="31"/>
+                                <rect key="frame" x="344" y="368" width="51" height="31"/>
                                 <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="onTintColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -449,7 +329,7 @@
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="icw-Pb-vf8">
-                                <rect key="frame" x="344" y="426" width="51" height="31"/>
+                                <rect key="frame" x="344" y="415" width="51" height="31"/>
                                 <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="onTintColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -457,7 +337,7 @@
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tie-cv-M1a">
-                                <rect key="frame" x="344" y="473" width="51" height="31"/>
+                                <rect key="frame" x="344" y="462" width="51" height="31"/>
                                 <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="onTintColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -465,32 +345,32 @@
                                 </connections>
                             </switch>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="60" translatesAutoresizingMaskIntoConstraints="NO" id="MqM-3d-WIY">
-                                <rect key="frame" x="304" y="520" width="94" height="29"/>
+                                <rect key="frame" x="304" y="509" width="94" height="29"/>
                                 <color key="tintColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="duringStepper:" destination="BzR-ak-gyb" eventType="valueChanged" id="qAL-qU-Cy0"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Несколько раз в месяц" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yw-RX-002">
-                                <rect key="frame" x="11" y="476.5" width="211" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Several times a month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yw-RX-002">
+                                <rect key="frame" x="11" y="465.5" width="191.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Несколько раз в неделю" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhJ-5Q-OtR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Several times a week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhJ-5Q-OtR">
                                 <rect key="frame" x="11" y="429" width="325" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Продолжительность" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Jyn-gj-UmW">
-                                <rect key="frame" x="11" y="523.5" width="223" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Jyn-gj-UmW">
+                                <rect key="frame" x="11" y="512.5" width="223" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="∞" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P7J-v3-Lml">
-                                <rect key="frame" x="242" y="519.5" width="54" height="30"/>
+                                <rect key="frame" x="242" y="508.5" width="54" height="30"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -504,17 +384,17 @@
                                 <rect key="frame" x="24" y="153" width="365" height="218"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ph-M4-zzm">
-                                        <rect key="frame" x="133" y="166" width="62" height="36"/>
+                                        <rect key="frame" x="141" y="166" width="47" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Готово">
+                                        <state key="normal" title="Done">
                                             <color key="titleColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="readyWeeklyViewButton:" destination="BzR-ak-gyb" eventType="touchUpInside" id="cNZ-xm-wCf"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Укажите в какие дни ставить задачу" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yl3-JN-xgF">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Specify which days to set the task" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yl3-JN-xgF">
                                         <rect key="frame" x="74.5" y="20" width="217" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="217" id="6Tm-YX-7hk"/>
@@ -534,22 +414,22 @@
                             </view>
                             <view hidden="YES" alpha="0.94999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5l0-hv-Oci">
                                 <rect key="frame" x="24" y="163" width="366" height="368"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mK-WA-db7">
                                         <rect key="frame" x="0.0" y="320" width="366" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Готово">
+                                        <state key="normal" title="Done">
                                             <color key="titleColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="readyMonthlyViewButton:" destination="BzR-ak-gyb" eventType="touchUpInside" id="2iL-Df-kXO"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Укажите в какие дни ставить задачу" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5ft-Jt-zlo">
-                                        <rect key="frame" x="25" y="15" width="318" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Specify which days to set the task" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5ft-Jt-zlo">
+                                        <rect key="frame" x="48" y="15" width="255" height="59"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -557,22 +437,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rt3-ew-9Fj">
-                                <rect key="frame" x="305" y="621" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="onTintColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </switch>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Push напоминания" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7QR-qg-TX1">
-                                <rect key="frame" x="11" y="624" width="172" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Задание" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfT-6Z-e9B">
-                                <rect key="frame" x="116" y="43" width="193" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfT-6Z-e9B">
+                                <rect key="frame" x="110.5" y="44.5" width="193" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="193" id="CX9-w1-byt"/>
+                                    <constraint firstAttribute="height" constant="35" id="KFO-W6-yHZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -580,6 +450,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.098039215690000001" green="0.1333333333" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="mfT-6Z-e9B" firstAttribute="centerY" secondItem="Cz2-Lw-g8J" secondAttribute="centerY" id="0d1-FH-FRT"/>
                             <constraint firstItem="k4K-VY-Mct" firstAttribute="leading" secondItem="mQd-tq-cEz" secondAttribute="leading" constant="11" id="3dn-Bn-tit"/>
                             <constraint firstItem="i37-DR-DAI" firstAttribute="leading" secondItem="mQd-tq-cEz" secondAttribute="leading" constant="11" id="3i2-eq-oAL"/>
                             <constraint firstItem="Jyn-gj-UmW" firstAttribute="top" secondItem="3Yw-RX-002" secondAttribute="bottom" constant="23" id="4CF-Le-2gD"/>
@@ -593,6 +464,8 @@
                             <constraint firstItem="qb8-GM-Ux7" firstAttribute="leading" secondItem="Pun-Rb-cuY" secondAttribute="trailing" constant="8" id="FIx-ds-4Rv"/>
                             <constraint firstAttribute="trailing" secondItem="MqM-3d-WIY" secondAttribute="trailing" constant="16" id="Gx8-cF-oUa"/>
                             <constraint firstItem="i37-DR-DAI" firstAttribute="top" secondItem="LUY-V0-8mj" secondAttribute="bottom" constant="17" id="Gye-ui-rpJ"/>
+                            <constraint firstItem="LWm-8k-W0h" firstAttribute="top" secondItem="Cz2-Lw-g8J" secondAttribute="top" constant="4" id="HcH-Mg-2oX"/>
+                            <constraint firstItem="mfT-6Z-e9B" firstAttribute="centerX" secondItem="Cz2-Lw-g8J" secondAttribute="centerX" id="IDC-8O-5yB"/>
                             <constraint firstItem="tie-cv-M1a" firstAttribute="top" secondItem="icw-Pb-vf8" secondAttribute="bottom" constant="16" id="KC2-g0-lhd"/>
                             <constraint firstItem="MqM-3d-WIY" firstAttribute="top" secondItem="tie-cv-M1a" secondAttribute="bottom" constant="16" id="Kjc-8V-H0Z"/>
                             <constraint firstItem="yJE-DJ-Yfx" firstAttribute="leading" secondItem="mQd-tq-cEz" secondAttribute="leading" constant="11" id="LyA-Eo-Qqg"/>
@@ -605,7 +478,7 @@
                             <constraint firstAttribute="trailing" secondItem="M3e-4Y-uMD" secondAttribute="trailing" constant="16" id="XCU-qM-NnE"/>
                             <constraint firstItem="1WS-Hs-dnQ" firstAttribute="leading" secondItem="mQd-tq-cEz" secondAttribute="leading" constant="24" id="XdW-CC-j4x"/>
                             <constraint firstItem="MqM-3d-WIY" firstAttribute="leading" secondItem="P7J-v3-Lml" secondAttribute="trailing" constant="8" id="YTK-ZB-UDX"/>
-                            <constraint firstItem="Wca-3k-37f" firstAttribute="top" secondItem="M3e-4Y-uMD" secondAttribute="bottom" constant="31" id="b3H-sA-BmK"/>
+                            <constraint firstItem="Wca-3k-37f" firstAttribute="top" secondItem="M3e-4Y-uMD" secondAttribute="bottom" constant="16" id="b3H-sA-BmK"/>
                             <constraint firstItem="Pun-Rb-cuY" firstAttribute="leading" secondItem="LUY-V0-8mj" secondAttribute="trailing" constant="8" id="bFC-Xl-Ujs"/>
                             <constraint firstItem="qb8-GM-Ux7" firstAttribute="top" secondItem="0ls-cw-SwX" secondAttribute="bottom" constant="16" id="bFh-Tn-PRD"/>
                             <constraint firstItem="3Yw-RX-002" firstAttribute="centerY" secondItem="tie-cv-M1a" secondAttribute="centerY" id="blf-Mi-bWP"/>
@@ -623,11 +496,13 @@
                             <constraint firstItem="P7J-v3-Lml" firstAttribute="centerY" secondItem="MqM-3d-WIY" secondAttribute="centerY" id="oyo-gZ-Lke"/>
                             <constraint firstAttribute="trailing" secondItem="i37-DR-DAI" secondAttribute="trailing" constant="21" id="pEK-Xk-DTz"/>
                             <constraint firstItem="M3e-4Y-uMD" firstAttribute="top" secondItem="i37-DR-DAI" secondAttribute="bottom" constant="15" id="pvi-WY-oEr"/>
-                            <constraint firstItem="eZh-TT-qcy" firstAttribute="top" secondItem="mQd-tq-cEz" secondAttribute="top" constant="86" id="rS7-pK-UOq"/>
+                            <constraint firstItem="eZh-TT-qcy" firstAttribute="top" secondItem="mQd-tq-cEz" secondAttribute="top" constant="90" id="rS7-pK-UOq"/>
                             <constraint firstItem="k4K-VY-Mct" firstAttribute="top" secondItem="eZh-TT-qcy" secondAttribute="bottom" constant="5" id="tJE-QI-buo"/>
+                            <constraint firstItem="Cz2-Lw-g8J" firstAttribute="centerX" secondItem="LWm-8k-W0h" secondAttribute="centerX" id="wPt-eX-mLU"/>
                             <constraint firstItem="3Yw-RX-002" firstAttribute="centerY" secondItem="tie-cv-M1a" secondAttribute="centerY" id="xAE-dw-SAt"/>
                             <constraint firstItem="Pun-Rb-cuY" firstAttribute="top" secondItem="0ls-cw-SwX" secondAttribute="bottom" constant="16" id="xP3-qr-jp8"/>
                             <constraint firstItem="3Yw-RX-002" firstAttribute="leading" secondItem="mQd-tq-cEz" secondAttribute="leading" constant="11" id="yVb-CB-guh"/>
+                            <constraint firstItem="Cz2-Lw-g8J" firstAttribute="width" secondItem="mQd-tq-cEz" secondAttribute="width" id="zT0-Mo-eoX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LWm-8k-W0h"/>
                     </view>
@@ -643,11 +518,12 @@
                         <outlet property="monthlySwitch" destination="tie-cv-M1a" id="f9B-Uz-Crh"/>
                         <outlet property="monthlyView" destination="5l0-hv-Oci" id="Npo-j0-8Wt"/>
                         <outlet property="nameTextField" destination="k4K-VY-Mct" id="FDw-JR-whF"/>
+                        <outlet property="navigationBar" destination="Cz2-Lw-g8J" id="acG-sQ-NkU"/>
                         <outlet property="noteTExtField" destination="0ls-cw-SwX" id="aO2-dG-in3"/>
-                        <outlet property="notificationSwitch" destination="rt3-ew-9Fj" id="Eu9-Kb-nFZ"/>
                         <outlet property="pressCancelButton" destination="2Xq-ch-utU" id="azs-Io-I2P"/>
                         <outlet property="pressSaveButton" destination="mrC-Vl-k92" id="iUY-wx-vdp"/>
                         <outlet property="readyWeeklyViewOutlet" destination="7Ph-M4-zzm" id="nhb-ce-yiA"/>
+                        <outlet property="titelLabel" destination="mfT-6Z-e9B" id="coq-on-sdy"/>
                         <outlet property="titleOnMonthlyView" destination="5ft-Jt-zlo" id="278-GQ-BwS"/>
                         <outlet property="weeklyLabel" destination="PhJ-5Q-OtR" id="gdB-eK-Xcb"/>
                         <outlet property="weeklySwitch" destination="icw-Pb-vf8" id="baV-Bv-ZoX"/>

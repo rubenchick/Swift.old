@@ -52,16 +52,23 @@ class SecondDetailViewController: UIViewController {
     @IBOutlet weak var dailySwitch: UISwitch!
     @IBOutlet weak var pressSaveButton: UIBarButtonItem!
     @IBOutlet weak var pressCancelButton: UIBarButtonItem!
-    @IBOutlet weak var notificationSwitch: UISwitch!
     @IBOutlet weak var readyWeeklyViewOutlet: UIButton!
     @IBOutlet weak var titleOnMonthlyView: UILabel!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var titelLabel: UILabel!
     
     // MARK: own function
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .lightContent
-        UIApplication.shared.statusBarView?.backgroundColor = .black
-//        createElementsBeforeStart()
+//        UIApplication.shared.statusBarView?.backgroundColor = .black
+//        print(navigationBar.frame.minY)
+//        print(navigationBar.frame.maxY)
+//        print(navigationBar.bounds.minY)
+//        print(navigationBar.bounds.maxY)
+//        titelLabel.frame = CGRect(x: titelLabel.frame.minX,
+//                                  y: navigationBar.frame.midY - titelLabel.frame.height/2 ,
+//                                  width: titelLabel.frame.width,
+//                                  height: titelLabel.frame.height)
     }
 
     override func viewDidLoad() {
@@ -70,7 +77,7 @@ class SecondDetailViewController: UIViewController {
         if let thingToDo = thingToDo {
             nameTextField.text = thingToDo.name
             noteTExtField.text = thingToDo.note
-            createElementsBeforeStart()
+//            createElementsBeforeStart()
             
             if thingToDo.daily {
                 if thingToDo.time != nil {
@@ -152,8 +159,11 @@ class SecondDetailViewController: UIViewController {
                 }
             }
         } else {
-            let alert = UIAlertController(title: "Внимание", message: "Не введено название ", preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "Хорошо", style: .cancel, handler: nil)
+            let alert = UIAlertController(title: NSLocalizedString("Attention", comment: ""),
+                                          message: NSLocalizedString("No title entered", comment: ""), preferredStyle: .alert)
+            let okButton = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil)
+//            let alert = UIAlertController(title: "Внимание", message: "Не введено название ", preferredStyle: .alert)
+//            let okButton = UIAlertAction(title: "Хорошо", style: .cancel, handler: nil)
             alert.addAction(okButton)
             present(alert, animated: true, completion: nil)
         }
@@ -163,17 +173,43 @@ class SecondDetailViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     func addInfoToNote(atIndex index: Int) -> String{
-        let timeForDayDictionary = [2: ["утром","вечером"],
-                                    3: ["утром","днем","вечером"],
-                                    4: ["утром","до обеда","после обеда","вечером"],
-                                    5: ["утром","до обеда","после обеда","вечером","ночью"]]
-        let endOfNumbersArray = ["-ой","-ый","-ой","-ий","-ый","-ый","-ой","-ой","-ой","-ый","-ый"]
+//        let timeForDayDictionary = [2: ["утром","вечером"],
+//                                    3: ["утром","днем","вечером"],
+//                                    4: ["утром","до обеда","после обеда","вечером"],
+//                                    5: ["утром","до обеда","после обеда","вечером","ночью"]]
+//        let endOfNumbersArray = ["-ой","-ый","-ой","-ий","-ый","-ый","-ой","-ой","-ой","-ый","-ый"]
+        let timeForDayDictionary = [2: [NSLocalizedString("in the morning", comment: ""),
+                                        NSLocalizedString("in the evening", comment: "")],
+                                    3: [NSLocalizedString("in the morning", comment: ""),
+                                        NSLocalizedString("in the midday", comment: ""),
+                                        NSLocalizedString("in the evening", comment: "")],
+                                    4: [NSLocalizedString("in the morning", comment: ""),
+                                        NSLocalizedString("before lunch", comment: ""),
+                                        NSLocalizedString("after lunch", comment: ""),
+                                        NSLocalizedString("in the evening", comment: "")],
+                                    5: [NSLocalizedString("in the morning", comment: ""),
+                                        NSLocalizedString("before lunch", comment: ""),
+                                        NSLocalizedString("after lunch", comment: ""),
+                                        NSLocalizedString("in the evening", comment: ""),
+                                        NSLocalizedString("at night", comment: "")]]
+        let endOfNumbersArray = ["",
+                                 NSLocalizedString("st", comment: ""),
+                                 NSLocalizedString("nd", comment: ""),
+                                 NSLocalizedString("rd", comment: ""),
+                                 NSLocalizedString("th", comment: ""),
+                                 NSLocalizedString("th", comment: ""),
+                                 NSLocalizedString("th1", comment: ""),
+                                 NSLocalizedString("th1", comment: ""),
+                                 NSLocalizedString("th1", comment: ""),
+                                 NSLocalizedString("th", comment: ""),
+                                 NSLocalizedString("th", comment: "")]
         var addInfo = ""
         if let times = Int(countTimesTextField.text!) {
             if times > 1 {
                 if infoToNoteSegmentControl.selectedSegmentIndex != 0 {
                     if infoToNoteSegmentControl.selectedSegmentIndex == 1 {
-                        addInfo = "(\(index)\(endOfNumbersArray[index])" + " раз) "
+                        addInfo = "(\(index)\(endOfNumbersArray[index])" + NSLocalizedString(" times) ", comment: "")
+//                        addInfo = "(\(index)\(endOfNumbersArray[index])" + " раз) "
                     } else {
                         let timeForDayArray = timeForDayDictionary[times]
                         addInfo = "( " + timeForDayArray![index-1] + " ) "
@@ -550,7 +586,14 @@ class SecondDetailViewController: UIViewController {
     func createElementForWeeklyView() {
         
         weeklyView.layer.cornerRadius = 15
-        let dayArray = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"] // tag 1...7
+        //        let dayArray = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"] // tag 1...7
+        let dayArray = [NSLocalizedString("Mo", comment: ""),
+                        NSLocalizedString("Tu", comment: ""),
+                        NSLocalizedString("We", comment: ""),
+                        NSLocalizedString("Th", comment: ""),
+                        NSLocalizedString("Fr", comment: ""),
+                        NSLocalizedString("Sa", comment: ""),
+                        NSLocalizedString("Su", comment: "")] // tag 1...7
         let widht = Int(weeklyView.frame.size.width / 11)
         for i in 1...7 {
             // проверка создавались ли уже кнопки
@@ -675,7 +718,7 @@ class SecondDetailViewController: UIViewController {
         weeklySwitch.isEnabled = isEnabled
         monthlySwitch.isEnabled = isEnabled
         dailySwitch.isEnabled = isEnabled
-        notificationSwitch.isEnabled = isEnabled
+//        notificationSwitch.isEnabled = isEnabled
     }
     // choose 1 from 3
     @IBAction func actionDailySwitch(_ sender: UISwitch) {
@@ -703,8 +746,12 @@ class SecondDetailViewController: UIViewController {
     }
     
     func showAlertWith(message:String) {
-        let alert = UIAlertController(title: "Внимание", message: message, preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "Хорошо", style: .cancel, handler: nil)
+//        let alert = UIAlertController(title: "Внимание", message: message, preferredStyle: .alert)
+//        let okButton = UIAlertAction(title: "Хорошо", style: .cancel, handler: nil)
+        let alert = UIAlertController(title: NSLocalizedString("Attention", comment: ""),
+                                      message: message, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
+                                     style: .cancel, handler: nil)
         alert.addAction(okButton)
         present(alert, animated: true, completion: nil)
     }
@@ -727,7 +774,8 @@ class SecondDetailViewController: UIViewController {
             }
         }
         if !isSelected {
-            showAlertWith(message: "Не выбран день недели")
+//            showAlertWith(message: "Не выбран день недели")
+            showAlertWith(message: NSLocalizedString("The day of the week is not selected", comment: ""))
         }
         else {
             enabledElementInVC(is: true)
@@ -752,7 +800,8 @@ class SecondDetailViewController: UIViewController {
             }
         }
         if !isSelected {
-            showAlertWith(message: "Не выбраны даты")
+//            showAlertWith(message: "Не выбраны даты")
+            showAlertWith(message: NSLocalizedString("Dates are not selected", comment: ""))
         }
         else {
             enabledElementInVC(is: true)

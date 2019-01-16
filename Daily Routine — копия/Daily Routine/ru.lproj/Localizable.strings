@@ -1,0 +1,138 @@
+/* No comment provided by engineer. */
+" (to " = " (до ";
+
+/* No comment provided by engineer. */
+" [ each" = " [ каждое";
+
+/* No comment provided by engineer. */
+" [ each ]" = " [ каждое ]";
+
+/* No comment provided by engineer. */
+" times) " = " раз) ";
+
+/* No comment provided by engineer. */
+"˚ - The task will only be removed from the list 'Tasks for today'. For complete removal, go to the 'All tasks' page." = "˚ - Задача удалится только из списке 'Дела на сегодня'. Для полного удаления, пререйдите на страницу 'Список всех дел'";
+
+/* No comment provided by engineer. */
+"Add a new task" = "Добавить новую задачу";
+
+/* No comment provided by engineer. */
+"after lunch" = "после обеда";
+
+/* No comment provided by engineer. */
+"at night" = "ночью";
+
+/* No comment provided by engineer. */
+"Attention" = "Внимание";
+
+/* No comment provided by engineer. */
+"before lunch" = "до обеда";
+
+/* No comment provided by engineer. */
+"Dates are not selected" = "Не выбраны даты";
+
+/* No comment provided by engineer. */
+"Double-tap to continue" = "Дважды нажмите, чтобы продолжить";
+
+/* No comment provided by engineer. */
+"Double-tap to exit edit mode" = "Для выхода из режима редактирования, коснитесь два раза";
+
+/* No comment provided by engineer. */
+"Fr" = "Пт";
+
+/* No comment provided by engineer. */
+"Fr." = "Пт.";
+
+/* No comment provided by engineer. */
+"in the evening" = "вечером";
+
+/* No comment provided by engineer. */
+"in the midday" = "днем";
+
+/* No comment provided by engineer. */
+"in the morning" = "утром";
+
+/* No comment provided by engineer. */
+"Mark the completed task" = "Отмечаем выполненное задание";
+
+/* No comment provided by engineer. */
+"Mo" = "Пн";
+
+/* No comment provided by engineer. */
+"Mo." = "Пн.";
+
+/* No comment provided by engineer. */
+"nd" = "-ой";
+
+/* No comment provided by engineer. */
+"No title entered" = "Не введено название ";
+
+/* No comment provided by engineer. */
+"OK" = "Хорошо";
+
+/* No comment provided by engineer. */
+"rd" = "-ий";
+
+/* No comment provided by engineer. */
+"Sa" = "Сб";
+
+/* No comment provided by engineer. */
+"Sa." = "Сб.";
+
+/* No comment provided by engineer. */
+"st" = "-ый";
+
+/* No comment provided by engineer. */
+"Su" = "Вс";
+
+/* No comment provided by engineer. */
+"Su." = "Вс.";
+
+/* No comment provided by engineer. */
+"Tap to 'All tasks'" = "Перейти к 'Список всех дел'";
+
+/* No comment provided by engineer. */
+"Tap to 'Today's tasks'" = "Перейти к списку 'Дела на сегодня'";
+
+/* No comment provided by engineer. */
+"Tap to change order" = "Потяните, чтобы изменить порядок";
+
+/* No comment provided by engineer. */
+"Tap to delete the task ˚" = "Нажмите, для удаления задания ˚";
+
+/* No comment provided by engineer. */
+"Tap to show / edit task" = "Посмотреть / изменить задание";
+
+/* No comment provided by engineer. */
+"Tasks to be performed regularly" = "Список задач, которые нужно регулярно выполнять";
+
+/* No comment provided by engineer. */
+"th" = "-ый";
+
+/* No comment provided by engineer. */
+"Th" = "Чт";
+
+/* No comment provided by engineer. */
+"Th." = "Чт.";
+
+/* No comment provided by engineer. */
+"th1" = "-ой";
+
+/* No comment provided by engineer. */
+"The day of the week is not selected" = "Не выбран день недели";
+
+/* No comment provided by engineer. */
+"Today's to do list" = "Список дел, которые нужно выполнить сегодня";
+
+/* No comment provided by engineer. */
+"Tu" = "Вт";
+
+/* No comment provided by engineer. */
+"Tu." = "Вт.";
+
+/* No comment provided by engineer. */
+"We" = "Ср";
+
+/* No comment provided by engineer. */
+"We." = "Ср.";
+

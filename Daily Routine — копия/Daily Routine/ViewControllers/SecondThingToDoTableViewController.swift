@@ -84,19 +84,29 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
                 if thingToDo.weekly {
                     addInfo = " ["
                     if let newWeek = thingToDo.week {
-                        if newWeek.monday { addInfo = addInfo + "Пн." }
-                        if newWeek.tuesday { addInfo = addInfo + " " + "Вт." }
-                        if newWeek.wednesday { addInfo = addInfo + " " + "Ср." }
-                        if newWeek.thursday { addInfo = addInfo + " " + "Чт." }
-                        if newWeek.friday { addInfo = addInfo + " " + "Пт." }
-                        if newWeek.saturday { addInfo = addInfo + " " + "Сб." }
-                        if newWeek.sunday { addInfo = addInfo + " Вс." }
+                        if newWeek.monday { addInfo = addInfo + NSLocalizedString("Mo.", comment: "") }
+                        if newWeek.tuesday { addInfo = addInfo + " " + NSLocalizedString("Tu.", comment: "") }
+                        if newWeek.wednesday { addInfo = addInfo + " " + NSLocalizedString("We.", comment: "") }
+                        if newWeek.thursday { addInfo = addInfo + " " + NSLocalizedString("Th.", comment: "") }
+                        if newWeek.friday { addInfo = addInfo + " " + NSLocalizedString("Fr.", comment: "") }
+                        if newWeek.saturday { addInfo = addInfo + " " + NSLocalizedString("Sa.", comment: "") }
+                        if newWeek.sunday { addInfo = addInfo + " " + NSLocalizedString("Su.", comment: "") }
                     }
+//                    if let newWeek = thingToDo.week {
+//                        if newWeek.monday { addInfo = addInfo + "Пн." }
+//                        if newWeek.tuesday { addInfo = addInfo + " " + "Вт." }
+//                        if newWeek.wednesday { addInfo = addInfo + " " + "Ср." }
+//                        if newWeek.thursday { addInfo = addInfo + " " + "Чт." }
+//                        if newWeek.friday { addInfo = addInfo + " " + "Пт." }
+//                        if newWeek.saturday { addInfo = addInfo + " " + "Сб." }
+//                        if newWeek.sunday { addInfo = addInfo + " Вс." }
+//                    }
                     addInfo = addInfo + " ]"
                     if addInfo == " [ ]" { addInfo = ""}
                 } else {
                     if thingToDo.monthly {
-                        addInfo = " [ каждое"
+                        addInfo = NSLocalizedString(" [ each", comment: "")
+//                        addInfo = " [ каждое"
                         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DayOfMonth")
                         let sortDescription = NSSortDescriptor(key: "date", ascending: true)
                         request.sortDescriptors = [sortDescription]
@@ -113,7 +123,8 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
                             print(error)
                         }
                         addInfo = addInfo + " ]"
-                        if addInfo == " [ каждое ]" { addInfo = ""}
+                        if addInfo == NSLocalizedString(" [ each ]", comment: "") { addInfo = ""}
+//                        if addInfo == " [ каждое ]" { addInfo = ""}
                     }
                 }
             } else {
@@ -123,7 +134,8 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "dd.MM.YY"
                     let correctedDate = dateFormatter.string(from: finishDate as Date)
-                    addInfo = " (до " + "\(correctedDate))"
+                    addInfo = NSLocalizedString(" (to ", comment: "") + "\(correctedDate))"
+//                       addInfo = " (до " + "\(correctedDate))"
                     
 //                    addInfo = "\(finishDate)"
                 }
@@ -349,13 +361,17 @@ class SecondThingToDoTableViewController: UITableViewController, NSFetchedResult
     
     func showHelpFisrtTime(){
         helpView.addSubview(createLabelForHelpView(typeInfo: .main,
-                                                   text: "Список задач, которые нужно регулярно выполнять"))
+                                                   text: NSLocalizedString("Tasks to be performed regularly", comment: "")))
+//        text: "Список задач, которые нужно регулярно выполнять"))
         helpView.addSubview(createLabelForHelpView(typeInfo: .leftTop,
-                                                   text: "Перейти к списку 'Дела на сегодня'"))
+                                                   text: NSLocalizedString("Tap to 'Today's tasks'", comment: "")))
+//        text: "Перейти к списку 'Дела на сегодня'"))
         helpView.addSubview(createLabelForHelpView(typeInfo: .detailData,
-                                                   text: "Посмотреть/изменить задание"))
+                                                   text: NSLocalizedString("Tap to show / edit task", comment: "")))
+//        text: "Посмотреть/изменить задание"))
         helpView.addSubview(createLabelForHelpView(typeInfo: .exit,
-                                                   text: "Дважды нажмите на экран, чтобы продолжить" ))
+                                                   text: NSLocalizedString("Double-tap to continue", comment: "")))
+//        text: "Дважды нажмите на экран, чтобы продолжить" ))
         view.addSubview(helpView)
     }
     
