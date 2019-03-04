@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FutureTenseCD" representedClassName=".FutureTenseCD" syncable="YES">
+        <attribute name="femininePlural2nd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="feminineSingular2nd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="feminineSingular3nd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="masculinePlural2nd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="masculineSingular2nd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="masculineSingular3nd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plural1st" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plural3nd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="singular1st" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationshipToTranslation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TranslationCD" inverseName="relationshipToFutureTense" inverseEntity="TranslationCD" syncable="YES"/>
+        <relationship name="relationshipToWord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WordCD" inverseName="relationshipToFutureTense" inverseEntity="WordCD" syncable="YES"/>
+    </entity>
+    <entity name="ImperativeCD" representedClassName=".ImperativeCD" syncable="YES">
+        <attribute name="feminineSingular" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="masculineSingular" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plural" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationshipToTranslation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TranslationCD" inverseName="relationshipToImperative" inverseEntity="TranslationCD" syncable="YES"/>
+        <relationship name="relationshipToWord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WordCD" inverseName="relationshipToImperative" inverseEntity="WordCD" syncable="YES"/>
+    </entity>
+    <entity name="PastTenseCD" representedClassName=".PastTenseCD" syncable="YES">
+        <attribute name="femininePlural2nd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="feminineSingular2nd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="feminineSingular3nd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="masculinePlural2nd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="masculineSingular2nd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="masculineSingular3nd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plural1st" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plural3nd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="singular1st" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationshipToTranslation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TranslationCD" inverseName="relationshipToPastTense" inverseEntity="TranslationCD" syncable="YES"/>
+        <relationship name="relationshipToWord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WordCD" inverseName="relationshipToPastTense" inverseEntity="WordCD" syncable="YES"/>
+    </entity>
+    <entity name="PresentTenseCD" representedClassName=".PresentTenseCD" syncable="YES">
+        <attribute name="femininePlural" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="feminineSingular" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="masculinePlural" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="masculineSingular" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationshipToTranslation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TranslationCD" inverseName="relationshipToPresentTense" inverseEntity="TranslationCD" syncable="YES"/>
+        <relationship name="relationshipToWord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WordCD" inverseName="relationshipToPresentTense" inverseEntity="WordCD" syncable="YES"/>
+    </entity>
+    <entity name="TranslationCD" representedClassName=".TranslationCD" syncable="YES">
+        <attribute name="english" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="russian" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="spanish" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typeOfTranslation" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationshipToFutureTense" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FutureTenseCD" inverseName="relationshipToTranslation" inverseEntity="FutureTenseCD" syncable="YES"/>
+        <relationship name="relationshipToImperative" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ImperativeCD" inverseName="relationshipToTranslation" inverseEntity="ImperativeCD" syncable="YES"/>
+        <relationship name="relationshipToPastTense" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PastTenseCD" inverseName="relationshipToTranslation" inverseEntity="PastTenseCD" syncable="YES"/>
+        <relationship name="relationshipToPresentTense" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PresentTenseCD" inverseName="relationshipToTranslation" inverseEntity="PresentTenseCD" syncable="YES"/>
+        <relationship name="relationshipToWord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WordCD" inverseName="relationshipToTranslation" inverseEntity="WordCD" syncable="YES"/>
+    </entity>
+    <entity name="WordCD" representedClassName=".WordCD" syncable="YES">
+        <attribute name="infinitive" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="preposition" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reserve1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reserve2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typeOfVerb" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationshipToFutureTense" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FutureTenseCD" inverseName="relationshipToWord" inverseEntity="FutureTenseCD" syncable="YES"/>
+        <relationship name="relationshipToImperative" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ImperativeCD" inverseName="relationshipToWord" inverseEntity="ImperativeCD" syncable="YES"/>
+        <relationship name="relationshipToPastTense" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PastTenseCD" inverseName="relationshipToWord" inverseEntity="PastTenseCD" syncable="YES"/>
+        <relationship name="relationshipToPresentTense" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PresentTenseCD" inverseName="relationshipToWord" inverseEntity="PresentTenseCD" syncable="YES"/>
+        <relationship name="relationshipToTranslation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TranslationCD" inverseName="relationshipToWord" inverseEntity="TranslationCD" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="WordCD" positionX="-54" positionY="-9" width="128" height="193"/>
+        <element name="TranslationCD" positionX="-339.98828125" positionY="-93.80078125" width="128" height="178"/>
+        <element name="PresentTenseCD" positionX="-607.57421875" positionY="35.62890625" width="128" height="133"/>
+        <element name="PastTenseCD" positionX="0" positionY="126" width="128" height="208"/>
+        <element name="FutureTenseCD" positionX="18" positionY="189" width="128" height="208"/>
+        <element name="ImperativeCD" positionX="-18" positionY="144" width="128" height="118"/>
+    </elements>
+</model>

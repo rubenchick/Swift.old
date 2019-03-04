@@ -13,6 +13,9 @@
 		CA0E75C821E512CC00ACBF83 /* Test_Help_Info.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA0E75C621E512CC00ACBF83 /* Test_Help_Info.xcdatamodeld */; };
 		CA0E75CA21E512CE00ACBF83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA0E75C921E512CE00ACBF83 /* Assets.xcassets */; };
 		CA0E75CD21E512CE00ACBF83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA0E75CB21E512CE00ACBF83 /* LaunchScreen.storyboard */; };
+		CA37243C21F5F87F00626982 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA37243B21F5F87F00626982 /* ScrollViewController.swift */; };
+		CAA93FCA21F1E76900A0937D /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA93FC921F1E76900A0937D /* NotificationViewController.swift */; };
+		CAA93FCC21F1E8BF00A0937D /* icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = CAA93FCB21F1E8BE00A0937D /* icon1024.png */; };
 		CAD498B721E9DD9000BEF738 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CAD498B521E9DD9000BEF738 /* InfoPlist.strings */; };
 		CAD498BA21E9DD9000BEF738 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CAD498B821E9DD9000BEF738 /* Localizable.strings */; };
 /* End PBXBuildFile section */
@@ -26,6 +29,9 @@
 		CA0E75C921E512CE00ACBF83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA0E75CC21E512CE00ACBF83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA0E75CE21E512CE00ACBF83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA37243B21F5F87F00626982 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		CAA93FC921F1E76900A0937D /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		CAA93FCB21F1E8BE00A0937D /* icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1024.png; sourceTree = "<group>"; };
 		CAD498B421E9D66300BEF738 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		CAD498B621E9DD9000BEF738 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CAD498B921E9DD9000BEF738 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -45,6 +51,7 @@
 		CA0E75B321E512CC00ACBF83 = {
 			isa = PBXGroup;
 			children = (
+				CAA93FCB21F1E8BE00A0937D /* icon1024.png */,
 				CA0E75BE21E512CC00ACBF83 /* Test Help Info */,
 				CA0E75BD21E512CC00ACBF83 /* Products */,
 			);
@@ -63,6 +70,8 @@
 			children = (
 				CA0E75BF21E512CC00ACBF83 /* AppDelegate.swift */,
 				CA0E75C121E512CC00ACBF83 /* ViewController.swift */,
+				CAA93FC921F1E76900A0937D /* NotificationViewController.swift */,
+				CA37243B21F5F87F00626982 /* ScrollViewController.swift */,
 				CA0E75C321E512CC00ACBF83 /* Main.storyboard */,
 				CA0E75C921E512CE00ACBF83 /* Assets.xcassets */,
 				CA0E75CB21E512CE00ACBF83 /* LaunchScreen.storyboard */,
@@ -134,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAD498BA21E9DD9000BEF738 /* Localizable.strings in Resources */,
+				CAA93FCC21F1E8BF00A0937D /* icon1024.png in Resources */,
 				CA0E75CD21E512CE00ACBF83 /* LaunchScreen.storyboard in Resources */,
 				CAD498B721E9DD9000BEF738 /* InfoPlist.strings in Resources */,
 				CA0E75CA21E512CE00ACBF83 /* Assets.xcassets in Resources */,
@@ -150,6 +160,8 @@
 			files = (
 				CA0E75C221E512CC00ACBF83 /* ViewController.swift in Sources */,
 				CA0E75C021E512CC00ACBF83 /* AppDelegate.swift in Sources */,
+				CA37243C21F5F87F00626982 /* ScrollViewController.swift in Sources */,
+				CAA93FCA21F1E76900A0937D /* NotificationViewController.swift in Sources */,
 				CA0E75C821E512CC00ACBF83 /* Test_Help_Info.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

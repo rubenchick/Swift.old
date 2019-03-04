@@ -872,11 +872,21 @@ class ViewController: UIViewController {
         }
         return new
     }
+    func deleteDagesh(from text: String)-> (String) {
+        var newText = ""
+        for i in text.unicodeScalars{
+            if (i.value < 1515 && i.value > 1487) || (i.value == 32) {
+                newText = newText + String(i)
+            }
+        }
+        return newText
+    }
     
     @objc func pressedCheck(){
         if let chooseWord = textField.text {
             
-            if convertHebrewString(word: chooseWord.lowercased()) == convertHebrewString(word: correctAnswer.lowercased()) {
+//            if convertHebrewString(word: chooseWord.lowercased()) == convertHebrewString(word: correctAnswer.lowercased()) {
+            if convertHebrewString(word: chooseWord.lowercased()) == deleteDagesh(from: convertHebrewString(word: correctAnswer.lowercased())) {
                 print("Answer is correct")
                 self.type6CardView.isHidden = true
                 self.textField.resignFirstResponder()

@@ -14,7 +14,8 @@ class StartViewController: UIViewController {
 
     @IBOutlet weak var nameUserLabel: UILabel!
     @IBOutlet weak var chooseUserPicker: UIPickerView!
-    let users = ["---","Anton","Ivan","Anton(new)","Ivan(new)"]
+//    let users = ["---","Anton","Ivan","Anton(new)","Ivan(new)"]
+    let users = ["---","Main","Verb + adverb","new Main","new Verb"]
     let emails = ["","anton.rubenchik@gmail.com","299550@gmail.com","tatyana.rubenchik@gmail.com","maria.rubenchik@gmail.com"]
     let passwords = ["","123456","123456","123456","123456"]
     var ref: DatabaseReference!

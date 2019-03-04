@@ -8,16 +8,142 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // part 1. take agree.
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,]) { (autorization: Bool, error: Error? ) in
+            if !autorization {
+                print("App is unless because you did not allow notification")
+            }
+        }
+        
+        // Define Action
+        let doneAction = UNNotificationAction(identifier: "addDone", title: "Done", options: [])
+        let cancelAction = UNNotificationAction(identifier: "addCancel", title: "Cancel", options: [])
+        let repeatAction = UNNotificationAction(identifier: "addRepeat", title: "Repeat from 10 min", options: [])
+        
+        // Add action to Catagory
+        let category = UNNotificationCategory(identifier: "actionCategory", actions: [doneAction,cancelAction,repeatAction], intentIdentifiers: [], options: [])
+        
+        // Add category to Natification FrameWork
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+        
         return true
+    }
+    
+    func schedularNotification() {
+        UNUserNotificationCenter.current().delegate = self
+        
+        
+        // First Notification
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        
+//        let date = Date()
+//        let calendar = Calendar.current
+//
+//        let hour = calendar.component(.hour, from: date)
+//        let minutes = calendar.component(.minute, from: date)
+//        let seconds = calendar.component(.second, from: date)
+//        print("hours = \(hour):\(minutes):\(seconds)")
+        
+        
+//        let x = DateComponents(minute: minutes + 1)
+        let fisrtTime = DateComponents(second: 10)
+        let firstTrigger = UNCalendarNotificationTrigger(dateMatching: fisrtTime, repeats: true)
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Пришло время ..."
+        content.sound = UNNotificationSound.default
+        content.body = "Полить цветы"
+        content.subtitle = "Не пререлить"
+        content.categoryIdentifier = "actionCategory"
+        
+//        guard let path = Bundle.main.path(forResource: "icon1024", ofType: "png") else {return}
+//        let url = URL(fileURLWithPath: path)
+//        
+//        do {
+//            let attachment = try UNNotificationAttachment(identifier: "logo", url: url, options: nil)
+//            content.attachments = [attachment]
+//        } catch {
+//            print("The attechment could not loaded")
+//            
+//        }
+//
+////        let request = UNNotificationRequest(identifier: "myNotification", content: content, trigger: trigger2)
+//        let firstRequest = UNNotificationRequest(identifier: "firstNotification", content: content, trigger: firstTrigger)
+//
+////        let req = UNNotificationRequest(identifier: "dd", content: UNNotificationContent, trigger: <#T##UNNotificationTrigger?#>)
+////        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: <#T##[String]#>)
+//
+//        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+//        UNUserNotificationCenter.current().add(firstRequest) { (error:Error?) in
+//            if let error = error {
+//                print("Error - \(error.localizedDescription)")
+//            }
+//        }
+        
+        let secondTime = DateComponents(second: 30)
+        let secondTrigger = UNCalendarNotificationTrigger(dateMatching: secondTime, repeats: true)
+        
+        let content2 = UNMutableNotificationContent()
+        content2.title = "Пришло время ..."
+        content2.sound = UNNotificationSound.default
+        content2.body = "Выпить таблетку"
+        content2.subtitle = "За 30 минут до еды"
+        content2.categoryIdentifier = "actionCategory"
+        
+//        guard let path2 = Bundle.main.path(forResource: "icon1024", ofType: "png") else {return}
+//        let url2 = URL(fileURLWithPath: path2)
+//
+//        do {
+//            let attachment = try UNNotificationAttachment(identifier: "logo", url: url2, options: nil)
+//            content2.attachments = [attachment]
+//        } catch {
+//            print("The attechment could not loaded")
+//
+//        }
+
+        let secondRequest = UNNotificationRequest(identifier: "secondNotification", content: content2, trigger: secondTrigger)
+        
+//        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().add(secondRequest) { (error:Error?) in
+            if let error = error {
+                print("Error - \(error.localizedDescription)")
+            }
+        }
+        
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("Start. Did")
+        switch response.actionIdentifier {
+        case "addDone":  print("add Done")
+        case "addCancel":
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["secondNotification"])
+            print("original identifier was : \(response.notification.request.identifier)")
+            print("original body was : \(response.notification.request.content.body)")
+        case "addRepeat":  print("add Repeat")
+        default:
+            return
+        }
+//        schedularNotification()
+        completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("Start. Will")
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
+        print("Start. Open")
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
