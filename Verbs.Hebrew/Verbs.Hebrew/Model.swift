@@ -23,6 +23,11 @@ struct Word {
     var reserve2     : String = ""
     
 }
+struct WordInTense {
+    var body        : String = ""
+    var word        : String = ""
+    var translation : String = ""
+}
 
 struct Translation {
     var russian     : String = ""

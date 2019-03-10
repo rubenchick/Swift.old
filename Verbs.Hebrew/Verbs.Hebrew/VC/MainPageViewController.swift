@@ -7,7 +7,7 @@
 //
 // Доделать:
 // 1. Все формы в массив
-// 2. Поиск по всем формам
+// 2. Поиvarк по всем формам
 // 3. Исходный файл. Убрать Пустоту
 // 4. Исходжный файл. УБрать 2 строчки
 // 5. Вовод с отгласовками реализовать
@@ -17,7 +17,7 @@
 //V 9. Убрать препозишн из перевода
 //V 10. Убрать "*" из слов
 //V 10. Отсортировать массив во алфавиту
-// 11. Закрепить поиск
+//V 11. Закрепить поиск
 
 
 import UIKit
@@ -27,10 +27,10 @@ import CoreData
 
 class MainPageViewController: UITableViewController, UISearchBarDelegate {
 //    var ref: DatabaseReference!
+    @IBOutlet weak var searchBar: UISearchBar!
     let commonTranslation   = Translation()
     let emptyTranslationCD = TranslationCD() //
     var createData = CreateData()
-    @IBOutlet var seachBar: UITableView!
     var currentWordsArray = [Word]()
     override func viewWillAppear(_ animated: Bool) {
 //        ref = Database.database().reference()
@@ -40,15 +40,22 @@ class MainPageViewController: UITableViewController, UISearchBarDelegate {
 //        }
 //        readFromFireBase() // readArrayFromFireBase
 //        print(wordsArray.count)
+        self.navigationItem.setHidesBackButton(true, animated: false)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        seachBar.delegate = self
+//        self.tableView.backgroundColor = UIColor(displayP3Red: 100/255, green: 100/255, blue: 100/255, alpha: 100/255)
+        searchBar.delegate = self
+        alterLayout()
+        
+
+
+        
         // not for main App
         // create array from excel
-//        let createDataModule = CreateData()
-//        createDataModule.fillArray() //createArrayFromExcel
+        let createDataModule = CreateData()
+        createDataModule.fillArray() //createArrayFromExcel
 //
         //        ref = Database.database().reference()
         //        writeToFireBase() // - work well //writeArrayToFireBase
@@ -60,7 +67,7 @@ class MainPageViewController: UITableViewController, UISearchBarDelegate {
 //        saveToCoreData()
 //        ddeleteDataInCoreData()
         howManyRecordInCoreData()
-        readToArrayFromCoreData()
+//        readToArrayFromCoreData()
 //        updateCoreData() //save add data
         
         currentWordsArray = wordsArray // need for search
@@ -942,6 +949,77 @@ class MainPageViewController: UITableViewController, UISearchBarDelegate {
     }
     
     // MARK: - Table view data source
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
+//            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+//            currentWordsArray[indexPath.row].dontWantToLearn = true
+//        } else {
+//            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+//            currentWordsArray[indexPath.row].dontWantToLearn = false
+//        }
+//        CoreDataManager.instance.saveContext()
+//    }
+//    @IBAction func addNewThingButton(_ sender: UIButton) {
+//        performSegue(withIdentifier: identifierSegue, sender: nil)
+//    }
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == identifierSegue {
+//            let controller = segue.destination as! SecondDetailViewController
+//            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ThingToDo")
+//            let sortDescription = NSSortDescriptor(key: "priority", ascending: true)
+//            request.sortDescriptors = [sortDescription]
+//            let predicate = NSPredicate(format: "%K == %@", "isActual", NSNumber(value: true))
+//            request.predicate = predicate
+//            do {
+//                let thingToDo = try CoreDataManager.instance.persistentContainer.viewContext.fetch(request)
+//                controller.count = thingToDo.count
+//            } catch {
+//                print(error)
+//            }
+//            controller.thingToDo = sender as? ThingToDo
+//        }
+//    }
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.contentView.backgroundColor = UIColor(displayP3Red: 255/255, green: 234/255, blue: 166/255, alpha: 255/255)
+    }
+    
+    func alterLayout() {
+        self.tableView.tableHeaderView = UIView()
+        self.navigationItem.titleView = searchBar
+        searchBar.showsScopeBar = false
+    }
+//
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        return seachBar
+//    }
+//
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 100
+//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        var selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
+//        selectedCell.contentView.backgroundColor = UIColor.red
+
+        performSegue(withIdentifier: identifierSegue, sender: currentWordsArray[indexPath.row])
+        
+    }
+  
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        var selectedCell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+//        selectedCell.contentView.backgroundColor = UIColor.redColor()
+//    }
+
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == identifierSegue {
+            let detailPageVC = segue.destination as! DetailPageViewController
+            if let newWord = sender as? Word {
+                detailPageVC.currentWord = newWord
+            }            
+        }
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -958,6 +1036,7 @@ class MainPageViewController: UITableViewController, UISearchBarDelegate {
         //        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "reuseIdentifier")
         cell.textLabel?.text = currentWordsArray[indexPath.row].translation?.russian
+//        cell.contentView.backgroundColor = UIColor(displayP3Red: 255/255, green: 234/255, blue: 166/255, alpha: 255/255)
 //        var text = currentWordsArray[indexPath.row].infinitive
 //        if let txt1 = currentWordsArray[indexPath.row].presentTense?.femininePlural {
 //            text = text + " " + txt1
@@ -966,6 +1045,7 @@ class MainPageViewController: UITableViewController, UISearchBarDelegate {
 //            text = text + " " + txt2
 //        }
 //        cell.detailTextLabel?.text = text
+        cell.selectionStyle = .none
         cell.detailTextLabel?.text = currentWordsArray[indexPath.row].infinitive
         
         return cell

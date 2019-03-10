@@ -19,13 +19,18 @@ enum TypeOfLanguage {
     case spanish
 }
 
-let actualLanguage = TypeOfLanguage.russian //!!!!!!!
+let actualLanguage      = TypeOfLanguage.russian //!!!!!!!
 let commonTranslation   = Translation()
 let emptyTranslationCD  = TranslationCD() //
 let emptyPresentTenseCD = PresentTenseCD()
 let emptyPastTenseCD    = PastTenseCD()
 let emptyFutureTenseCD  = FutureTenseCD()
 let emptyImperativeCD   = ImperativeCD()
+let identifierSegue     = "dictionaryToCard"
+let identifierCell      = "identifierCell"
+let presentBody = ["זכר","נקבה","רבים","רבות"]
+let pastBody = ["אני","אתה","את","הוא","היא","אנחנו","אתם","אתן","הם","הן"]
+let imperativeBody = ["זכר","נקבה","רבים","רבות"]
 
 
 enum Utf16Parameter : UTF16.CodeUnit {

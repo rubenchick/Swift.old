@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CAA0124F2235905C0095EAFD /* DatailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0124E2235905C0095EAFD /* DatailTableViewCell.swift */; };
 		CAE557192229834B0061B233 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE557182229834B0061B233 /* AppDelegate.swift */; };
 		CAE5571B2229834B0061B233 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE5571A2229834B0061B233 /* ViewController.swift */; };
 		CAE5571E2229834B0061B233 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAE5571C2229834B0061B233 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CAA0124E2235905C0095EAFD /* DatailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatailTableViewCell.swift; sourceTree = "<group>"; };
 		CAE557152229834B0061B233 /* Verbs.Hebrew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Verbs.Hebrew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE557182229834B0061B233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAE5571A2229834B0061B233 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				CAE5571A2229834B0061B233 /* ViewController.swift */,
 				CAE5572D2229842F0061B233 /* MainPageViewController.swift */,
 				CAE5572F222984B30061B233 /* DetailPageViewController.swift */,
+				CAA0124E2235905C0095EAFD /* DatailTableViewCell.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				CAE5573922298BB50061B233 /* AddNewWords.swift in Sources */,
 				CAE557DE222C54650061B233 /* TranslationCD+CoreDataProperties.swift in Sources */,
 				CAE5573322298AF00061B233 /* CoreDataManager.swift in Sources */,
+				CAA0124F2235905C0095EAFD /* DatailTableViewCell.swift in Sources */,
 				CAE557D9222C54650061B233 /* PastTenseCD+CoreDataClass.swift in Sources */,
 				CAE557DC222C54650061B233 /* ImperativeCD+CoreDataProperties.swift in Sources */,
 				CAE557E4222C54650061B233 /* PresentTenseCD+CoreDataProperties.swift in Sources */,

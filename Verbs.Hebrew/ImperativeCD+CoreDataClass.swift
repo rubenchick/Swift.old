@@ -14,7 +14,7 @@ import CoreData
 public class ImperativeCD: NSManagedObject {
     convenience init() {
         // Описание сущности
-        let entity = NSEntityDescription.entity(forEntityName: "NSManagedObject", in: CoreDataManager.instance.persistentContainer.viewContext)
+        let entity = NSEntityDescription.entity(forEntityName: "ImperativeCD", in: CoreDataManager.instance.persistentContainer.viewContext)
         // Создание нового объекта
         self.init(entity: entity!, insertInto: CoreDataManager.instance.persistentContainer.viewContext)
     }
