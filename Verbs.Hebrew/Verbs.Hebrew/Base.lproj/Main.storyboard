@@ -20,7 +20,7 @@
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Lgc-y2-8ub">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pW4-km-CAp">
                                 <rect key="frame" x="20" y="534" width="374" height="2"/>
@@ -94,29 +94,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0aH-do-xLy">
-                                <rect key="frame" x="20" y="103" width="374" height="66"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Translate" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0aH-do-xLy">
+                                <rect key="frame" x="20" y="140" width="374" height="31.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="66" id="74N-93-LXq"/>
+                                    <constraint firstAttribute="width" constant="374" id="iUg-dw-Wg9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="3" translatesAutoresizingMaskIntoConstraints="NO" id="INy-0l-UGZ">
-                                <rect key="frame" x="20" y="184" width="374" height="29"/>
-                                <segments>
-                                    <segment title="Imperative"/>
-                                    <segment title="Future"/>
-                                    <segment title="Past"/>
-                                    <segment title="Present"/>
-                                </segments>
-                                <connections>
-                                    <action selector="pressSegmentControl:" destination="adr-lt-Hls" eventType="valueChanged" id="SW6-oj-lyL"/>
-                                </connections>
-                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w6e-gy-JYR">
-                                <rect key="frame" x="20" y="226" width="374" height="645"/>
+                                <rect key="frame" x="20" y="223.5" width="374" height="652.5"/>
                                 <color key="backgroundColor" red="1" green="0.91764705882352937" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="identifierCell" id="GVp-dw-2A4" customClass="DatailTableViewCell" customModule="Verbs_Hebrew" customModuleProvider="target">
@@ -170,24 +158,55 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Infinitive" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nVh-ao-EbJ">
+                                <rect key="frame" x="266" y="101" width="128" height="39"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="32"/>
+                                <color key="textColor" red="0.019607843137254902" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Infinitive" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6ka-xV-v1t">
+                                <rect key="frame" x="148" y="105.5" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Cdt-91-QwW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="3" translatesAutoresizingMaskIntoConstraints="NO" id="INy-0l-UGZ">
+                                <rect key="frame" x="20" y="183.5" width="374" height="29"/>
+                                <segments>
+                                    <segment title="ציווי"/>
+                                    <segment title="עתיד"/>
+                                    <segment title="עבר"/>
+                                    <segment title="הווה"/>
+                                </segments>
+                                <connections>
+                                    <action selector="pressSegmentControl:" destination="adr-lt-Hls" eventType="valueChanged" id="SW6-oj-lyL"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.91764705882352937" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6uM-te-7jc" firstAttribute="trailing" secondItem="INy-0l-UGZ" secondAttribute="trailing" constant="20" id="34I-H9-WnX"/>
-                            <constraint firstItem="6uM-te-7jc" firstAttribute="trailing" secondItem="w6e-gy-JYR" secondAttribute="trailing" constant="20" id="3A2-fw-go1"/>
-                            <constraint firstItem="w6e-gy-JYR" firstAttribute="leading" secondItem="6uM-te-7jc" secondAttribute="leading" constant="20" id="3aS-8K-qkV"/>
-                            <constraint firstItem="w6e-gy-JYR" firstAttribute="top" secondItem="INy-0l-UGZ" secondAttribute="bottom" constant="14" id="Att-xc-nd6"/>
-                            <constraint firstItem="0aH-do-xLy" firstAttribute="leading" secondItem="6uM-te-7jc" secondAttribute="leading" constant="20" id="IJC-d7-0Cl"/>
-                            <constraint firstItem="0aH-do-xLy" firstAttribute="top" secondItem="6uM-te-7jc" secondAttribute="top" constant="15" id="MMf-qF-k3J"/>
-                            <constraint firstItem="w6e-gy-JYR" firstAttribute="bottom" secondItem="6uM-te-7jc" secondAttribute="bottom" constant="9" id="SeN-Ip-ZO7"/>
-                            <constraint firstItem="INy-0l-UGZ" firstAttribute="top" secondItem="0aH-do-xLy" secondAttribute="bottom" constant="15" id="cml-BA-xed"/>
-                            <constraint firstItem="6uM-te-7jc" firstAttribute="trailing" secondItem="0aH-do-xLy" secondAttribute="trailing" constant="20" id="e1k-Fe-DFc"/>
-                            <constraint firstItem="0aH-do-xLy" firstAttribute="centerX" secondItem="6uM-te-7jc" secondAttribute="centerX" id="jXQ-Xo-2wL"/>
-                            <constraint firstItem="INy-0l-UGZ" firstAttribute="leading" secondItem="6uM-te-7jc" secondAttribute="leading" constant="20" id="zpV-VP-Wc6"/>
+                            <constraint firstItem="6uM-te-7jc" firstAttribute="trailing" secondItem="INy-0l-UGZ" secondAttribute="trailing" constant="20" id="5g9-AZ-zwE"/>
+                            <constraint firstItem="6uM-te-7jc" firstAttribute="trailing" secondItem="w6e-gy-JYR" secondAttribute="trailing" constant="20" id="6EA-T7-9bl"/>
+                            <constraint firstAttribute="bottom" secondItem="w6e-gy-JYR" secondAttribute="bottom" constant="20" id="7v2-3G-7E7"/>
+                            <constraint firstItem="nVh-ao-EbJ" firstAttribute="leading" secondItem="6ka-xV-v1t" secondAttribute="trailing" constant="18" id="MBe-d9-Tvq"/>
+                            <constraint firstItem="w6e-gy-JYR" firstAttribute="leading" secondItem="6uM-te-7jc" secondAttribute="leading" constant="20" id="NJk-Kd-1v4"/>
+                            <constraint firstItem="w6e-gy-JYR" firstAttribute="top" secondItem="INy-0l-UGZ" secondAttribute="bottom" constant="12" id="YP2-sQ-gaT"/>
+                            <constraint firstItem="nVh-ao-EbJ" firstAttribute="top" secondItem="6uM-te-7jc" secondAttribute="top" constant="13" id="YyX-OQ-x8n"/>
+                            <constraint firstItem="0aH-do-xLy" firstAttribute="top" secondItem="nVh-ao-EbJ" secondAttribute="bottom" id="afq-Es-4TJ"/>
+                            <constraint firstItem="6uM-te-7jc" firstAttribute="trailing" secondItem="nVh-ao-EbJ" secondAttribute="trailing" constant="20" id="dDz-UF-o3G"/>
+                            <constraint firstItem="6uM-te-7jc" firstAttribute="trailing" secondItem="0aH-do-xLy" secondAttribute="trailing" constant="20" id="dym-mJ-hUv"/>
+                            <constraint firstItem="INy-0l-UGZ" firstAttribute="top" secondItem="0aH-do-xLy" secondAttribute="bottom" constant="12" id="ebp-dD-dzV"/>
+                            <constraint firstItem="nVh-ao-EbJ" firstAttribute="centerY" secondItem="6ka-xV-v1t" secondAttribute="centerY" id="mVD-AK-llh"/>
+                            <constraint firstItem="0aH-do-xLy" firstAttribute="leading" secondItem="6uM-te-7jc" secondAttribute="leading" constant="20" id="sSz-3M-b6V"/>
+                            <constraint firstItem="INy-0l-UGZ" firstAttribute="leading" secondItem="6uM-te-7jc" secondAttribute="leading" constant="20" id="thw-yy-lbU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6uM-te-7jc"/>
                     </view>
                     <connections>
+                        <outlet property="infinitivLabel" destination="nVh-ao-EbJ" id="vLJ-Xi-xxD"/>
+                        <outlet property="prononsationLabel" destination="6ka-xV-v1t" id="f4Q-gl-y9h"/>
                         <outlet property="segmentControl" destination="INy-0l-UGZ" id="mtg-FX-ICy"/>
                         <outlet property="tableView" destination="w6e-gy-JYR" id="rOK-fF-meu"/>
                         <outlet property="translateLabel" destination="0aH-do-xLy" id="Jih-EY-u3s"/>
@@ -195,7 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAt-zZ-h0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2532" y="126"/>
+            <point key="canvasLocation" x="2530.434782608696" y="125.89285714285714"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ve1-ad-Ijn">

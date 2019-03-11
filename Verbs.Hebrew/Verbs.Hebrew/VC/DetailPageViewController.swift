@@ -13,20 +13,30 @@ class DetailPageViewController: UIViewController, UITableViewDelegate, UITableVi
     var currentWord = Word()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
+    @IBOutlet weak var infinitivLabel: UILabel!
+    @IBOutlet weak var prononsationLabel: UILabel!
     
     @IBOutlet weak var translateLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-//        translateLabel.text = currentWord.translation?.russian
-        var preposition = ""
+        startSetConfiguration()
+    }
+    func startSetConfiguration() -> () {
+        self.navigationController?.navigationBar.topItem?.title = "Назад"
+        self.title = currentWord.typeOfVerb.rawValue
+        if returnTranslation(translation: currentWord.infinitiveP) != "" {
+            prononsationLabel.text = "( " + returnTranslation(translation: currentWord.infinitiveP) + " )"
+        }
+        infinitivLabel.text = currentWord.infinitive
         if currentWord.preposition != "" {
             translateLabel.text = returnTranslation(translation: currentWord.translation) + " (" + currentWord.preposition + ")"
         } else {
-           translateLabel.text = returnTranslation(translation: currentWord.translation) + currentWord.preposition
+            translateLabel.text = returnTranslation(translation: currentWord.translation) + currentWord.preposition
         }
-         tableView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView()
+        
     }
     
     @IBAction func pressSegmentControl(_ sender: UISegmentedControl) {
@@ -186,6 +196,7 @@ class DetailPageViewController: UIViewController, UITableViewDelegate, UITableVi
         if let cell = tableView.dequeueReusableCell(withIdentifier: identifierCell, for: indexPath) as? DatailTableViewCell {
 //            let tens = WordInTense(body: "ttt",word: currentWord.infinitive,translation: currentWord.infinitiveP?.russian ?? "") // set current language
             cell.getData(tens: lookForTensFor(indexPath: indexPath.row))
+            cell.selectionStyle = .none
         return cell
         } else {
           return UITableViewCell()
